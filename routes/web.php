@@ -13,7 +13,8 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FAQController;
+use App\Http\Controllers\CareerController;
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
@@ -44,6 +45,14 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     Route::get('about', [AboutController::class, 'index']);
     Route::put('about/{id}', [AboutController::class, 'update']);
-    Route::get('faq', [FAQController::class, 'index'])->name('faq.index');
 
+    // routes/web.php
+    Route::get('/career', [CareerController::class, 'index'])->name('career.index');
+    Route::post('/career', [CareerController::class, 'store'])->name('career.store');
+    Route::get('/news/{id}', [NewsController::class, 'show']);
+    // routes/web.php
+    Route::post('/send-message', [ContactController::class, 'sendMessage'])->name('send.message');
 });
+Route::get('berita', function () {
+    return view('berita');
+})->name('berita');

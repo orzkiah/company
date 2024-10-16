@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail; // Pastikan ini diimpor
+use App\Mail\ContactMail; // Importe mailable yang Anda buat
 
 class ContactController extends Controller
 {

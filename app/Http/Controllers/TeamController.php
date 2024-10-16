@@ -19,6 +19,10 @@ class TeamController extends Controller
         return view('team.index', compact('teams'));
     }
 
+
+       
+   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -118,4 +122,6 @@ class TeamController extends Controller
 
         return redirect('admin/teams')->with('message', 'Data berhasil dihapus');
     }
+
+   
 }

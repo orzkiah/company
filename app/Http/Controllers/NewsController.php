@@ -81,4 +81,15 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->route('news.index')->with('success', 'Berita berhasil dihapus.');
     }
+ 
+    
+        public function show($id)
+        {
+            // Logika untuk mengambil data berita sesuai dengan $id jika diperlukan
+            // $news = News::find($id);
+    
+            // Mengembalikan view 'berita.blade.php'
+            return view('berita'); // Pastikan 'berita.blade.php' ada di resources/views
+        }
+    
 }

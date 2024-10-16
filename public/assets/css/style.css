@@ -3,8 +3,14 @@
 }
 
 .carousel-caption {
-    border-top: 10px solid #cb240bab;
+    border-top: 10px solid #C62E2E;
     background-color: #00000094;
+}
+
+.navbar {
+    transition: top 0.3s;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.rgba(255, 255, 255, 0.9)0.9)); /* Gradient dengan warna yang memiliki opacity */
+    color: rgb(255, 255, 255); /* Mengubah warna font menjadi putih */
 }
 
 .vh-50 {
@@ -12,11 +18,11 @@
 }
 
 .primary {
-   color: #cb240bab; 
+   color: #C62E2E; 
 }
 
 .active {
-    color: #cb240bab !important;
+    color: #C62E2E !important;
 }
 
 .title-container{
@@ -31,11 +37,12 @@
     display: black;
     width: 50px;
     height: 3px;
-    background-color: #cb240bab;
+    background-color: #C62E2E;
     bottom: 0;
     left: calc(50% - 25px);
     margin-bottom: 20px;
 } 
+
 
 .about-us-title {
     font-size: 50px;
@@ -50,7 +57,7 @@
 }
 
 .card-icon:hover {
-    color: #cb240bab;
+    color: #C62E2E;
 }
 
 .mansory-sizer,
@@ -76,7 +83,7 @@ a {
 
 .btn-subscribe,
 .btn-to-top {
-    background: #cb240bab;
+    background: #C62E2E;
 }
 
 .btn-to-top {
@@ -87,7 +94,7 @@ a {
 }
 
 .bg-darker{
-    background: #cb240bab;
+    background: #C62E2E;
 }
 
 .portfolio-filters li {
@@ -97,7 +104,7 @@ a {
 
 .portfolio-filters .filter-active, 
 .breadcumbs {
- background: #cb240bab;
+ background: #C62E2E;
 }
 
 .breadcumbs {
@@ -128,7 +135,7 @@ object-fit: cover;
 }
 
 .btn-submit {
-    background: #cb240bab;
+    background: #C62E2E;
     color: white;
 }
 
@@ -265,3 +272,95 @@ object-fit: cover;
 .btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* Styling untuk bingkai foto tim */
+.team-card {
+    background-color: #f8f8f8; /* Warna latar belakang kartu */
+    border: px solid #dee2e6; /* Border */
+    border-radius: 5px; /* Radius sudut */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+    padding: 0.5rem; /* Padding di dalam kartu */
+    text-align: center; /* Teks di tengah */
+    max-width: 200px; /* Lebar maksimum kartu */
+    width: 100%; /* Lebar penuh kontainer */
+}
+
+/* Mengatur ukuran gambar */
+.team-img {
+    width: 150px; /* Lebar gambar */
+    height: 150px; /* Tinggi gambar */
+    object-fit: cover; /* Menjaga rasio gambar */
+    border-radius: 50%; /* Membuat gambar bulat */  
+    margin-bottom: 0.5rem; /* Jarak bawah gambar */
+}
+
+/* Styling untuk judul dan teks */
+.team-title {
+    font-size: 1rem; /* Ukuran font judul */
+}
+
+.team-text {
+    font-size: 0.875rem; /* Ukuran font deskripsi */
+}
+
+/* Mengatur jarak antara kolom */
+.col-md-6, .col-md-4 {
+    padding: 0.5rem; /* Padding dalam kolom */
+}
+
+/* Mengurangi margin bawah pada baris */
+.row > .col-12, .row > .col-md-6, .row > .col-md-4 {
+    margin-bottom: 1rem; /* Jarak bawah pada kolom */
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+    .team-card {
+        max-width: 100%; /* Lebar penuh untuk perangkat kecil */
+    }
+}
+
+/* gambar disamping kalkulator */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .credit-calculator {
+      max-width: 100%;
+      margin: 20px 0;
+      border-radius: 20px; /* Membuat sudut kalkulator melengkung */
+    }
+    
+    .row {
+      flex-direction: column;
+    }
+    
+    .col-md-6 {
+      width: 100%;
+    }
+  }
+  .img-fixed {
+    width: 700px; /* Atur lebar gambar sesuai kebutuhan */
+    height: 300px; /* Atur tinggi gambar sesuai kebutuhan */
+    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+  }
+
+  .img-flex {
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar kolom */
+    height: auto; /* Menjaga rasio aspek gambar */
+    border-radius: 15px; /* Membuat sudut gambar melengkung */
+  }
+/* end */
+
+/* font teks berjalan */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.marquee {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+}
+/* end */
