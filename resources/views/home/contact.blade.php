@@ -15,8 +15,16 @@
     <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
     <!-- custom css -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 
     <title>Company</title>
+
 
 <body>
     <!-- navbar -->
@@ -156,16 +164,282 @@
     <!-- contact -->
 
     <div class="contact mb-5">
-        <div class="maps">
+        <!-- <div class="maps">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2984422314157!2d106.80011989269681!3d-6.224323848825773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f151d39060cf%3A0x2c8a30f63cb1757d!2sPlaza%20Asia!5e0!3m2!1sid!2sid!4v1725617383481!5m2!1sid!2sid"
                 width="1900" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="container mt-5">
+        </div> -->
+        <div class="container-1 mt-5">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card border-0 shadow shadow-sm">
                         <div class="card-body">
                             <div class="container">
+                                <center>
+                                    <h1>Peta Indonesia dengan Lokasi Kantor Cabang</h1>
+                                </center>
+                                <div id="map"></div>
+
+                                <!-- Leaflet JavaScript -->
+                                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                                <script>
+                                    // Inisialisasi peta dan set view ke Indonesia
+                                    var map = L.map('map', {
+                                        zoomControl: false
+                                    }).setView([-2.5489, 118.0149], 5);
+
+
+                                    // Tambahkan tile layer ke peta
+                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                        attribution: '© OpenStreetMap contributors'
+                                    }).addTo(map);
+
+                                    // Data alamat kantor cabang (latitude, longitude, dan nama)
+                                    var cabang = [{
+                                            lat: -6.22537058243089,
+                                            lon: 106.80509516765372,
+                                            name: "Kantor Cabang Jakarta"
+                                        },
+                                        {
+                                            lat: -7.4615315,
+                                            lon: 112.7143673,
+                                            name: "Kantor Cabang Surabaya"
+                                        },
+                                        {
+                                            lat: -6.9413703,
+                                            lon: 107.6563096,
+                                            name: "Kantor Cabang Bandung"
+                                        },
+                                        {
+                                            lat: -5.1601724,
+                                            lon: 119.4464177,
+                                            name: "Kantor Cabang Makassar"
+                                        },
+                                        {
+                                            lat: -6.2473894,
+                                            lon: 106.9688129,
+                                            name: "Kantor Cabang Bekasi"
+                                        },
+                                        {
+                                            lat: -6.5997054,
+                                            lon: 106.8176691,
+                                            name: "Kantor Cabang Bogor"
+                                        },
+                                        {
+                                            lat: -6.2956631,
+                                            lon: 107.150167,
+                                            name: "Kantor Cabang Cikarang"
+                                        },
+                                        {
+                                            lat: -6.711259,
+                                            lon: 108.5453417,
+                                            name: "Kantor Cabang Cirebom"
+                                        },
+                                        {
+                                            lat: -6.403747,
+                                            lon: 106.8361516,
+                                            name: "Kantor Cabang Depok"
+                                        },
+                                        {
+                                            lat: -6.2439008,
+                                            lon: 106.5218335,
+                                            name: "Kantor Cabang Cikupa"
+                                        },
+                                        {
+                                            lat: -6.1997662,
+                                            lon: 106.6180957,
+                                            name: "Kantor Cabang Tangerang"
+                                        },
+                                        {
+                                            lat: -6.9884874,
+                                            lon: 110.4289889,
+                                            name: "Kantor Cabang Serang"
+                                        },
+                                        {
+                                            lat: -7.4161099,
+                                            lon: 109.2348229,
+                                            name: "Kantor Cabang Purwokerto"
+                                        },
+                                        {
+                                            lat: -7.559166,
+                                            lon: 110.7982125,
+                                            name: "Kantor Cabang Solo"
+                                        },
+                                        {
+                                            lat: -6.8803901,
+                                            lon: 109.1336577,
+                                            name: "Kantor Cabang Tegal"
+                                        },
+                                        {
+                                            lat: -8.2281349,
+                                            lon: 114.3583992,
+                                            name: "Kantor Cabang Banyuwangi"
+                                        },
+                                        {
+                                            lat: -8.174053,
+                                            lon: 113.6354294,
+                                            name: "Kantor Cabang Jember"
+                                        },
+                                        {
+                                            lat: -7.8133869,
+                                            lon: 112.0052636,
+                                            name: "Kantor Cabang Kediri"
+                                        },
+                                        {
+                                            lat: -7.6218657,
+                                            lon: 111.5313652,
+                                            name: "Kantor Cabang Malang"
+                                        },
+                                        {
+                                            lat: -7.9648235,
+                                            lon: 112.6316488,
+                                            name: "Kantor Cabang Madiun"
+                                        },
+                                        {
+                                            lat: -7.514872,
+                                            lon: 112.4306125,
+                                            name: "Kantor Cabang Mojokerto"
+                                        },
+                                        {
+                                            lat: -7.4611454,
+                                            lon: 112.7134872,
+                                            name: "Kantor Cabang Sidoarjo"
+                                        },
+                                        {
+                                            lat: -7.2838352,
+                                            lon: 112.7777819,
+                                            name: "Kantor Cabang Surabaya "
+                                        },
+                                        {
+                                            lat: -7.2838352,
+                                            lon: 112.7777819,
+                                            name: "Kantor Cabang Surabaya "
+                                        },
+                                        {
+                                            lat: -7.7990271,
+                                            lon: 110.3705421,
+                                            name: "Kantor Cabang Yogyakarta "
+                                        },
+                                        {
+                                            lat: -8.6760831,
+                                            lon: 115.2154412,
+                                            name: "Kantor Cabang Bali "
+                                        },
+                                        {
+                                            lat: -8.5946504,
+                                            lon: 116.1376801,
+                                            name: "Kantor Cabang Nusa Tenggara Barat "
+                                        },
+                                        {
+                                            lat: -1.6248007,
+                                            lon: 103.5944267,
+                                            name: "Kantor Cabang Jambi "
+                                        },
+                                        {
+                                            lat: -4.1164921,
+                                            lon: 104.1772898,
+                                            name: "Kantor Cabang Baturaja "
+                                        },
+                                        {
+                                            lat: -0.9342018,
+                                            lon: 100.3631127,
+                                            name: "Kantor Cabang Padang "
+                                        },
+                                        {
+                                            lat: -3.8253459,
+                                            lon: 102.241064,
+                                            name: "Kantor Cabang Bengkulu "
+                                        },
+                                        {
+                                            lat: -2.1925779,
+                                            lon: 106.1019844,
+                                            name: "Kantor Cabang Pangkal Pinang "
+                                        },
+                                        {
+                                            lat: 0.4790406,
+                                            lon: 101.3918459,
+                                            name: "Kantor Cabang Pekan Baru "
+                                        },
+                                        {
+                                            lat: -5.3889962,
+                                            lon: 105.2371069,
+                                            name: "Kantor Cabang Bandar Lampung "
+                                        },
+                                        {
+                                            lat: -4.0177466,
+                                            lon: 119.6216909,
+                                            name: "Kantor Cabang Pare - Pare "
+                                        },
+                                        {
+                                            lat: -3.0172416,
+                                            lon: 120.2054064,
+                                            name: "Kantor Cabang Palopo "
+                                        },
+                                        {
+                                            lat: 1.4909234,
+                                            lon: 124.8602914,
+                                            name: "Kantor Cabang Manado "
+                                        },
+                                        {
+                                            lat: -0.935529,
+                                            lon: 119.8966807,
+                                            name: "Kantor Cabang Palu "
+                                        },
+                                        {
+                                            lat: -0.0616129,
+                                            lon: 109.2703619,
+                                            name: "Kantor Cabang Pontianak "
+                                        },
+                                        {
+                                            lat: -2.2136349439404963,
+                                            lon: 113.90589926494951,
+                                            name: "Kantor Cabang Palangkaraya "
+                                        },
+                                        {
+                                            lat: -1.2591706,
+                                            lon: 116.8576581,
+                                            name: "Kantor Cabang Balikpapan "
+                                        },
+                                        {
+                                            lat: -1.2591706,
+                                            lon: 116.8576581,
+                                            name: "Kantor Cabang Balikpapan "
+                                        },
+                                        {
+                                            lat: -0.4662538,
+                                            lon: 117.1717114,
+                                            name: "Kantor Cabang Samarinda "
+                                        },
+                                    ];
+                                    // Tambahkan marker untuk setiap kantor cabang
+                                    cabang.forEach(function(location) {
+                                        L.marker([location.lat, location.lon])
+                                            .addTo(map)
+                                            .bindPopup(`<b>${location.name}</b>`);
+                                    });
+                                </script>
+
+                                <style>
+                                    .container-1 {
+                                        background-image: url('assets/img/bg-port3.jpg');
+                                        /* Ganti dengan path gambar Anda */
+                                        background-size: cover;
+                                        /* Mengatur ukuran gambar agar menutupi seluruh div */
+                                        background-position: center;
+                                        /* Menempatkan gambar di tengah */
+                                        background-repeat: no-repeat;
+                                        /* Gambar tidak akan diulang */
+                                        padding: 50px 0;
+                                        /* Tambahkan padding untuk memberi jarak pada konten */
+                                        color: black;
+                                        /* Mengubah warna teks menjadi putih agar kontras dengan background */
+                                    }
+
+                                    .leaflet-control-zoom {
+                                        margin-top: 60px;
+                                        /* Sesuaikan dengan tinggi navbar */
+                                    }
+                                </style>
+
                                 <div class="row">
                                     <!-- Informasi Kontak Utama -->
                                     <div class="col-md-4">
@@ -184,6 +458,7 @@
                                         <p class="ms-5">{{$contact->telepon}}</p>
                                     </div>
                                 </div>
+
 
                                 <!-- Tambahan Halaman untuk Kantor Cabang -->
                                 <div class="row mt-5">
@@ -347,9 +622,9 @@
                                                     <h5 class="fw-bolder">Nusa Tenggara Barat</h5>
                                                     <div class="d-flex align-items-center ms-5">
                                                         <p class="mb-0 me-2">Alamat Cabang</p>
-                                                        <button class="btn btn-outline-primary" onclick="toggleAddress('address6')"><i class="fa fa-eye"></i> Lihat Alamat</button>
+                                                        <button class="btn btn-outline-primary" onclick="toggleAddress('address99')"><i class="fa fa-eye"></i> Lihat Alamat</button>
                                                     </div>
-                                                    <div id="address6" class="address" style="display: none; margin-top: 10px;">
+                                                    <div id="address99" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Lombok</h5>
                                                         <p class="ms-5">Jl. Brawijaya, Kec.Mataram, kel.Cakranegara, Prov. Nusa Tenggara Barat, Kode pos 83233,</p>
                                                         <p class="ms-5">Telp : (0370) 574525 Phone : 0823 3931 8744</p>
@@ -656,6 +931,127 @@
             </div>
         </div>
     </div>
+
+    <!-- WA -->
+
+    <body>
+        <div class="whatsapp-container">
+            <button id="whatsapp-button">
+                <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
+            </button>
+            <div class="popup" id="whatsapp-popup">
+                <!-- <p>Hello! How can I help you today?</p> -->
+                <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" class="chat-button">Chat Now</a>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+    <style>
+        /* styles.css */
+        .whatsapp-container {
+            position: fixed;
+            top: 50%;
+            /* Memposisikan di tengah secara vertikal */
+            right: 20px;
+            /* Jarak dari kanan layar */
+            transform: translateY(-50%);
+            /* Menyesuaikan agar benar-benar di tengah */
+            z-index: 1000;
+            /* Memastikan tombol berada di atas elemen lain */
+            cursor: grab;
+            /* Mengubah kursor saat tombol dapat dipindahkan */
+        }
+
+        #whatsapp-button {
+            background: #25d366;
+            border: none;
+            border-radius: 50%;
+            /* Membuat tombol berbentuk lingkaran */
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            /* Transisi untuk efek */
+        }
+
+        #whatsapp-button:hover {
+            transform: scale(1.1);
+            /* Membesarkan tombol saat hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Efek bayangan saat hover */
+        }
+
+        #whatsapp-button:active {
+            transform: scale(0.95);
+            /* Mengecilkan tombol saat di-click */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            /* Efek bayangan saat di-click */
+        }
+
+        .whatsapp-icon {
+            width: 70%;
+            height: 70%;
+        }
+
+        .popup {
+            position: absolute;
+            bottom: 70px;
+            /* Agar muncul di atas tombol WhatsApp */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            width: 200px;
+        }
+
+        .popup p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .chat-button {
+            display: inline-block;
+            margin-top: 10px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        /* Media queries untuk membuat tombol lebih kecil di layar yang lebih kecil */
+        @media (max-width: 768px) {
+            #whatsapp-button {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #whatsapp-button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .popup {
+                width: 150px;
+                bottom: 50px;
+                /* Sesuaikan jarak pop-up */
+            }
+        }
+    </style>
+
     <!-- end contact -->
     <footer class="mt-5">
         <div class="footer-top bg-dark text-white p-5 ">
@@ -755,19 +1151,11 @@
                     <div class="col-md-5">
                         <div class="social-links float-end">
                             <a href="" class="mx-2">
-                                <i class="fab fa-facebook fa-2x"></i>
-                            </a>
-                            <a href="" class="mx-2">
-                                <i class="fab fa-twitter fa-2x"></i>
-                            </a>
-                            <a href="" class="mx-2">
                                 <i class="fab fa-instagram fa-2x"></i>
                             </a>
-                            <a href="" class="mx-2">
+                            <!-- <a href="" class="mx-2">
                                 <i class="fab fa-youtube fa-2x"></i>
-                            </a>
-                            <a href="" class="mx-2">
-                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a> -->
                             </a>
                         </div>
                     </div>
@@ -791,6 +1179,48 @@
     <script src="assets/vendor/aos/dist/aos.js"></script>
     <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        // script.js
+        const whatsappButton = document.getElementById('whatsapp-button');
+        const whatsappPopup = document.getElementById('whatsapp-popup');
+        const whatsappContainer = document.getElementById('whatsapp-container');
+
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        whatsappButton.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - whatsappContainer.getBoundingClientRect().left;
+            offsetY = e.clientY - whatsappContainer.getBoundingClientRect().top;
+            whatsappContainer.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                whatsappContainer.style.left = e.clientX - offsetX + 'px';
+                whatsappContainer.style.top = e.clientY - offsetY + 'px';
+                whatsappContainer.style.transform = 'none'; // Menonaktifkan transform agar tidak mempengaruhi posisi
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            whatsappContainer.style.cursor = 'grab'; // Kembali ke kursor normal
+        });
+
+        // Menampilkan dan menyembunyikan pop-up saat tombol diklik
+        whatsappButton.addEventListener('click', () => {
+            whatsappPopup.style.display = whatsappPopup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Menyembunyikan pop-up jika pengguna mengklik di luar elemen
+        document.addEventListener('click', (event) => {
+            if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
+                whatsappPopup.style.display = 'none';
+            }
+        });
+    </script>
 </body>
+</head>
 
 </html>

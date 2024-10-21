@@ -15,7 +15,6 @@ use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CareerController;
 
-
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
@@ -52,6 +51,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/news/{id}', [NewsController::class, 'show']);
     // routes/web.php
     Route::post('/send-message', [ContactController::class, 'sendMessage'])->name('send.message');
+    Route::resource('admin/testimonial', TestimonialController::class);
 });
 Route::get('berita', function () {
     return view('berita');

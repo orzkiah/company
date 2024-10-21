@@ -168,20 +168,11 @@
           <div class="col-md-5">
             <div class="social-links float-end">
               <a href="" class="mx-2">
-                <i class="fab fa-facebook fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-twitter fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
-              <a href="" class="mx-2">
+              <!-- <a href="" class="mx-2">
                 <i class="fab fa-youtube fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>

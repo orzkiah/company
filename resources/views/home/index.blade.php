@@ -137,6 +137,7 @@
   </style>
 
   <!-- end navbar -->
+
   <!-- carousel -->
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -328,7 +329,6 @@
           /* Menambahkan bayangan agar terlihat lebih elegan */
         }
 
-
         .card {
           background-color: rgba(255, 255, 255, 0.9);
           /* Memberikan latar belakang putih semi-transparan pada card */
@@ -451,7 +451,16 @@
         monthlyPayment = principal / months;
       }
       // Tampilkan hasil
-      document.getElementById('result').innerText = 'Cicilan Bulanan: Rp ' + monthlyPayment.toFixed(2);
+      function formatRupiah(amount) {
+        return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      // Misal, hasil perhitungan cicilan bulanan
+      var monthlyPayment = 1500000; // Contoh angka
+
+      // Mengubah hasil ke format rupiah
+      document.getElementById('result').innerText = 'Cicilan Bulanan: Rp ' + formatRupiah(monthlyPayment.toFixed(2));
+
     }
   </script>
 
@@ -597,6 +606,124 @@
   </style>
   <!-- end clients -->
 
+  <body>
+    <div class="whatsapp-container">
+      <button id="whatsapp-button">
+        <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
+      </button>
+      <div class="popup" id="whatsapp-popup">
+        <!-- <p>Hello! How can I help you today?</p> -->
+        <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" class="chat-button">Chat Now</a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+  <style>
+    /* styles.css */
+    .whatsapp-container {
+      position: fixed;
+      top: 50%;
+      /* Memposisikan di tengah secara vertikal */
+      right: 20px;
+      /* Jarak dari kanan layar */
+      transform: translateY(-50%);
+      /* Menyesuaikan agar benar-benar di tengah */
+      z-index: 1000;
+      /* Memastikan tombol berada di atas elemen lain */
+      cursor: grab;
+      /* Mengubah kursor saat tombol dapat dipindahkan */
+    }
+
+    #whatsapp-button {
+      background: #25d366;
+      border: none;
+      border-radius: 50%;
+      /* Membuat tombol berbentuk lingkaran */
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      /* Transisi untuk efek */
+    }
+
+    #whatsapp-button:hover {
+      transform: scale(1.1);
+      /* Membesarkan tombol saat hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      /* Efek bayangan saat hover */
+    }
+
+    #whatsapp-button:active {
+      transform: scale(0.95);
+      /* Mengecilkan tombol saat di-click */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      /* Efek bayangan saat di-click */
+    }
+
+    .whatsapp-icon {
+      width: 70%;
+      height: 70%;
+    }
+
+    .popup {
+      position: absolute;
+      bottom: 70px;
+      /* Agar muncul di atas tombol WhatsApp */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      width: 200px;
+    }
+
+    .popup p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .chat-button {
+      display: inline-block;
+      margin-top: 10px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    /* Media queries untuk membuat tombol lebih kecil di layar yang lebih kecil */
+    @media (max-width: 768px) {
+      #whatsapp-button {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #whatsapp-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .popup {
+        width: 150px;
+        bottom: 50px;
+        /* Sesuaikan jarak pop-up */
+      }
+    }
+  </style>
+
   <!-- footer -->
   <footer class="mt-5">
     <div class="footer-top bg-dark text-white p-5 ">
@@ -693,6 +820,17 @@
               Design by me
             </div>
           </div>
+          <div class="col-md-5">
+            <div class="social-links float-end">
+              <a href="" class="mx-2">
+                <i class="fab fa-instagram fa-2x"></i>
+              </a>
+              <!-- <a href="" class="mx-2">
+                                <i class="fab fa-youtube fa-2x"></i>
+                            </a> -->
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -738,6 +876,48 @@
         document.getElementById("result").innerText = `Cicilan Bulanan: ${formattedPayment}`;
       }
     }
+  </script>
+
+  <script>
+    // script.js
+    const whatsappButton = document.getElementById('whatsapp-button');
+    const whatsappPopup = document.getElementById('whatsapp-popup');
+    const whatsappContainer = document.getElementById('whatsapp-container');
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    whatsappButton.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - whatsappContainer.getBoundingClientRect().left;
+      offsetY = e.clientY - whatsappContainer.getBoundingClientRect().top;
+      whatsappContainer.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        whatsappContainer.style.left = e.clientX - offsetX + 'px';
+        whatsappContainer.style.top = e.clientY - offsetY + 'px';
+        whatsappContainer.style.transform = 'none'; // Menonaktifkan transform agar tidak mempengaruhi posisi
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      whatsappContainer.style.cursor = 'grab'; // Kembali ke kursor normal
+    });
+
+    // Menampilkan dan menyembunyikan pop-up saat tombol diklik
+    whatsappButton.addEventListener('click', () => {
+      whatsappPopup.style.display = whatsappPopup.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Menyembunyikan pop-up jika pengguna mengklik di luar elemen
+    document.addEventListener('click', (event) => {
+      if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
+        whatsappPopup.style.display = 'none';
+      }
+    });
   </script>
   <!-- nav auto -->
   <!-- <script>
