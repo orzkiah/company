@@ -1,0 +1,122 @@
+Mengaktifkan Mode Maintenance :
+- php artisan down
+Jika kamu ingin menambahkan pesan atau alasan khusus ketika situs dalam mode maintenance :
+1. php artisan down
+2. php artisan down --retry=60 --render="errors::503"
+Menonaktifkan Mode Maintenance Setelah proses maintenance selesai :
+- php artisan up
+
+(CSS Portfolio)
+
+<style>
+    .portfolio-us {
+      background-image: url('assets/img/bg-port3.jpg');
+      /* Ganti dengan path gambar Anda */
+      background-size: cover;
+      /* Mengatur ukuran gambar agar menutupi seluruh div */
+      background-position: center;
+      /* Menempatkan gambar di tengah */
+      background-repeat: no-repeat;
+      /* Gambar tidak akan diulang */
+      padding: 50px 0;
+      /* Tambahkan padding untuk memberi jarak pada konten */
+      color: white;
+      /* Mengubah warna teks menjadi putih agar kontras dengan background */
+    }
+
+    .portfolio-filters li {
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Background hitam transparan untuk filter */
+      color: white;
+      /* Warna teks putih */
+      border-radius: 5px;
+      /* Sudut melengkung untuk filter item */
+    }
+
+    .mansory-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* Latar belakang transparan untuk item portfolio */
+      border-radius: 10px;
+      /* Sudut melengkung untuk gambar */
+      padding: 10px;
+    }
+  </style>
+
+(HTML Portfolio)
+<!-- portfolio us -->
+  <!-- <div class="portfolio-us mt-5">
+    <div class="container">
+      <div class="title-container">
+        <h2 class="text-center fw-bold">PORTFOLIO</h2>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-center">
+          <ul class="list-unstyled d-flex portfolio-filters">
+            <li data-filter="*" class="py-2 px-4 filter-active text-white">FOTO</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <div class="mansory portfolio-container">
+            <div class="mansory-sizer"></div>
+            @foreach ($portfolios as $portfolio)
+            <div class="mansory-item m-2 portfolio-item filter-web">
+              <a href="image/{{$portfolio->image}}" target="_blank">
+                <img src="image/{{$portfolio->image}}" alt="" class="img-fluid portfolio-img" />
+              </a>
+            </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+LOGO MOBIL
+
+<!-- clients -->
+  <div class="clients mt-5">
+    <div class="container">
+      <div class="title-container">
+        <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
+      </div>
+      <div class="row mt-5">
+        @foreach($clients as $client)
+        <div class="col-md-3 pt-5 text-center" data-aos="zoom-in">
+          <img src="image/{{$client->image}}" class="img-fluid brand-image" alt="" />
+        </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Atur ukuran logo agar lebih kecil */
+.brand-image {
+    max-width: 100px; /* Atur ukuran maksimal untuk logo, bisa disesuaikan */
+    height: auto;     /* Membiarkan height auto agar proporsional */
+    margin: auto;     /* Agar gambar tetap berada di tengah */
+    display: block;   /* Pastikan gambar menjadi elemen block agar mudah diatur */
+}
+
+/* Tambahkan padding jika ingin memberikan ruang lebih di sekeliling logo */
+.col-md-3 {
+    padding-top: 20px;
+}
+
+/* Jika diperlukan, atur ukuran grid agar responsif */
+@media (max-width: 768px) {
+    .col-md-3 {
+        width: 50%;  /* Mengatur agar gambar lebih besar di layar kecil */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        width: 100%; /* Gambar full width di layar sangat kecil */
+    }
+}
+
+  </style>
+

@@ -22,120 +22,141 @@
   <!-- navbar -->
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
-    <div class="container d-flex align-items-center">
-      <a class="navbar-brand">
-        <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/" onclick="setActive(this)">Beranda</a>
-          </li>
-          <li class="nav-item dropdown mx-3">
-            <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false" onclick="setActive(this)">
-              Tentang Kami
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="about" onclick="setActive(this)">Pengelola</a></li>
-              <li><a class="dropdown-item" href="team" onclick="setActive(this)">Tata Kelola</a></li>
-              <li><a class="dropdown-item" href="testimonials" onclick="setActive(this)">Publikasi/Karir</a></li>
-            </ul>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="services" onclick="setActive(this)">Layanan</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio" onclick="setActive(this)">Galeri</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact" onclick="setActive(this)">Hubungi Kami</a>
-          </li>
-        </ul>
-      </div>
-      <div class="marquee-container ms-auto">
-        <div class="marquee">
-          <span>Gratama telah berizin dan diawasi oleh OJK.</span>
-        </div>
+   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand">
+      <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
+        </li>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Tentang Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="about">Pengelola</a></li>
+            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+        </li>
+      </ul>
+    </div>
+    <div class="marquee-container ms-auto d-none d-lg-block">
+      <div class="marquee">
+        <span>Gratama telah berizin dan diawasi oleh OJK.</span>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <style>
+<style>
+  .navbar {
+    border-radius: 0 0 100px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+    z-index: 1000;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 0 10px;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+  }
+
+  .nav-link.active {
+    color: #ff4081;
+    border-bottom: 2px solid #ff4081;
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    padding: 5px 0;
+  }
+
+  .marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    font-weight: bold;
+    font-size: 14px;
+    color: #C62E2E;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .navbar .dropdown-menu {
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .navbar-brand img,
+  .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .custom-navbar {
+    background-color: #ffffff;
+    opacity: 1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Pastikan navbar selalu di atas */
+}
+
+
+  /* Responsiveness */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+    .nav-item {
+      margin: 5px 0;
+    }
     .marquee-container {
-      overflow: hidden;
-      white-space: nowrap;
-      width: 300px;
-      padding: 5px 0;
-      font-style: italic;
-      /* Membuat teks menjadi miring */
+      display: none;
     }
+  }
 
-    .marquee {
-      display: inline-block;
-      animation: marquee 15s linear infinite;
-      font-weight: bold;
-      font-size: 14px;
-      color: #C62E2E;
-    }
-
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    .navbar {
-      border-radius: 0 0 100px 0;
-      overflow: visible;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .navbar .dropdown-menu {
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1050;
-    }
-
-    .navbar .dropdown-item:hover {
-      background-color: #f0f0f0;
-    }
-
-    .navbar-brand img {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .custom-navbar {
-      height: 80px;
-      border-radius: 0 0 100px 0;
-      overflow: visible;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .logo {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-link.active {
-      color: #ff4081;
-      border-bottom: 2px solid #ff4081;
-    }
-  </style>
+  /* Tambahkan di dalam tag <style> atau file CSS Anda */
+@media (max-width: 768px) {
+  .marquee-container {
+    display: none;
+  }
+}
+</style>
 
   <script>
     function setActive(element) {
@@ -170,319 +191,371 @@
     <div class="container">
       <h1 class="section-title">Nilai Nilai Dasar</h1>
       <div class="about-content">
-        <p>Perseroan menyadari pentingnya penerapan tata kelola perusahaan guna menumbuhkan kepercayaan dari kreditur, nasabah, mitra bisnis, kreditur, pemegang saham dan para pemangku kepentingan (stakeholders) lainnya. Pelaksanaan tata kelola perusahaan di perseroan di dasarkan pada prinsip-prinsip keadilan, keterbukaan, akuntabilitas, dan tanggung jawab. Dalam sepuluh tahun terakhir,konsep Good Corporate Governance (GCG) atau Tata Kelola Perusahaan telah di tempatkan pada posisi yang strategis di berbagai perusahaan, serta memberikan manfaat jangka panjang, sekaligus memenangkan persaingan bisnis. Kegagalan dalam penerapan GCG dapat menjadi penyebab utama kegagalan perusahaan untuk bertahan dalam persaingan bisnis.</p>
-        <p>Sesuai dengan peraturan Otoritas Jasa Keuangan Nomor 30/POJK.05/2014, bahwa dalam rangka meningkatkan kinerja perusahaan, melindungi kepentingan stakeholders dan meningkatkan kepatuhan terhadap peraturan perundang-undangan serta nilai-nilai etika (code of conduct) yang berlaku secara umum pada industry pembiayaan, persahaan wajib melaksanakan kegiatan usahanya dengan berpedoman pada prinsip GCG. Pelaksanaan GCG pada industry pembiayaan harus senantiasa berlandaskan pada lima prinsip dasar, yaitu:</p>
+    <p>Perseroan menyadari pentingnya penerapan tata kelola perusahaan guna menumbuhkan kepercayaan dari kreditur, nasabah, mitra bisnis, kreditur, pemegang saham dan para pemangku kepentingan (stakeholders) lainnya. Pelaksanaan tata kelola perusahaan di perseroan di dasarkan pada prinsip-prinsip keadilan, keterbukaan, akuntabilitas, dan tanggung jawab. Dalam sepuluh tahun terakhir, konsep Good Corporate Governance (GCG) atau Tata Kelola Perusahaan telah di tempatkan pada posisi yang strategis di berbagai perusahaan, serta memberikan manfaat jangka panjang, sekaligus memenangkan persaingan bisnis. Kegagalan dalam penerapan GCG dapat menjadi penyebab utama kegagalan perusahaan untuk bertahan dalam persaingan bisnis.</p>
+    <p>Sesuai dengan peraturan Otoritas Jasa Keuangan Nomor 30/POJK.05/2014, bahwa dalam rangka meningkatkan kinerja perusahaan, melindungi kepentingan stakeholders dan meningkatkan kepatuhan terhadap peraturan perundang-undangan serta nilai-nilai etika (code of conduct) yang berlaku secara umum pada industri pembiayaan, perusahaan wajib melaksanakan kegiatan usahanya dengan berpedoman pada prinsip GCG. Pelaksanaan GCG pada industri pembiayaan harus senantiasa berlandaskan pada lima prinsip dasar, yaitu:</p>
+    <ul class="about-list">
         <li>Transparansi (transparency)</li>
         <li>Akuntabilitas (accountability)</li>
         <li>Pertanggung jawaban (responsibility)</li>
         <li>Independensi (independency)</li>
         <li>Kewajaran (fairness)</li>
-        <p>Pelaksanaan GCG harus diterapkan pada seluruh pengurus dan pegawai Perusahaan mulai dari dewan Komisaris, Direksi, sampai dengan pegawai tingkat pelaksana.</p>
-        <h4>Penerapan Tata Kelola Perusahaan yang baik bertujuan untuk:</h4>
-        <ul>
-          <li>Meningkatkan kesadaran tentang penyelenggaraan Tata Kelola Perusahaan yang baik dalam perusahaan.</li>
-          <li>Memberikan kesamaan persepsi dalam semua tingkatan manajemen hingga stakeholder tentang Tata Kelola Perusahaan yang baik.</li>
-          <li>Menjadi acuan bagi perusahaan dalam menerapkan Tata Kelola Perusahaan yang baik.</li>
-          <li>Dengan menerapkan Tata Kelola Perusahaan yang baik, maka diharapkan dapat mengoptimalkan nilai Perusahaan bagi Pemangku Kepentingan, khususnya Debitur, Kreditur / pemangku kepentingan lainnya.</li>
-          <li>Meningkatkan kepatuhan Organ Perusahaan dalam membuat keputusan dan menjalankan tindakan dilandasi pada etika yang tinggi, kepatuhan terhadap peraturan perundang-undangan, dan kesadaran atas tanggung jawab sosial perusahaan terhadap pemangku Kepentingan maupun kelestarian lingkungan.</li>
-          <li>Meningkatkan pengelolaan Perusahaan secara profesional, efektif, dan efisien.</li>
-          <li>Mencegah dan mengurangi kemungkinan terjadinya benturan kepentingan yang merugikan bagi perusahaan dan seluruh stakeholder.</li>
-          <li>Menciptakan kondisi dan situasi industri pembiayaan yang kondusif.</li>
-          <li>Meningkatkan profesionalitas dalam memberikan pelayanan kepada konsumen dalam industri pembiayaan.</li>
-          <li>Mewujudkan Perusahaan yang lebih sehat, dapat diandalkan, dan kompetitif.</li>
-          <li>Meningkatkan kontribusi serta efektifitas pelaksanaan fungsi dan peranan perusahaan pembiayaan dalam perekonomian nasional.</li>
-          <li>Menjadi salah satu tolak ukur penerapan kinerja Perusahaan.</li>
-        </ul>
-      </div>
+    </ul>
+    <p>Pelaksanaan GCG harus diterapkan pada seluruh pengurus dan pegawai Perusahaan mulai dari dewan Komisaris, Direksi, sampai dengan pegawai tingkat pelaksana.</p>
+    <hr>
+    <h4>Penerapan Tata Kelola Perusahaan yang baik bertujuan untuk:</h4>
+    
+    <ul class="about-list">
+        <li>Meningkatkan kesadaran tentang penyelenggaraan Tata Kelola Perusahaan yang baik dalam perusahaan.</li>
+        <li>Memberikan kesamaan persepsi dalam semua tingkatan manajemen hingga stakeholder tentang Tata Kelola Perusahaan yang baik.</li>
+        <li>Menjadi acuan bagi perusahaan dalam menerapkan Tata Kelola Perusahaan yang baik.</li>
+        <li>Dengan menerapkan Tata Kelola Perusahaan yang baik, maka diharapkan dapat mengoptimalkan nilai Perusahaan bagi Pemangku Kepentingan, khususnya Debitur, Kreditur / pemangku kepentingan lainnya.</li>
+        <li>Meningkatkan kepatuhan Organ Perusahaan dalam membuat keputusan dan menjalankan tindakan dilandasi pada etika yang tinggi, kepatuhan terhadap peraturan perundang-undangan, dan kesadaran atas tanggung jawab sosial perusahaan terhadap pemangku Kepentingan maupun kelestarian lingkungan.</li>
+        <li>Meningkatkan pengelolaan Perusahaan secara profesional, efektif, dan efisien.</li>
+        <li>Mencegah dan mengurangi kemungkinan terjadinya benturan kepentingan yang merugikan bagi perusahaan dan seluruh stakeholder.</li>
+        <li>Menciptakan kondisi dan situasi industri pembiayaan yang kondusif.</li>
+        <li>Meningkatkan profesionalitas dalam memberikan pelayanan kepada konsumen dalam industri pembiayaan.</li>
+        <li>Mewujudkan Perusahaan yang lebih sehat, dapat diandalkan, dan kompetitif.</li>
+        <li>Meningkatkan kontribusi serta efektifitas pelaksanaan fungsi dan peranan perusahaan pembiayaan dalam perekonomian nasional.</li>
+        <li>Menjadi salah satu tolak ukur penerapan kinerja Perusahaan.</li>
+    </ul>
+    <hr>
+</div>
+
+<style>
+    /* Styling About Content */
+    .about-content {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .about-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .about-list li {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    .about-list li::before {
+        content: "*"; /* Ganti dengan karakter simbol atau icon yang diinginkan */
+        color: #A91D3A;
+        font-size: 1.2em;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+
     </div>
-  </section>
+  
 
-  <!-- pdf investor -->
-  <div class="pdf-button-container">
-    <h4>Informasi Laporan Terbaru</h4>
-    <p>Laporan Keberlanjutan.</p>
-    <a href="https://gratama-finance.co.id/pdf/Laporan%20keberlanjutan%202021.pdf" class="pdf-download-btn">Tahun 2021</a>
-    <a href="https://gratama-finance.co.id/pdf/RAKB%202022.pdf" class="pdf-download-btn">Tahun 2022</a>
-    <a href="https://gratama-finance.co.id/pdf/RAKB%202023%20Pembiayaan%20Kendaraan%20Bertenaga%20Listrik.pdf" class="pdf-download-btn">Tahun 2023</a>
-    <!-- 
-     -->
-  </div>
+<!-- Container Utama untuk Tiga Logo dan Judulnya -->
+<div class="centered-logos-container">
+    <!-- Logo dan Judul 1 -->
+    <div class="logo-icon-container" onclick="openPdfModal(1)">
+        <img src="assets/img/inves.png" alt="PDF Reports" class="logo-icon">
+        <h4 class="logo-title">HUBUNGAN INVESTOR</h4>
+    </div>
 
-  <style>
-    .pdf-button-container {
-      text-align: center;
-      margin: 20px 0;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    <!-- Logo dan Judul 2 -->
+    <div class="logo-icon-container" onclick="openPdfModal(2)">
+        <img src="assets/img/keuangan.png" alt="PDF Reports" class="logo-icon">
+        <h4 class="logo-title">LAPORAN KEUANGAN</h4>
+    </div>
+
+    <!-- Logo dan Judul 3 -->
+    <div class="logo-icon-container" onclick="openPdfModal(3)">
+        <img src="assets/img/ojk.png" alt="PDF Reports" class="logo-icon">
+        <h4 class="logo-title">LAPORAN OJK</h4>
+    </div>
+</div>
+
+<!-- Modal Konten Laporan PDF -->
+<div id="pdfModal1" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal(1)">&times;</span>
+        <div class="pdf-button-container">
+            <h4 class="color">Hubungan Investor</h4>
+            <a href="https://gratama-finance.co.id/pdf/Laporan%20keberlanjutan%202021.pdf" class="pdf-download-btn">Download Laporan 2021</a>
+            <a href="https://gratama-finance.co.id/pdf/RAKB%202022.pdf" class="pdf-download-btn">Download Laporan 2022</a>
+            <a href="https://gratama-finance.co.id/pdf/RAKB%202023%20Pembiayaan%20Kendaraan%20Bertenaga%20Listrik.pdf" class="pdf-download-btn">Download Laporan 2023</a>
+        </div>
+    </div>
+</div>
+
+<div id="pdfModal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal(2)">&times;</span>
+        <div class="pdf-button-container">
+            <h4 class="color">Laporan Keuangan</h4>
+            <a href="https://gratama-finance.co.id/pdf/RAKB%202022.pdf" class="pdf-download-btn">Download Laporan 2022</a>
+        </div>
+    </div>
+</div>
+
+<div id="pdfModal3" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal(3)">&times;</span>
+        <div class="pdf-button-container">
+            <h4 class="color">Laporan OJK</h4>
+            <a href="https://gratama-finance.co.id/pdf/RAKB%202023%20Pembiayaan%20Kendaraan%20Bertenaga%20Listrik.pdf" class="pdf-download-btn">Download Laporan 2023</a>
+        </div>
+    </div>
+</div>
+
+<!-- Style -->
+<style>
+/* Warna teks */
+.color {
+  color: #A91D3A;
+}
+
+/* Kontainer logo berpusat */
+.centered-logos-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Jarak antar logo */
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Kontainer setiap logo dan judul */
+.logo-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px; /* Menambahkan jarak di kiri dan kanan logo */
+}
+
+/* Efek saat hover pada logo */
+.logo-icon-container:hover {
+    transform: scale(1.1);
+}
+
+.logo-icon {
+    width: 150px;
+    height: 150px;
+    transition: transform 0.3s ease;
+}
+
+.logo-icon-container:hover .logo-icon {
+    transform: rotate(15deg);
+}
+
+.logo-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #A91D3A;
+    cursor: pointer;
+}
+
+/* Tombol unduh PDF */
+.pdf-download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #A91D3A;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 768px) {
+    .centered-logos-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Kurangi jarak antar logo */
     }
 
-    .pdf-button-container h4 {
-      color: #007bff;
-      margin-bottom: 10px;
-      font-size: 30 px;
+    .logo-icon {
+        width: 100px;
+        height: 100px;
     }
 
-    .pdf-button-container p {
-      margin-bottom: 15px;
-      color: #555;
-      font-size: 14px;
+    .logo-title {
+        font-size: 16px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px 20px;
     }
 
     .pdf-download-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 14px;
-      transition: background-color 0.3s, transform 0.2s;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .centered-logos-container {
+        gap: 10px;
     }
 
-    .pdf-download-btn:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
-  </style>
-
-  <body>
-    <div class="whatsapp-container">
-      <button id="whatsapp-button">
-        <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </button>
-      <div class="popup" id="whatsapp-popup">
-        <!-- <p>Hello! How can I help you today?</p> -->
-        <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" class="chat-button">Chat Now</a>
-      </div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
-  <style>
-    /* styles.css */
-    .whatsapp-container {
-      position: fixed;
-      top: 50%;
-      /* Memposisikan di tengah secara vertikal */
-      right: 20px;
-      /* Jarak dari kanan layar */
-      transform: translateY(-50%);
-      /* Menyesuaikan agar benar-benar di tengah */
-      z-index: 1000;
-      /* Memastikan tombol berada di atas elemen lain */
-      cursor: grab;
-      /* Mengubah kursor saat tombol dapat dipindahkan */
+    .logo-icon {
+        width: 80px;
+        height: 80px;
     }
 
-    #whatsapp-button {
-      background: #25d366;
-      border: none;
-      border-radius: 50%;
-      /* Membuat tombol berbentuk lingkaran */
-      padding: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      /* Transisi untuk efek */
+    .logo-title {
+        font-size: 14px;
     }
 
-    #whatsapp-button:hover {
-      transform: scale(1.1);
-      /* Membesarkan tombol saat hover */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      /* Efek bayangan saat hover */
+    .modal-content {
+        padding: 10px 15px;
     }
 
-    #whatsapp-button:active {
-      transform: scale(0.95);
-      /* Mengecilkan tombol saat di-click */
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-      /* Efek bayangan saat di-click */
+    .pdf-download-btn {
+        padding: 8px 15px;
     }
+}
+</style>
 
-    .whatsapp-icon {
-      width: 70%;
-      height: 70%;
-    }
+</section>
 
-    .popup {
-      position: absolute;
-      bottom: 70px;
-      /* Agar muncul di atas tombol WhatsApp */
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: none;
-      width: 200px;
-    }
-
-    .popup p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .chat-button {
-      display: inline-block;
-      margin-top: 10px;
-      background: #25d366;
-      color: white;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      text-align: center;
-    }
-
-    /* Media queries untuk membuat tombol lebih kecil di layar yang lebih kecil */
-    @media (max-width: 768px) {
-      #whatsapp-button {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #whatsapp-button {
-        width: 40px;
-        height: 40px;
-      }
-
-      .popup {
-        width: 150px;
-        bottom: 50px;
-        /* Sesuaikan jarak pop-up */
-      }
-    }
-  </style>
   <!-- footer -->
-  <footer class="mt-5">
-    <div class="footer-top bg-dark text-white p-5 ">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-3">
-            <h4 class="fw-bold">{{$contact->name}}</h2>
-              <p>
-                {{$contact->description}}
-              </p>
-              <strong>Phone</strong> : <span>{{$contact->telepon}} </span>
-              <br />
-              <strong>Email</strong> : <span>{{$contact->email}} </span>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Our Services</h2>
-              <ul class="list-group list-unstyled">
-                @foreach($services as $service)
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    {{$service->title}}
-                  </a>
-                </li>
-                @endforeach
-              </ul>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Useful Links</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="/" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="about" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="services" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Services
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="portfolio" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Portfolio
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="contact" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Contact
-                  </a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-md-3">
-            <h4 class="fw-bold">Join Our Newsletter</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="yourmail@example.com" />
-                <button class="btn btn-subscribe" type="button" id="inputGroupFileAddon04">
-                  Subscribe
-                </button>
-                <style>
-                  .btn-subscribe {
-                    color: white;
-                    /* Set text color to white */
-                  }
-                </style>
-              </div>
-          </div>
+<footer class="mt-5">
+  <div class="footer-top bg-dark text-white p-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <h4 class="fw-bold">{{$contact->name}}</h4>
+          <p>{{$contact->description}}</p>
+          <p><strong>Phone:</strong> {{$contact->telepon}}</p>
+          <p><strong>Email:</strong> {{$contact->email}}</p>
+        </div>
+        <div class="col-md-2">
+          <h4 class="fw-bold">Layanan Kami</h4>
+          <ul class="list-group list-unstyled">
+            @foreach($services as $service)
+            <li class="list-item">
+              <a href="#" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> {{$service->title}}
+              </a>
+            </li>
+            @endforeach
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h4 class="fw-bold">Tautan</h4>
+          <ul class="list-group list-unstyled">
+            <li class="list-item">
+              <a href="/" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Beranda
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/about" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Tentang Kami
+              </a>
+            </li>
+            <!-- <li class="list-item">
+              <a href="/services" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Layanan
+              </a>
+            </li> -->
+            <li class="list-item">
+              <a href="/portfolio" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Galeri
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/contact" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Hubungi Kami
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+  <!-- <h4 class="fw-bold">Tentang Kami</h4> -->
+  <!-- <p>Logo perusahaan.</p> -->
+  <div class="logo-section">
+    <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
+  </div>
+  <!-- <div class="logo-section">
+    <img src="assets/img/ojk.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 50%;">
+  </div> -->
+</div>
+
+<style>
+  /* Style tambahan untuk logo */
+  .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+</style>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-down bg-darker text-white px-5 py-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <div>&copy; 2024 <strong>orzkiah</strong>. All Rights Reserved.</div>
+          <div>Design by me</div>
+        </div>
+        <div class="col-md-5 text-end">
+          <a href="#" class="text-white mx-2">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <!-- Uncomment if you want to add more social links -->
+          <!-- <a href="#" class="text-white mx-2">
+            <i class="fab fa-youtube fa-2x"></i>
+          </a> -->
         </div>
       </div>
     </div>
-    <div class="footer-down bg-darker text-white px-5 py-3">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-5">
-            <div class="copyright">
-              &copy; Copyright <strong>Company</strong>. All Right Reserved
-            </div>
-            <div class="credits">
-              Design by me
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="social-links float-end">
-              <a href="" class="mx-2">
-                <i class="fab fa-facebook fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-twitter fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-instagram fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-youtube fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
   <style>
     .header {
@@ -546,7 +619,7 @@
 
     /* About Us Section */
     .about-section {
-      padding: 50px 20px;
+      padding: 50px 30px;
       background: #f9f9f9;
       text-align: justify;
       background: url('assets/img/bg-port.jpg') no-repeat center center;
@@ -568,13 +641,13 @@
       margin: 0 auto;
       font-size: 1.1rem;
       color: white;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.0);
       /* Overlay hitam transparan di belakang teks */
       padding: 30px;
       /* Memberikan padding di dalam konten */
       border-radius: 10px;
       /* Membuat sudut konten melengkung */
-      color: #fff;
+      color: #000000;
       /* Mengubah warna teks menjadi putih */
     }
 
@@ -638,46 +711,52 @@
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
-    // script.js
-    const whatsappButton = document.getElementById('whatsapp-button');
-    const whatsappPopup = document.getElementById('whatsapp-popup');
-    const whatsappContainer = document.getElementById('whatsapp-container');
+  // script.js
+const whatsappButton = document.getElementById('whatsapp-button');
 
-    let isDragging = false;
-    let offsetX, offsetY;
+let isDragging = false;
+let offsetX, offsetY;
 
-    whatsappButton.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = e.clientX - whatsappContainer.getBoundingClientRect().left;
-      offsetY = e.clientY - whatsappContainer.getBoundingClientRect().top;
-      whatsappContainer.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-    });
+whatsappButton.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
+  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
+  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+});
 
-    document.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        whatsappContainer.style.left = e.clientX - offsetX + 'px';
-        whatsappContainer.style.top = e.clientY - offsetY + 'px';
-        whatsappContainer.style.transform = 'none'; // Menonaktifkan transform agar tidak mempengaruhi posisi
-      }
-    });
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    whatsappButton.style.left = e.clientX - offsetX + 'px';
+    whatsappButton.style.top = e.clientY - offsetY + 'px';
+  }
+});
 
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      whatsappContainer.style.cursor = 'grab'; // Kembali ke kursor normal
-    });
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
+});
+</script>
 
-    // Menampilkan dan menyembunyikan pop-up saat tombol diklik
-    whatsappButton.addEventListener('click', () => {
-      whatsappPopup.style.display = whatsappPopup.style.display === 'block' ? 'none' : 'block';
-    });
+<!-- JavaScript untuk Menampilkan dan Menyembunyikan Modal -->
+<script>
+    function openPdfModal(modalId) {
+        document.getElementById("pdfModal" + modalId).style.display = "block";
+    }
 
-    // Menyembunyikan pop-up jika pengguna mengklik di luar elemen
-    document.addEventListener('click', (event) => {
-      if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
-        whatsappPopup.style.display = 'none';
-      }
-    });
-  </script>
+    function closeModal(modalId) {
+        document.getElementById("pdfModal" + modalId).style.display = "none";
+    }
+
+    // Menutup modal saat klik di luar konten modal
+    window.onclick = function(event) {
+        for (let i = 1; i <= 3; i++) {
+            const modal = document.getElementById("pdfModal" + i);
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
 </body>
 
 </html>

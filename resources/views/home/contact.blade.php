@@ -28,122 +28,141 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
-        <div class="container d-flex align-items-center">
-            <a class="navbar-brand">
-                <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
-                    </li>
-                    <li class="nav-item dropdown mx-3">
-                        <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Tentang Kami
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="about">Pengelola</a></li>
-                            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-                            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="services">Layanan</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="marquee-container ms-auto">
-                <div class="marquee">
-                    <span>Gratama telah berizin dan diawasi oleh OJK.</span>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand">
+      <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
+        </li>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Tentang Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="about">Pengelola</a></li>
+            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+        </li>
+      </ul>
+    </div>
+    <div class="marquee-container ms-auto d-none d-lg-block">
+      <div class="marquee">
+        <span>Gratama telah berizin dan diawasi oleh OJK.</span>
+      </div>
+    </div>
+  </div>
+</nav>
 
-    <style>
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 300px;
-            /* Atur lebar sesuai kebutuhan */
-            padding: 5px 0;
-            font-style: italic;
-            /* Membuat teks menjadi miring */
-        }
+<style>
+  .navbar {
+    border-radius: 0 0 100px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+    z-index: 1000;
+  }
 
-        .marquee {
-            display: inline-block;
-            animation: marquee 15s linear infinite;
-            font-weight: bold;
-            font-size: 14px;
-            color: #C62E2E;
-        }
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
 
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
+  .nav-item {
+    margin: 0 10px;
+  }
 
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+  .nav-link {
+    padding: 10px 15px;
+  }
 
-        .nav-link.active {
-            color: #ff4081;
-            border-bottom: 2px solid #ff4081;
-        }
+  .nav-link.active {
+    color: #ff4081;
+    border-bottom: 2px solid #ff4081;
+  }
 
-        .navbar {
-            border-radius: 0 0 100px 0;
-            overflow: visible;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    padding: 5px 0;
+  }
 
-        .navbar .dropdown-menu {
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1050;
-        }
+  .marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    font-weight: bold;
+    font-size: 14px;
+    color: #C62E2E;
+  }
 
-        .navbar .dropdown-item:hover {
-            background-color: #f0f0f0;
-        }
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
 
-        .navbar-brand img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
+  .navbar .dropdown-menu {
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
-        .custom-navbar {
-            height: 80px;
-            border-radius: 0 0 100px 0;
-            overflow: visible;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+  .navbar .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
 
-        .logo {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-    </style>
+  .navbar-brand img,
+  .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
 
+  .custom-navbar {
+    background-color: #ffffff;
+    opacity: 1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Pastikan navbar selalu di atas */
+}
+
+
+  /* Responsiveness */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+    .nav-item {
+      margin: 5px 0;
+    }
+    .marquee-container {
+      display: none;
+    }
+  }
+
+  /* Tambahkan di dalam tag <style> atau file CSS Anda */
+@media (max-width: 768px) {
+  .marquee-container {
+    display: none;
+  }
+}
+</style>
 
     <!-- end navbar -->
 
@@ -175,12 +194,19 @@
                         <div class="card-body">
                             <div class="container">
                                 <center>
-                                    <h1>Peta Indonesia dengan Lokasi Kantor Cabang</h1>
+                                    <h1>Peta Indonesia dengan Lokasi KSKC</h1>
                                 </center>
                                 <div id="map"></div>
 
                                 <!-- Leaflet JavaScript -->
                                 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                                <style>
+        #map {
+            height: 500px; /* Tentukan tinggi peta */
+            border-radius: 25px; /* Melengkungkan sudut */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan jika diinginkan */
+        }
+</style>
                                 <script>
                                     // Inisialisasi peta dan set view ke Indonesia
                                     var map = L.map('map', {
@@ -465,7 +491,7 @@
                                     <div class="col-md-12">
                                         <div class="container mt-2">
                                             <center>
-                                                <h2 class="fw-bolder" style="margin: 20px 0;">Kantor Cabang</h2>
+                                                <h2 class="fw-bolder" style="margin: 20px 0;">KSKC</h2>
                                             </center>
 
 
@@ -505,13 +531,13 @@
                                                     <div id="address2" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Cikupa</h5>
                                                         <p class="ms-5">Jl.Citra Raya Utama Timur, Ruko Mardi Grass Blok KC.02 No.02, Cikupa, Banten, kota Tangerang, 15710</p>
-                                                        <p class="ms-5">Telp : 021 5966 6504 Phone : 0813 6366 2800</p>
+                                                        <p class="ms-5">Telp : 021 5966 6504</p>
                                                         <h5 class="fw-bolder">Tangerang</h5>
                                                         <p class="ms-5">Jl.Raya Imam Bonjol, Ruko Victoria Park Blok A2 No.50, kel.Bojong Jaya, Kec.karawaci, Tangerang, Banten, 15116</p>
-                                                        <p class="ms-5">Telp : 021-55738968 Phone : 0821 1146 0885</p>
+                                                        <p class="ms-5">Telp : 021-55738968</p>
                                                         <h5 class="fw-bolder">Serang</h5>
                                                         <p class="ms-5">Jl.MT. Haryono 517 J (Stadion Utara), kel.Karangkidul, kec.Semarang Tengah, Semarang, 50241</p>
-                                                        <p class="ms-5">Telp : (024) 76444175 Phone : 0856 7475 404</p>
+                                                        <p class="ms-5">Telp : (024) 76444175</p>
                                                     </div>
                                                 </div>
 
@@ -526,7 +552,7 @@
                                                     <div id="address3" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Purwokerto</h5>
                                                         <p class="ms-5">JL.Ruko Karang Kobar Simpang Dr.Angka RT.01 RW.08, kel.sokanegara, kec.Purwokerto Timur, Purwokerto, Jawa Tengah, 53115</p>
-                                                        <p class="ms-5">Telp : 0281-621.023 Phone : 0812 2670 925</p>
+                                                        <p class="ms-5">Telp : 0281-621.023</p>
                                                         <h5 class="fw-bolder">Semarang</h5>
                                                         <p class="ms-5">Jl.MT. Haryono 517 J (Stadion Utara), kel.Karangkidul, kec.Semarang Tengah, Semarang, 50241</p>
                                                         <p class="ms-5">Telp :(024) 76444175</p>
@@ -535,7 +561,7 @@
                                                         <p class="ms-5">Telp :0271 731848</p>
                                                         <h5 class="fw-bolder">Tegal</h5>
                                                         <p class="ms-5">Ruko Sultan Square N0.11, JL. Sultan Agung, Tegal Timur, Slerok, 52125</p>
-                                                        <p class="ms-5">Telp (0283)-4539213 Phone 0813 2701 1180</p>
+                                                        <p class="ms-5">Telp (0283)-4539213</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -551,28 +577,25 @@
                                                     <div id="address4" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Banyuwangi</h5>
                                                         <p class="ms-5">Jl. Agus Salim No 07, Tamanbaru, Banyuwangi, Jawa Timur, 68417</p>
-                                                        <p class="ms-5">Phone : 0821 3272 5757</p>
                                                         <h5 class="fw-bolder">Jember</h5>
                                                         <p class="ms-5">Jl.Gatot Subroto No.40, kel.kepatihan, kec.kaliwates, Jember, Jawa Timur, 68131,</p>
-                                                        <p class="ms-5">Telp : 0331-3010510 Phone : 0823 3753 1415</p>
+                                                        <p class="ms-5">Telp : 0331-3010510</p>
                                                         <h5 class="fw-bolder">Kediri</h5>
                                                         <p class="ms-5">Ruko Brawijaya 44 No.24 JL.Brawijaya, kel.Pocanan, kec.Kota Kediri, Kediri, Jawa Timur 23372</p>
-                                                        <p class="ms-5">Phone : 0812 3020 2271</p>
                                                         <h5 class="fw-bolder">Malang</h5>
                                                         <p class="ms-5">Ruko Sun City, Blok C16 Jalan S. Parman No 08, Oro-Oro Ombo, Kec. Kartoharjo,Kota Madiun, Jawa Timur, 63119</p>
-                                                        <p class="ms-5">Phone : 0821 4486 5711</p>
                                                         <h5 class="fw-bolder">Madiun</h5>
                                                         <p class="ms-5">Jl.W.R Supratman C2 KAV.1 RT.01 RW.02, Kel.Rampal Claket, Kec. Klojen, Malang, Jawa Timur, 65111,</p>
-                                                        <p class="ms-5">Telp : 0341 3019977 Phone : 0823 3686 3150</p>
+                                                        <p class="ms-5">Telp : 0341 3019977</p>
                                                         <h5 class="fw-bolder">Mojokerto</h5>
                                                         <p class="ms-5">Jl.Jayanegara No.199 A, Kel.Banjaragung, Kec.Puri, Kab.MOJOKERTO, Jawa Timur, 61363,</p>
-                                                        <p class="ms-5">Telp : 0921 5292 678 Phone : 0813 3574 5424</p>
+                                                        <p class="ms-5">Telp : 0921 5292 678</p>
                                                         <h5 class="fw-bolder">Sidoarjo</h5>
                                                         <p class="ms-5">JL.KH.Mukmin Ruko Citra Indah Blok RE-18, kel.Sidokare, kec.Sidoarjo, Jawa timur, 61214,</p>
-                                                        <p class="ms-5">Telp 031 - 99702465 Phone : 0812 3518 1939</p>
+                                                        <p class="ms-5">Telp 031 - 99702465</p>
                                                         <h5 class="fw-bolder">Surabaya 1</h5>
                                                         <p class="ms-5">JL.KH.Mukmin Ruko Citra Indah Blok RE-18, kel.Sidokare, kec.Sidoarjo, Jawa timur, 61214,</p>
-                                                        <p class="ms-5">Telp 031 - 99702465 Phone : 0812 3518 1939</p>
+                                                        <p class="ms-5">Telp 031 - 99702465</p>
                                                         <h5 class="fw-bolder">Surabaya 2</h5>
                                                         <p class="ms-5">Ruko Mega Galaxy No.16C/20, kel. Klampis Asem, kec.Sukolilo, Surabaya, Jawa timur, 60111,</p>
                                                         <p class="ms-5">Telp 031-5913079</p>
@@ -590,8 +613,7 @@
                                                     </div>
                                                     <div id="address5" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Yogyakarta</h5>
-                                                        <p class="ms-5">JL. Gajah Mada No.21-23, kel.Pakulaman, Kec.Porwokinanti, Yogyakarta, 55112,</p>
-                                                        <p class="ms-5">Phone : 0812 3307 6583</p>
+                         +                               <p class="ms-5">JL. Gajah Mada No.21-23, kel.Pakulaman, Kec.Porwokinanti, Yogyakarta, 55112,</p>
                                                     </div>
                                                 </div>
                                                 <!-- End -->
@@ -607,10 +629,10 @@
                                                     <div id="address6" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Denpasar</h5>
                                                         <p class="ms-5">Pertokoan Sudirman Agung Blok C No.19, Dauh Puri Klod, Kec. Denpasar Bar, Kota Denpasar, Bali 80113</p>
-                                                        <p class="ms-5">Telp : (0361) 255363 Phone : 0812 3634 8399</p>
+                                                        <p class="ms-5">Telp : (0361) 255363</p>
                                                         <h5 class="fw-bolder">Tabanan</h5>
                                                         <p class="ms-5">Pertokoan Sudirman Agung Blok C No.19, Dauh Puri Klod, Kec. Denpasar Bar, Kota Denpasar, Bali 80113</p>
-                                                        <p class="ms-5">Telp : (0361) 255363 Phone : 0812 3634 8399</p>
+                                                        <p class="ms-5">Telp : (0361) 255363</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -627,7 +649,7 @@
                                                     <div id="address99" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Lombok</h5>
                                                         <p class="ms-5">Jl. Brawijaya, Kec.Mataram, kel.Cakranegara, Prov. Nusa Tenggara Barat, Kode pos 83233,</p>
-                                                        <p class="ms-5">Telp : (0370) 574525 Phone : 0823 3931 8744</p>
+                                                        <p class="ms-5">Telp : (0370) 574525</p>
                                                     </div>
                                                 </div>
                                                 <!-- End -->
@@ -643,7 +665,6 @@
                                                     <div id="address7" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Jambi</h5>
                                                         <p class="ms-5">JL. Sunan Giri No.99, Kec.Kota Baru, kel.Simpang Tiga Sipin, Jambi, 36126,</p>
-                                                        <p class="ms-5">Phone: 0812 1230 9777</p>
                                                     </div>
                                                 </div>
                                                 <!-- End -->
@@ -659,7 +680,6 @@
                                                     <div id="address8" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Palembang</h5>
                                                         <p class="ms-5">JL.Dr Moh Hatta rt 18/rw 05 No.1067 A, Kelurahan Kemalaraja Kecamatan Baturaja Timur kabupaten Ogan Komring Ulu Provinsi Sumatra Selatan 32111
-                                                        <p class="ms-5">Phone : 0815 3243 5964</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -676,7 +696,6 @@
                                                     <div id="address9" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Padang</h5>
                                                         <p class="ms-5">JL KIS Mangunsarkoro No 3C, Kec. Padang Timur, Kel Jati BaruPhone 0811 661 458</p>
-                                                        <p class="ms-5">Phone : 0815 3243 5964</p>
                                                     </div>
                                                 </div>
                                                 <!-- End -->
@@ -692,7 +711,6 @@
                                                     <div id="address10" class="address" style="display: none; margin-top: 10px;">
                                                         <h5 class="fw-bolder">Bengkulu</h5>
                                                         <p class="ms-5">JL. Flamboyan Raya No:39 RT:16 RW:05</p>
-                                                        <p class="ms-5">Phone : 0811 661 458</p>
                                                     </div>
                                                 </div>
                                                 <!-- End -->
@@ -708,7 +726,6 @@
                                                     <div id="address11" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Pangkal Pinang</h5>
                                                         <p class="ms-5">Jl. Soekarno Hatta No.18 RT 009/RW 003 Kec.Goromaya, Kel.Bukit Besar, Bangka Belitung</p>
-                                                        <p class="ms-5">Phone : 0813 6858 1325</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -726,7 +743,6 @@
                                                     <div id="address12" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Pekanbaru</h5>
                                                         <p class="ms-5">Jl. Sm Amin Komp Royal Platinum No 89 HH, Kec.Tampan, Kel.Simpang Baru</p>
-                                                        <p class="ms-5">Phone : 0812 4834 0810</p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -742,7 +758,6 @@
                                                     <div id="address13" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Gorontalo</h5>
                                                         <p class="ms-5">Ruko Bonza No.3 Jl. Nani Wartabone (ex, Jalan Panjaitan) Kec.Kota Selatan, Kel.Limba U1, 96135</p>
-                                                        <p class="ms-5">Phone : 0812 4834 0810</p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -758,7 +773,6 @@
                                                     <div id="address14" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Bandar Lampung</h5>
                                                         <p class="ms-5">Jl. Teuku Umar No.36, kec.Kedaton Kel.Surabaya, 35141</p>
-                                                        <p class="ms-5">Phone : 0813 6961 3521</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -775,13 +789,10 @@
                                                     <div id="address15" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Makasar</h5>
                                                         <p class="ms-5">Jl. Adhyaksa Lama No.20 Kel.Panakukang, Kel.Masale</p>
-                                                        <p class="ms-5">Phone : 0821 8723 4030</p>
                                                         <h5 class="fw-bolder">Pare Pare</h5>
                                                         <p class="ms-5">Jl. Agussalim No 172 B, Kel.Ujung Kec.Labukkang, 91111</p>
-                                                        <p class="ms-5">Phone : 0821 8799 6214</p>
                                                         <h5 class="fw-bolder">Palopo</h5>
                                                         <p class="ms-5">Jl. Jend. Sudirman (Poros Binturu) Kel. Binturu, Kec. Wara Selatan. Kota Palopo - Sulawesi Selatan 91926</p>
-                                                        <p class="ms-5">Phone : 0812 4201 9511</p>
                                                     </div>
                                                 </div>
                                                 <!-- end-->
@@ -797,7 +808,6 @@
                                                     <div id="address16" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Manado</h5>
                                                         <p class="ms-5">Jl.Yos Sudarso Paal 2 (Kompleks Pasar Segar) Kec.Paal Dua, Kel.Paal Dua</p>
-                                                        <p class="ms-5">Phone : 0852 5665 5579</p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -812,7 +822,6 @@
                                                     <div id="address17" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Palu</h5>
                                                         <p class="ms-5">Jl. Dewi Sartika No 80 Kec.Palu Selatan, Kel.Petobo, 94231</p>
-                                                        <p class="ms-5">Phone : 0821 4487 4700</p>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -829,7 +838,6 @@
                                                     <div id="address18" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Pontianak</h5>
                                                         <p class="ms-5">Jl Dr. Wahidin Sudirohusodo No.26 C, RT.003/RW.002 Kec.Pontianak Kota Kel.Sungai, 78116</p>
-                                                        <p class="ms-5">Phone : 0812 552 797</p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -845,7 +853,6 @@
                                                     <div id="address19" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Palangkaraya</h5>
                                                         <p class="ms-5">JL.Temanggung Tilung komplek Pertokoan No.111 RT.002 RW.008 kec.Jekan Raya Kel.Menteng, 73111</p>
-                                                        <p class="ms-5">Phone : 0813 4833 9157</p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -861,10 +868,8 @@
                                                     <div id="address20" class="address" style="display: none; margin-top: 11px;">
                                                         <h5 class="fw-bolder">Balikpapan</h5>
                                                         <p class="ms-5">Ruko Balikpapan Baru (belakang mall Fantasi) Blok. FJ.1 No.07, Kec.Balikpapan Selatan Kel.Damai, 76114</p>
-                                                        <p class="ms-5">Phone : - </p>
                                                         <h5 class="fw-bolder">Samarinda</h5>
                                                         <p class="ms-5">Jl. Bukit Alaya, Ruko Alaya Junction LC-07 Kec.Sungai Pinang Kel.Sungai Pinang Dalam, 75117</p>
-                                                        <p class="ms-5">Phone : - </p>
                                                     </div>
                                                 </div>
                                                 <!-- end -->
@@ -935,234 +940,130 @@
     <!-- WA -->
 
     <body>
-        <div class="whatsapp-container">
-            <button id="whatsapp-button">
-                <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-            </button>
-            <div class="popup" id="whatsapp-popup">
-                <!-- <p>Hello! How can I help you today?</p> -->
-                <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" class="chat-button">Chat Now</a>
-            </div>
+    <div class="whatsapp-container">
+      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+        <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+
+  <style>
+   .whatsapp-container {
+  position: fixed; /* Menggunakan fixed agar selalu terlihat */
+  bottom: 20px; /* Jarak dari bagian bawah */
+  left: 20px; /* Jarak dari bagian kanan */
+  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
+}
+
+#whatsapp-button {
+  border: none;
+  background: transparent; /* Tanpa latar belakang */
+  cursor: pointer; /* Menunjukkan tombol dapat diklik */
+}
+
+.whatsapp-icon {
+  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
+  height: auto; /* Menjaga aspek rasio */
+}
+
+  </style>
+
+<footer class="mt-5">
+  <div class="footer-top bg-dark text-white p-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <h4 class="fw-bold">{{$contact->name}}</h4>
+          <p>{{$contact->description}}</p>
+          <p><strong>Phone:</strong> {{$contact->telepon}}</p>
+          <p><strong>Email:</strong> {{$contact->email}}</p>
         </div>
-
-        <script src="script.js"></script>
-    </body>
-
-    <style>
-        /* styles.css */
-        .whatsapp-container {
-            position: fixed;
-            top: 50%;
-            /* Memposisikan di tengah secara vertikal */
-            right: 20px;
-            /* Jarak dari kanan layar */
-            transform: translateY(-50%);
-            /* Menyesuaikan agar benar-benar di tengah */
-            z-index: 1000;
-            /* Memastikan tombol berada di atas elemen lain */
-            cursor: grab;
-            /* Mengubah kursor saat tombol dapat dipindahkan */
-        }
-
-        #whatsapp-button {
-            background: #25d366;
-            border: none;
-            border-radius: 50%;
-            /* Membuat tombol berbentuk lingkaran */
-            padding: 10px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            /* Transisi untuk efek */
-        }
-
-        #whatsapp-button:hover {
-            transform: scale(1.1);
-            /* Membesarkan tombol saat hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            /* Efek bayangan saat hover */
-        }
-
-        #whatsapp-button:active {
-            transform: scale(0.95);
-            /* Mengecilkan tombol saat di-click */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-            /* Efek bayangan saat di-click */
-        }
-
-        .whatsapp-icon {
-            width: 70%;
-            height: 70%;
-        }
-
-        .popup {
-            position: absolute;
-            bottom: 70px;
-            /* Agar muncul di atas tombol WhatsApp */
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: none;
-            width: 200px;
-        }
-
-        .popup p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .chat-button {
-            display: inline-block;
-            margin-top: 10px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            text-align: center;
-        }
-
-        /* Media queries untuk membuat tombol lebih kecil di layar yang lebih kecil */
-        @media (max-width: 768px) {
-            #whatsapp-button {
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #whatsapp-button {
-                width: 40px;
-                height: 40px;
-            }
-
-            .popup {
-                width: 150px;
-                bottom: 50px;
-                /* Sesuaikan jarak pop-up */
-            }
-        }
-    </style>
-
-    <!-- end contact -->
-    <footer class="mt-5">
-        <div class="footer-top bg-dark text-white p-5 ">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        <h4 class="fw-bold">{{$contact->name}}</h2>
-                            <p>
-                                {{$contact->description}}
-                            </p>
-                            <strong>Phone</strong> : <span>{{$contact->telepon}} </span>
-                            <br />
-                            <strong>Email</strong> : <span>{{$contact->email}} </span>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="fw-bold">Our Services</h2>
-                            <ul class="list-group list-unstyled">
-                                @foreach($services as $service)
-                                <li class="list-item">
-                                    <a href="" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        {{$service->title}}
-                                    </a>
-                                </li>
-                                @endforeach
-                            </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="fw-bold">Useful Links</h2>
-                            <ul class="list-group list-unstyled">
-                                <li class="list-item">
-                                    <a href="/" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        Home
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="#" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        About Us
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="services" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        Services
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="portfolio" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="contact" class="text-decoration-none text-white">
-                                        <i class="fa fa-chevron-right primary"></i>
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h4 class="fw-bold">Join Our Newsletter</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="yourmail@example.com" />
-                                <button class="btn btn-subscribe" type="button" id="inputGroupFileAddon04">
-                                    Subscribe
-                                </button>
-                                <style>
-                                    .btn-subscribe {
-                                        color: white;
-                                        /* Set text color to white */
-                                    }
-                                </style>
-                            </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-2">
+          <h4 class="fw-bold">Layanan Kami</h4>
+          <ul class="list-group list-unstyled">
+            @foreach($services as $service)
+            <li class="list-item">
+              <a href="#" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> {{$service->title}}
+              </a>
+            </li>
+            @endforeach
+          </ul>
         </div>
-        <div class="footer-down bg-darker text-white px-5 py-3">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5">
-                        <div class="copyright">
-                            &copy; Copyright <strong>orzkiah</strong>. All Right Reserved
-                        </div>
-                        <div class="credits">
-                            Design by me
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="social-links float-end">
-                            <a href="" class="mx-2">
-                                <i class="fab fa-instagram fa-2x"></i>
-                            </a>
-                            <!-- <a href="" class="mx-2">
-                                <i class="fab fa-youtube fa-2x"></i>
-                            </a> -->
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-2">
+          <h4 class="fw-bold">Tautan</h4>
+          <ul class="list-group list-unstyled">
+            <li class="list-item">
+              <a href="/" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Beranda
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/about" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Tentang Kami
+              </a>
+            </li>
+            <!-- <li class="list-item">
+              <a href="/services" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Layanan
+              </a>
+            </li> -->
+            <li class="list-item">
+              <a href="/portfolio" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Galeri
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/contact" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Hubungi Kami
+              </a>
+            </li>
+          </ul>
         </div>
-    </footer>
+        <div class="col-md-3">
+  <!-- <h4 class="fw-bold">Tentang Kami</h4> -->
+  <div class="logo-section">
+    <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
+  </div>
+</div>
+
+<style>
+  /* Style tambahan untuk logo */
+  .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+</style>
+     </div>
+    </div>
+  </div>
+  <div class="footer-down bg-darker text-white px-5 py-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <div>&copy; 2024 <strong>orzkiah</strong>. All Rights Reserved.</div>
+          <div>Design by me</div>
+        </div>
+        <div class="col-md-5 text-end">
+          <a href="#" class="text-white mx-2">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <!-- Uncomment if you want to add more social links -->
+          <!-- <a href="#" class="text-white mx-2">
+            <i class="fab fa-youtube fa-2x"></i>
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
     <!-- footer -->
     <!-- end footer  -->
 
@@ -1180,46 +1081,32 @@
     <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
-        // script.js
-        const whatsappButton = document.getElementById('whatsapp-button');
-        const whatsappPopup = document.getElementById('whatsapp-popup');
-        const whatsappContainer = document.getElementById('whatsapp-container');
+  // script.js
+const whatsappButton = document.getElementById('whatsapp-button');
 
-        let isDragging = false;
-        let offsetX, offsetY;
+let isDragging = false;
+let offsetX, offsetY;
 
-        whatsappButton.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            offsetX = e.clientX - whatsappContainer.getBoundingClientRect().left;
-            offsetY = e.clientY - whatsappContainer.getBoundingClientRect().top;
-            whatsappContainer.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-        });
+whatsappButton.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
+  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
+  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+});
 
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                whatsappContainer.style.left = e.clientX - offsetX + 'px';
-                whatsappContainer.style.top = e.clientY - offsetY + 'px';
-                whatsappContainer.style.transform = 'none'; // Menonaktifkan transform agar tidak mempengaruhi posisi
-            }
-        });
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    whatsappButton.style.left = e.clientX - offsetX + 'px';
+    whatsappButton.style.top = e.clientY - offsetY + 'px';
+  }
+});
 
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            whatsappContainer.style.cursor = 'grab'; // Kembali ke kursor normal
-        });
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
+});
+</script>
 
-        // Menampilkan dan menyembunyikan pop-up saat tombol diklik
-        whatsappButton.addEventListener('click', () => {
-            whatsappPopup.style.display = whatsappPopup.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Menyembunyikan pop-up jika pengguna mengklik di luar elemen
-        document.addEventListener('click', (event) => {
-            if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
-                whatsappPopup.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </head>
 

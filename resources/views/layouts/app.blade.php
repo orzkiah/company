@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="/lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/admin/dashboard" class="d-block">{{ Auth::user()->email; }}</a>
+          <a href="/admin/dashboard" class="d-block">{{ Auth::user()->email }}</a>
         </div>
       </div>
 
@@ -206,7 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {{ date('Y') }} <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date('Y') }} <a href="https://gratama-finance.co.id/">Gratama Finance Indonesia</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

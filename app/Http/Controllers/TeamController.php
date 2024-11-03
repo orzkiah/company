@@ -19,10 +19,6 @@ class TeamController extends Controller
         return view('team.index', compact('teams'));
     }
 
-
-       
-   
-
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +38,9 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'required|image',
+            'title' => 'required', 
+            'description' => 'required', 
+            'image' => 'required|image',
         ]);
 
         $input = $request->all();
@@ -57,17 +55,6 @@ class TeamController extends Controller
         Team::create($input);
 
         return redirect('admin/teams')->with('message', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -88,27 +75,31 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Team $team)
-    {
-        $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'image',
-        ]);
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'biodata' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
 
-        $input = $request->all();
+    $team = Team::findOrFail($id);
+    $team->title = $request->title;
+    $team->description = $request->description;
+    $team->biodata = $request->biodata;
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalName();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }else {
-            unset($input['image']);
-        }
-
-        $team->update($input);
-
-        return redirect('admin/teams')->with('message', 'Data berhasil diedit');
+    if ($request->hasFile('image')) {
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('image'), $imageName);
+        $team->image = $imageName;
     }
+
+    $team->save();
+
+    return redirect()->route('teams.index')->with('success', 'Data Team berhasil diperbarui');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -122,6 +113,4 @@ class TeamController extends Controller
 
         return redirect('admin/teams')->with('message', 'Data berhasil dihapus');
     }
-
-   
 }

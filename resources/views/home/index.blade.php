@@ -16,125 +16,154 @@
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css">
   <title>PT. Gratama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Tambahkan CSS dan JS slick carousel -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
-    <div class="container d-flex align-items-center">
-      <a class="navbar-brand">
-        <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
-          </li>
-          <li class="nav-item dropdown mx-3">
-            <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Tentang Kami
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="about">Pengelola</a></li>
-              <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-              <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
-            </ul>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="services">Layanan</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
-          </li>
-        </ul>
-      </div>
-      <div class="marquee-container ms-auto">
-        <div class="marquee">
-          <span>Gratama telah berizin dan diawasi oleh OJK.</span>
-        </div>
+   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand">
+      <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
+        </li>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Tentang Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="about">Pengelola</a></li>
+            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+        </li>
+      </ul>
+    </div>
+    <div class="marquee-container ms-auto d-none d-lg-block">
+      <div class="marquee">
+        <span>Gratama telah berizin dan diawasi oleh OJK.</span>
       </div>
     </div>
-  </nav>
-  <style>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    border-radius: 0 0 100px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+    z-index: 1000;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 0 10px;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+  }
+
+  .nav-link.active {
+    color: #ff4081;
+    border-bottom: 2px solid #ff4081;
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    padding: 5px 0;
+  }
+
+  .marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    font-weight: bold;
+    font-size: 14px;
+    color: #C62E2E;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .navbar .dropdown-menu {
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .navbar-brand img,
+  .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .custom-navbar {
+    background-color: #ffffff;
+    opacity: 1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Pastikan navbar selalu di atas */
+}
+
+
+  /* Responsiveness */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+    .nav-item {
+      margin: 5px 0;
+    }
     .marquee-container {
-      overflow: hidden;
-      white-space: nowrap;
-      width: 300px;
-      /* Atur lebar sesuai kebutuhan */
-      padding: 5px 0;
+      display: none;
     }
+  }
 
-    .marquee {
-      display: inline-block;
-      animation: marquee 15s linear infinite;
-      font-weight: light;
-      font-size: 14px;
-      color: #C62E2E;
-      font-style: italic;
-      /* Membuat teks menjadi miring */
+  /* Tambahkan di dalam tag <style> atau file CSS Anda */
+@media (max-width: 768px) {
+  .marquee-container {
+    display: none;
+  }
+}
 
-    }
+</style>
 
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    .nav-link.active {
-      color: #ff4081;
-      border-bottom: 2px solid #ff4081;
-    }
-
-    .navbar {
-      border-radius: 0 0 100px 0;
-      overflow: visible;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .navbar .dropdown-menu {
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1050;
-    }
-
-    .navbar .dropdown-item:hover {
-      background-color: #f0f0f0;
-    }
-
-    .navbar-brand img {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .custom-navbar {
-      height: 80px;
-      border-radius: 0 0 100px 0;
-      overflow: visible;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .logo {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    }
-  </style>
 
   <!-- end navbar -->
 
@@ -176,57 +205,58 @@
   <!-- Banner End -->
 
   <!-- about us -->
-  <div class="about-us mt-5 about-background">
+<div class="about-us mt-5 about-background">
     <div class="container">
-      <div class="title-container text-center">
-        <h2 class="fw-bold">TENTANG KAMI</h2>
-      </div>
-      <div class="row mt-5">
-        <div class="col-md-6" data-aos="fade-right">
-          <center>
-            <h3 class="fw-bold about-us-title">
-              {{$about->judul}}
-            </h3>
-          </center>
-          <center>
-            <p class="fw-bolder mt-4 about-us-subtitle">
-              {{$about->subjudul}}
-            </p>
-          </center>
+        <div class="title-container text-center">
+            <h2 class="fw-bold">TENTANG KAMI</h2>
         </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <p>
-            {{$about->deskripsi_1}}
-          </p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <i class="fa fa-check-double primary"></i>
-              {{$about->kelebihan_1}}
-            </li>
-            <li class="list-group-item">
-              <i class="fa fa-check-double primary"></i>
-              {{$about->kelebihan_2}}
-            </li>
-            <li class="list-group-item">
-              <i class="fa fa-check-double primary"></i>
-              {{$about->kelebihan_3}}
-            </li>
-            <li class="list-group-item">
-              <i class="fa fa-check-double primary"></i>
-              {{$about->kelebihan_4}}
-            </li>
-          </ul>
-          <p class="mt-2">
-            {{$about->deskripsi_2}}
-          </p>
+        <div class="row mt-4">
+            <div class="col-md-6" data-aos="fade-right">
+                <center>
+                    <h1 class="fw-bold about-us-title">
+                        {{$about->judul}}
+                    </h1>
+                </center>
+                <center>
+                    <p class="fw-bolder mt-4 about-us-subtitle">
+                        {{$about->subjudul}}
+                    </p>
+                </center>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <p>
+                    {{$about->deskripsi_1}}
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="fa fa-check-double primary"></i>
+                        {{$about->kelebihan_1}}
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-check-double primary"></i>
+                        {{$about->kelebihan_2}}
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-check-double primary"></i>
+                        {{$about->kelebihan_3}}
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-check-double primary"></i>
+                        {{$about->kelebihan_4}}
+                    </li>
+                </ul>
+                <p class="mt-2">
+                    {{$about->deskripsi_2}}
+                </p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
 
   <style>
     .about-background {
-      background-image: url('assets/img/bg-about1.jpg');
+      background-image: url('assets/img/bg-port.jpg');
       /* Ganti dengan path gambar yang sesuai */
       background-size: cover;
       /* Mengatur gambar agar menutupi seluruh area */
@@ -236,7 +266,7 @@
       /* Menambahkan padding untuk ruang atas dan bawah */
       color: black;
       /* Mengatur warna teks agar terlihat di atas background */
-      border-radius: 200px 0 130px 0;
+      border-radius: 0 0 0 0;
       /* Lengkungan bervariasi pada sudut */
       overflow: hidden;
       /* Agar konten tidak keluar dari area lengkung */
@@ -244,10 +274,18 @@
       /* Menambahkan bayangan agar terlihat lebih elegan */
     }
 
+    .about-us-title {
+      font-size: 1px;
+    }
+
     .about-us-title,
     .about-us-subtitle {
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.0);
       /* Menambahkan efek bayangan pada teks agar lebih terbaca */
+      font-family: "Poppins", sans-serif;
+      font-weight: 100;
+      font-style: normal;
+      font-size: 25px;
     }
 
     .list-group-item {
@@ -274,42 +312,61 @@
 
   <!-- services -->
   <div class="services mt-5 bg-light py-5">
-    <div class="container">
-      <div class="title-container text-center">
-        <h2 class="fw-bold">PRODUK DAN LAYANAN</h2>
-      </div>
-      <div class="row mt-5">
-        @foreach($services as $service)
-        <div class="col-md-4">
-          <div class="card border-0 text-center p-4 mt-3" data-aos="zoom-in">
-            <div class="card-body">
-              <div class="card-icon">
-                <img src="image/{{$service->image}}" alt="" class="img-fluid" width="80">
-              </div>
-              <!-- Button untuk mengontrol collapse -->
-              <div class="card-title fw-bolder mt-4">
-                <a class="text-decoration-none text-dark"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapse{{ $service->id }}"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapse{{ $service->id }}">
-                  {{$service->title}}
-                </a>
-              </div>
-              <!-- Konten yang akan di-collapse -->
-              <div class="collapse mt-3" id="collapse{{ $service->id }}">
-                <p class="card-description">
-                  {{$service->description}}
-                </p>
-              </div>
+  <div class="container">
+    <div class="title-container text-center">
+      <h2 class="fw-bold">PRODUK DAN LAYANAN</h2>
+    </div>
+    <div class="row mt-8" id="accordionServices">
+      @foreach($services as $service)
+      <div class="col-md-4">
+        <div class="card border-0 text-center p-4 mt-3" data-aos="zoom-in" 
+             data-bs-toggle="collapse" 
+             data-bs-target="#collapse{{ $service->id }}" 
+             role="button" 
+             aria-expanded="false" 
+             aria-controls="collapse{{ $service->id }}">
+          <div class="card-body">
+            <div class="card-icon">
+              <img src="image/{{$service->image}}" alt="" class="img-fluid" width="80">
+            </div>
+            <div class="card-title fw-bolder mt-4">
+              <span class="text-decoration-none text-dark">
+                {{$service->title}}
+              </span>
+            </div>
+            <!-- Konten yang akan di-collapse -->
+            <div class="collapse mt-3" id="collapse{{ $service->id }}">
+              <ul class="card-description" style="text-align: left;">
+                @foreach(explode("\n", $service->description) as $item)
+                  <li>{{ trim($item) }}</li>
+                @endforeach
+              </ul>
             </div>
           </div>
         </div>
-        @endforeach
       </div>
+      @endforeach
+    </div>
+  </div>
+</div>
+
+
+
       <!-- PRODUK DAN LAYANAN -->
       <style>
+        .card[role="button"] {
+        cursor: pointer;
+        }
+
+        .card[role="button"]:hover {
+        transform: scale(1.03);
+        transition: transform 0.2s ease-in-out;
+        }
+
+
+        #card:hover {
+          transform: scale(1.04);
+        }
         .services {
           background-image: url('assets/img/bg-about1.jpg');
           /* Atur URL gambar */
@@ -321,7 +378,7 @@
           /* Tidak mengulang gambar */
           padding: 50px 0;
           /* Memberi jarak vertikal */
-          border-radius: 0 200px 0 130px;
+          border-radius: 0 0 130px 0;
           /* Lengkungan bervariasi pada sudut */
           overflow: hidden;
           /* Agar konten tidak keluar dari area lengkung */
@@ -351,242 +408,29 @@
           color: black;
         }
       </style>
-
-      <!-- Banner -->
-      <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-        <!-- 3000 artinya setiap slide akan berganti setiap 3 detik -->
-      </div>
-      <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="assets/img/p3.jpg" class="d-block w-100" alt="Slide 1">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/p4.jpg" class="d-block w-100" alt="Slide 2">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/p5.jpg" class="d-block w-100" alt="Slide 3">
-          </div>
-        </div>
-      </div>
-
-      <style>
-        #bannerCarousel {
-          max-height: 500px;
-          /* Sesuaikan dengan tinggi yang diinginkan */
-          overflow: hidden;
-          border-radius: 15px;
-          /* Mengatur sudut lengkung */
-          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
-          /* Tambahkan shadow untuk kedalaman */
-          transition: transform 0.3s ease-in-out;
-          /* Efek transisi */
-        }
-
-        #bannerCarousel img {
-          object-fit: cover;
-          max-height: 500px;
-          border-radius: 15px;
-          /* Pastikan gambar mengikuti lengkungan bingkai */
-        }
-
-        #bannerCarousel:hover {
-          transform: scale(1.02);
-          /* Membuat sedikit zoom saat di-hover */
-        }
-
-        .carousel-inner {
-          transition: transform 1.5s ease-in-out;
-          /* Memperhalus pergantian antar slide */
-        }
-      </style>
-      <!-- END -->
-
-      <!-- Kalkulator Simulasi Kredit -->
-      <div class="credit-calculator mt-5 bg-white p-3 rounded shadow" style="max-width: 400px; margin: auto;">
-        <h3 class="text-center mb-4" style="font-size: 1.25rem;">Simulasi Kredit</h3>
-        <form id="creditCalculatorForm">
-          <div class="mb-2">
-            <label for="loanAmount" class="form-label" style="font-size: 0.875rem;">Jumlah Pinjaman:</label>
-            <input type="number" class="form-control" id="loanAmount" placeholder="Masukkan jumlah pinjaman" style="font-size: 0.875rem; padding: 0.5rem;">
-          </div>
-          <div class="mb-2">
-            <label for="interestRate" class="form-label" style="font-size: 0.875rem;">Bunga (%):</label>
-            <input type="number" class="form-control" id="interestRate" placeholder="Masukkan bunga tahunan" style="font-size: 0.875rem; padding: 0.5rem;">
-          </div>
-          <div class="mb-2">
-            <label for="loanTerm" class="form-label" style="font-size: 0.875rem;">Tenor Pinjaman (bulan):</label>
-            <input type="number" class="form-control" id="loanTerm" placeholder="Masukkan tenor pinjaman" style="font-size: 0.875rem; padding: 0.5rem;">
-          </div>
-          <button type="button" class="btn btn-primary" onclick="calculateLoan()" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Hitung Cicilan</button>
-        </form>
-
-        <div class="mt-3">
-          <h5 style="font-size: 0.875rem;">Hasil Perhitungan:</h5>
-          <p id="result" class="fw-bold" style="font-size: 0.875rem;"></p>
-        </div>
-      </div>
     </div>
   </div>
-
-  <script>
-    function calculateLoan() {
-      // Ambil nilai dari input
-      var principal = parseFloat(document.getElementById('loanAmount').value);
-      var annualInterest = parseFloat(document.getElementById('interestRate').value);
-      var months = parseInt(document.getElementById('loanTerm').value);
-
-      if (isNaN(principal) || isNaN(annualInterest) || isNaN(months) || principal <= 0 || annualInterest <= 0 || months <= 0) {
-        alert('Silakan masukkan nilai yang valid.');
-        return;
-      }
-
-      // Hitung bunga bulanan
-      var monthlyInterest = annualInterest / 12 / 100;
-      // Hitung cicilan bulanan menggunakan rumus annuity
-      var monthlyPayment;
-      if (monthlyInterest > 0) {
-        monthlyPayment = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, months)) / (Math.pow(1 + monthlyInterest, months) - 1);
-      } else {
-        monthlyPayment = principal / months;
-      }
-      // Tampilkan hasil
-      function formatRupiah(amount) {
-        return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-      }
-
-      // Misal, hasil perhitungan cicilan bulanan
-      var monthlyPayment = 1500000; // Contoh angka
-
-      // Mengubah hasil ke format rupiah
-      document.getElementById('result').innerText = 'Cicilan Bulanan: Rp ' + formatRupiah(monthlyPayment.toFixed(2));
-
-    }
-  </script>
-
-
   <!-- end services -->
 
-  <!-- portfolio us -->
-  <div class="portfolio-us mt-5">
-    <div class="container">
-      <div class="title-container">
-        <h2 class="text-center fw-bold">PORTFOLIO</h2>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-12 d-flex justify-content-center">
-          <ul class="list-unstyled d-flex portfolio-filters">
-            <li data-filter="*" class="py-2 px-4 filter-active text-white">FOTO</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-md-12">
-          <div class="mansory portfolio-container">
-            <div class="mansory-sizer"></div>
-            @foreach ($portfolios as $portfolio)
-            <div class="mansory-item m-2 portfolio-item filter-web">
-              <a href="image/{{$portfolio->image}}" target="_blank">
-                <img src="image/{{$portfolio->image}}" alt="" class="img-fluid portfolio-img" />
-              </a>
-            </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- portfolio -->
 
-
-
-  <!-- css bg port -->
-  <style>
-    .portfolio-us {
-      background-image: url('assets/img/bg-port3.jpg');
-      /* Ganti dengan path gambar Anda */
-      background-size: cover;
-      /* Mengatur ukuran gambar agar menutupi seluruh div */
-      background-position: center;
-      /* Menempatkan gambar di tengah */
-      background-repeat: no-repeat;
-      /* Gambar tidak akan diulang */
-      padding: 50px 0;
-      /* Tambahkan padding untuk memberi jarak pada konten */
-      color: white;
-      /* Mengubah warna teks menjadi putih agar kontras dengan background */
-    }
-
-    .portfolio-filters li {
-      background-color: rgba(0, 0, 0, 0.5);
-      /* Background hitam transparan untuk filter */
-      color: white;
-      /* Warna teks putih */
-      border-radius: 5px;
-      /* Sudut melengkung untuk filter item */
-    }
-
-    .mansory-item {
-      background-color: rgba(255, 255, 255, 0.8);
-      /* Latar belakang transparan untuk item portfolio */
-      border-radius: 10px;
-      /* Sudut melengkung untuk gambar */
-      padding: 10px;
-    }
-  </style>
-  <!-- end CSS -->
-  <!-- end portfolio us -->
-
-  <!-- Bagian Berita -->
-  <!-- <div class="news-section mt-5">
-    <div class="container">
-        <div class="title-container">
-            <h2 class="text-center fw-bold">BERITA TERKINI</h2>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-4 mb-4">
-                <div class="news-card">
-                    <img src="assets/img/fly.png" alt="Berita 1" class="img-fluid">
-                    <h5 class="news-title mt-2">Judul Berita 1</h5>
-                    <p class="news-summary">Ringkasan berita 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <a href="link/to/full-article1" class="btn btn-primary">Baca Selengkapnya</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="news-card">
-                    <img src="assets/img/flyer.jpg" alt="Berita 2" class="img-fluid">
-                    <h5 class="news-title mt-2">Judul Berita 2</h5>
-                    <p class="news-summary">Ringkasan berita 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="link/to/full-article2" class="btn btn-primary">Baca Selengkapnya</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="news-card">
-                    <img src="assets/img/c5.jpg" alt="Berita 3" class="img-fluid">
-                    <h5 class="news-title mt-2">Judul Berita 3</h5>
-                    <p class="news-summary">Ringkasan berita 3. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                    <a href="link/to/full-article3" class="btn btn-primary">Baca Selengkapnya</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
+        <!-- end portfolio -->
 
   <!-- clients -->
-  <div class="clients mt-5">
-    <div class="container">
-      <div class="title-container">
-        <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
+      <div class="clients mt-5">
+  <div class="container">
+    <div class="title-container">
+      <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
+    </div>
+    <div class="slider mt-5">
+      @foreach($clients as $client)
+      <div class="text-center">
+        <img src="image/{{$client->image}}" class="img-fluid brand-image" alt="" />
       </div>
-      <div class="row mt-5">
-        @foreach($clients as $client)
-        <div class="col-md-3 pt-5 text-center" data-aos="zoom-in">
-          <img src="image/{{$client->image}}" class="img-fluid brand-image" alt="" />
-        </div>
-        @endforeach
-      </div>
+      @endforeach
     </div>
   </div>
+</div>
 
   <style>
     .clients {
@@ -603,246 +447,173 @@
       color: white;
       /* Mengubah warna teks menjadi putih agar kontras dengan background */
     }
+
+    /* Atur ukuran logo agar lebih kecil */
+.brand-image {
+    max-width: 100px; /* Atur ukuran maksimal untuk logo, bisa disesuaikan */
+    height: auto;     /* Membiarkan height auto agar proporsional */
+    margin: auto;     /* Agar gambar tetap berada di tengah */
+    display: block;   /* Pastikan gambar menjadi elemen block agar mudah diatur */
+}
+
+/* Tambahkan padding jika ingin memberikan ruang lebih di sekeliling logo */
+.col-md-3 {
+    padding-top: 50px;
+}
+
+/* Jika diperlukan, atur ukuran grid agar responsif */
+@media (max-width: 768px) {
+    .col-md-3 {
+        width: 50%;  /* Mengatur agar gambar lebih besar di layar kecil */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        width: 100%; /* Gambar full width di layar sangat kecil */
+    }
+}
+
+.slider .text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;           /* Menyembunyikan overflow agar tidak ada yang terpotong */
+}
+
+.slider .brand-image {
+  max-width: 100%;            /* Maksimal lebar gambar 100% */
+  max-height: 100px;          /* Atur tinggi maksimal gambar agar seragam */
+  object-fit: contain;        /* Menjaga proporsi asli gambar tanpa terpotong */
+}
+
+
   </style>
   <!-- end clients -->
 
   <body>
     <div class="whatsapp-container">
-      <button id="whatsapp-button">
+      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </button>
-      <div class="popup" id="whatsapp-popup">
-        <!-- <p>Hello! How can I help you today?</p> -->
-        <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" class="chat-button">Chat Now</a>
-      </div>
+      </a>
     </div>
 
     <script src="script.js"></script>
   </body>
 
   <style>
-    /* styles.css */
-    .whatsapp-container {
-      position: fixed;
-      top: 50%;
-      /* Memposisikan di tengah secara vertikal */
-      right: 20px;
-      /* Jarak dari kanan layar */
-      transform: translateY(-50%);
-      /* Menyesuaikan agar benar-benar di tengah */
-      z-index: 1000;
-      /* Memastikan tombol berada di atas elemen lain */
-      cursor: grab;
-      /* Mengubah kursor saat tombol dapat dipindahkan */
-    }
+   .whatsapp-container {
+  position: fixed; /* Menggunakan fixed agar selalu terlihat */
+  bottom: 20px; /* Jarak dari bagian bawah */
+  left: 20px; /* Jarak dari bagian kanan */
+  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
+}
 
-    #whatsapp-button {
-      background: #25d366;
-      border: none;
-      border-radius: 50%;
-      /* Membuat tombol berbentuk lingkaran */
-      padding: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      /* Transisi untuk efek */
-    }
+#whatsapp-button {
+  border: none;
+  background: transparent; /* Tanpa latar belakang */
+  cursor: pointer; /* Menunjukkan tombol dapat diklik */
+}
 
-    #whatsapp-button:hover {
-      transform: scale(1.1);
-      /* Membesarkan tombol saat hover */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      /* Efek bayangan saat hover */
-    }
+.whatsapp-icon {
+  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
+  height: auto; /* Menjaga aspek rasio */
+}
 
-    #whatsapp-button:active {
-      transform: scale(0.95);
-      /* Mengecilkan tombol saat di-click */
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-      /* Efek bayangan saat di-click */
-    }
-
-    .whatsapp-icon {
-      width: 70%;
-      height: 70%;
-    }
-
-    .popup {
-      position: absolute;
-      bottom: 70px;
-      /* Agar muncul di atas tombol WhatsApp */
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: none;
-      width: 200px;
-    }
-
-    .popup p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .chat-button {
-      display: inline-block;
-      margin-top: 10px;
-      background: #25d366;
-      color: white;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      text-align: center;
-    }
-
-    /* Media queries untuk membuat tombol lebih kecil di layar yang lebih kecil */
-    @media (max-width: 768px) {
-      #whatsapp-button {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #whatsapp-button {
-        width: 40px;
-        height: 40px;
-      }
-
-      .popup {
-        width: 150px;
-        bottom: 50px;
-        /* Sesuaikan jarak pop-up */
-      }
-    }
-  </style>
+</style>
 
   <!-- footer -->
-  <footer class="mt-5">
-    <div class="footer-top bg-dark text-white p-5 ">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-3">
-            <h4 class="fw-bold">{{$contact->name}}</h2>
-              <p>
-                {{$contact->description}}
-              </p>
-              <strong>Phone</strong> : <span>{{$contact->telepon}} </span>
-              <br />
-              <strong>Email</strong> : <span>{{$contact->email}} </span>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Our Services</h2>
-              <ul class="list-group list-unstyled">
-                @foreach($services as $service)
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    {{$service->title}}
-                  </a>
-                </li>
-                @endforeach
-              </ul>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Useful Links</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="/" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="about" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="services" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Services
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="portfolio" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Portfolio
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="contact" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Contact
-                  </a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-md-3">
-            <h4 class="fw-bold">Join Our Newsletter</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="yourmail@example.com" />
-                <button class="btn btn-subscribe" type="button" id="inputGroupFileAddon04">
-                  Subscribe
-                </button>
-                <style>
-                  .btn-subscribe {
-                    color: white;
-                    /* Set text color to white */
-                  }
-                </style>
-              </div>
+<footer class="mt-5">
+  <div class="footer-top bg-dark text-white p-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 ">
+          <h4 class="fw-bold">{{ $contact->name }}</h4>
+          <p>{{ $contact->description }}</p>
+          <p><strong>Phone:</strong> {{ $contact->telepon }}</p>
+          <p><strong>Email:</strong> {{ $contact->email }}</p>
+        </div>
+        
+        <div class="col-md-2 mt-5">
+          <h4 class="fw-bold">Layanan Kami</h4>
+          <ul class="list-group list-unstyled">
+            @foreach($services as $service)
+            <li class="list-item">
+              <a href="#" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> {{ $service->title }}
+              </a>
+            </li>
+            @endforeach
+          </ul>
+        </div>
+
+        <div class="col-md-2 mt-5">
+          <h4 class="fw-bold">Tautan</h4>
+          <ul class="list-group list-unstyled">
+            <li class="list-item">
+              <a href="/" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Beranda
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/about" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Tentang Kami
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/portfolio" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Galeri
+              </a>
+            </li>
+            <li class="list-item">
+              <a href="/contact" class="text-decoration-none text-white">
+                <i class="fa fa-chevron-right primary"></i> Hubungi Kami
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <p>Logo perusahaan.</p>
+          <div class="logo-section">
+            <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-down bg-darker text-white px-5 py-3">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-5">
-            <div class="copyright">
-              &copy; Copyright <strong>orzkiah</strong>. All Right Reserved
-            </div>
-            <div class="credits">
-              Design by me
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="social-links float-end">
-              <a href="" class="mx-2">
-                <i class="fab fa-instagram fa-2x"></i>
-              </a>
-              <!-- <a href="" class="mx-2">
-                                <i class="fab fa-youtube fa-2x"></i>
-                            </a> -->
-              </a>
-            </div>
-          </div>
+  </div>
+
+  <div class="footer-down bg-darker text-white px-5 py-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <div>&copy; 2024 <strong>orzkiah</strong>. All Rights Reserved.</div>
+          <div>Design by me</div>
+        </div>
+        <div class="col-md-5 text-end">
+          <a href="#" class="text-white mx-2">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
         </div>
       </div>
     </div>
-  </footer>
-  <!-- end footer  -->
+  </div>
+</footer>
 
-  <!-- to top -->
-  <a href="#" class="btn-to-top p-3">
-    <i class="fa fa-chevron-up"></i>
-  </a>
-  <!-- end to top -->
+<style>
+  /* Style tambahan untuk logo */
+  .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+</style>
 
+
+  
   <script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/fontawesome/js/all.min.js"></script>
@@ -850,6 +621,25 @@
   <script src="assets/vendor/aos/dist/aos.js"></script>
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const collapsibles = document.querySelectorAll('.collapse');
+
+    collapsibles.forEach(collapse => {
+      collapse.addEventListener('show.bs.collapse', function() {
+        collapsibles.forEach(otherCollapse => {
+          if (otherCollapse !== collapse) {
+            new bootstrap.Collapse(otherCollapse, {
+              toggle: false
+            }).hide();
+          }
+        });
+      });
+    });
+  });
+</script>
+    
   <script>
     function calculateLoan() {
       const loanAmount = parseFloat(document.getElementById("loanAmount").value);
@@ -878,65 +668,79 @@
     }
   </script>
 
-  <script>
-    // script.js
-    const whatsappButton = document.getElementById('whatsapp-button');
-    const whatsappPopup = document.getElementById('whatsapp-popup');
-    const whatsappContainer = document.getElementById('whatsapp-container');
+<script>
+  // script.js
+const whatsappButton = document.getElementById('whatsapp-button');
 
-    let isDragging = false;
-    let offsetX, offsetY;
+let isDragging = false;
+let offsetX, offsetY;
 
-    whatsappButton.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = e.clientX - whatsappContainer.getBoundingClientRect().left;
-      offsetY = e.clientY - whatsappContainer.getBoundingClientRect().top;
-      whatsappContainer.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+whatsappButton.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
+  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
+  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    whatsappButton.style.left = e.clientX - offsetX + 'px';
+    whatsappButton.style.top = e.clientY - offsetY + 'px';
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
+});
+</script>
+
+  <!-- to top -->
+  <a href="#" class="btn-to-top p-3 scrollup" id="scroll-up">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+  <!-- end to top -->
+<script>
+  const scrollUp = () => {
+    const scrollUp = document.getElementById("scroll-up");
+    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+    this.scrollY >= 350
+        ? scrollUp.classList.add("show-scroll")
+        : scrollUp.classList.remove("show-scroll");
+};
+window.addEventListener("scroll", scrollUp);
+</script>
+<!-- jQuery (dibutuhkan untuk slick carousel) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- JavaScript slick carousel -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.slider').slick({
+      slidesToShow: 4,              // Jumlah logo per slide
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      dots: false,
+      infinite: true,
+      cssEase: 'linear',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
     });
-
-    document.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        whatsappContainer.style.left = e.clientX - offsetX + 'px';
-        whatsappContainer.style.top = e.clientY - offsetY + 'px';
-        whatsappContainer.style.transform = 'none'; // Menonaktifkan transform agar tidak mempengaruhi posisi
-      }
-    });
-
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      whatsappContainer.style.cursor = 'grab'; // Kembali ke kursor normal
-    });
-
-    // Menampilkan dan menyembunyikan pop-up saat tombol diklik
-    whatsappButton.addEventListener('click', () => {
-      whatsappPopup.style.display = whatsappPopup.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Menyembunyikan pop-up jika pengguna mengklik di luar elemen
-    document.addEventListener('click', (event) => {
-      if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
-        whatsappPopup.style.display = 'none';
-      }
-    });
-  </script>
-  <!-- nav auto -->
-  <!-- <script>
-    let lastScrollTop = 0;
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down - hide navbar
-        navbar.style.top = '-80px'; // Sesuaikan dengan tinggi navbar
-      } else {
-        // Scrolling up - show navbar
-        navbar.style.top = '0';
-      }
-      lastScrollTop = scrollTop;
-    });
-  </script> -->
+  });
+</script>
 </body>
-
 </html>

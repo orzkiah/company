@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use function compact;
+use function view;
 
 class PortfolioController extends Controller
 {
@@ -74,7 +76,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        return view('portfolio.edit', compact('portfolio'));
+        return \view('portfolio.edit', compact('portfolio'));
     }
 
     /**

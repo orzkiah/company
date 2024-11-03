@@ -52,7 +52,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     // routes/web.php
     Route::post('/send-message', [ContactController::class, 'sendMessage'])->name('send.message');
     Route::resource('admin/testimonial', TestimonialController::class);
-});
+  });
 Route::get('berita', function () {
     return view('berita');
 })->name('berita');

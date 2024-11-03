@@ -12,12 +12,12 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $clients = Client::all();
+    // public function index()
+    // {
+    //     $clients = Client::all();
 
-        return view('client.index', compact('clients'));
-    }
+    //     return view('client.index', compact('clients'));
+    // }
 
     /**
      * Show the form for creating a new resource.
