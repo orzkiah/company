@@ -504,7 +504,7 @@
   <style>
    .whatsapp-container {
   position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 20px; /* Jarak dari bagian bawah */
+  bottom: 200px; /* Jarak dari bagian bawah */
   left: 20px; /* Jarak dari bagian kanan */
   z-index: 1000; /* Agar tombol muncul di atas elemen lain */
 }
@@ -531,7 +531,7 @@
         <div class="col-md-3 ">
           <h4 class="fw-bold">{{ $contact->name }}</h4>
           <p>{{ $contact->description }}</p>
-          <p><strong>Phone:</strong> {{ $contact->telepon }}</p>
+          <p><strong>Telp :</strong> {{ $contact->telepon }}</p>
           <p><strong>Email:</strong> {{ $contact->email }}</p>
         </div>
         
@@ -575,10 +575,16 @@
         </div>
 
         <div class="col-md-3">
-          <p>Logo perusahaan.</p>
-          <div class="logo-section">
-            <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
+          <!-- <p>Logo perusahaan.</p> -->
+          <div class="col-md-4 d-flex flex-column align-items-center">
+          <div class="logo-top mb-3">
+            <img src="assets/img/logoG2.png" alt="Logo G2" class="img-fluid logo-bordered" style="max-width: 328%;">
           </div>
+          <div class="logo-bottom d-flex justify-content-between w-100">
+            <img src="assets/img/laps-logo.png" alt="Logo LAPS" class="img-fluid logo-bordered" style="max-width: 148%;">
+            <img src="assets/img/logo-appi.png" alt="Logo APPI" class="img-fluid logo-bordered" style="max-width: 148%;">
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -600,20 +606,37 @@
       </div>
     </div>
   </div>
-</footer>
+  <style>
+  /* Background foto pada footer */
+  .footer-top {
+    background-image: url('assets/img/194.jpg'); /* Ganti dengan path gambar yang Anda inginkan */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+  }
 
-<style>
-  /* Style tambahan untuk logo */
-  .logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
+  /* Overlay agar teks lebih jelas */
+  .footer-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Lapisan gelap transparan */
+    z-index: 1;
+  }
+
+  /* Untuk memastikan konten berada di atas overlay */
+  .footer-top .container-fluid {
+    position: relative;
+    z-index: 2;
   }
 </style>
+</footer>
 
 
-  
   <script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/fontawesome/js/all.min.js"></script>

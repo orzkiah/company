@@ -457,7 +457,7 @@ tr:hover {
   <style>
    .whatsapp-container {
   position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 20px; /* Jarak dari bagian bawah */
+  bottom: 200px; /* Jarak dari bagian bawah */
   left: 20px; /* Jarak dari bagian kanan */
   z-index: 1000; /* Agar tombol muncul di atas elemen lain */
 }
@@ -483,7 +483,7 @@ tr:hover {
         <div class="col-md-3">
           <h4 class="fw-bold">{{$contact->name}}</h4>
           <p>{{$contact->description}}</p>
-          <p><strong>Phone:</strong> {{$contact->telepon}}</p>
+          <p><strong>Telp :</strong> {{$contact->telepon}}</p>
           <p><strong>Email:</strong> {{$contact->email}}</p>
         </div>
         <div class="col-md-2">
@@ -511,11 +511,6 @@ tr:hover {
                 <i class="fa fa-chevron-right primary"></i> Tentang Kami
               </a>
             </li>
-            <!-- <li class="list-item">
-              <a href="/services" class="text-decoration-none text-white">
-                <i class="fa fa-chevron-right primary"></i> Layanan
-              </a>
-            </li> -->
             <li class="list-item">
               <a href="/portfolio" class="text-decoration-none text-white">
                 <i class="fa fa-chevron-right primary"></i> Galeri
@@ -528,24 +523,16 @@ tr:hover {
             </li>
           </ul>
         </div>
-        <div class="col-md-3">
-  <!-- <h4 class="fw-bold">Tentang Kami</h4> -->
-  <p>Logo perusahaan.</p>
-  <div class="logo-section">
-    <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
-  </div>
-</div>
-
-<style>
-  /* Style tambahan untuk logo */
-  .logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-</style>
-     </div>
+        <div class="col-md-3 d-flex flex-column align-items-center">
+          <div class="logo-top mb-3">
+            <img src="assets/img/logoG2.png" alt="Logo G2" class="img-fluid logo-bordered" style="max-width: 100%;">
+          </div>
+          <div class="logo-bottom d-flex justify-content-between w-100">
+            <img src="assets/img/laps-logo.png" alt="Logo LAPS" class="img-fluid logo-bordered" style="max-width: 48%;">
+            <img src="assets/img/logo-appi.png" alt="Logo APPI" class="img-fluid logo-bordered" style="max-width: 48%;">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer-down bg-darker text-white px-5 py-3">
@@ -564,10 +551,37 @@ tr:hover {
           <!-- <a href="#" class="text-white mx-2">
             <i class="fab fa-youtube fa-2x"></i>
           </a> -->
-        </div>
       </div>
     </div>
   </div>
+<style>
+  /* Background foto pada footer */
+  .footer-top {
+    background-image: url('assets/img/194.jpg'); /* Ganti dengan path gambar yang Anda inginkan */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+  }
+
+  /* Overlay agar teks lebih jelas */
+  .footer-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Lapisan gelap transparan */
+    z-index: 1;
+  }
+
+  /* Untuk memastikan konten berada di atas overlay */
+  .footer-top .container-fluid {
+    position: relative;
+    z-index: 2;
+  }
+</style>
 </footer>
   <!-- end footer  -->
 

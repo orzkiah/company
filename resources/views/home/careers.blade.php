@@ -178,7 +178,7 @@
         </div>
         <div class="col-md-3">
   <!-- <h4 class="fw-bold">Tentang Kami</h4> -->
-  <p>Logo perusahaan.</p>
+  <!-- <p>Logo perusahaan.</p> -->
   <div class="logo-section">
     <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 80%;">
   </div>

@@ -219,224 +219,224 @@
                                         attribution: '© OpenStreetMap contributors'
                                     }).addTo(map);
 
-                                    // Data alamat kantor cabang (latitude, longitude, dan nama)
+                                    // Data alamat Kantor KSKC (latitude, longitude, dan nama)
                                     var cabang = [{
                                             lat: -6.22537058243089,
                                             lon: 106.80509516765372,
-                                            name: "Kantor Cabang Jakarta"
+                                            name: "Kantor KSKC Jakarta"
                                         },
                                         {
                                             lat: -7.4615315,
                                             lon: 112.7143673,
-                                            name: "Kantor Cabang Surabaya"
+                                            name: "Kantor KSKC Surabaya"
                                         },
                                         {
                                             lat: -6.9413703,
                                             lon: 107.6563096,
-                                            name: "Kantor Cabang Bandung"
+                                            name: "Kantor KSKC Bandung"
                                         },
                                         {
                                             lat: -5.1601724,
                                             lon: 119.4464177,
-                                            name: "Kantor Cabang Makassar"
+                                            name: "Kantor KSKC Makassar"
                                         },
                                         {
                                             lat: -6.2473894,
                                             lon: 106.9688129,
-                                            name: "Kantor Cabang Bekasi"
+                                            name: "Kantor KSKC Bekasi"
                                         },
                                         {
                                             lat: -6.5997054,
                                             lon: 106.8176691,
-                                            name: "Kantor Cabang Bogor"
+                                            name: "Kantor KSKC Bogor"
                                         },
                                         {
                                             lat: -6.2956631,
                                             lon: 107.150167,
-                                            name: "Kantor Cabang Cikarang"
+                                            name: "Kantor KSKC Cikarang"
                                         },
                                         {
                                             lat: -6.711259,
                                             lon: 108.5453417,
-                                            name: "Kantor Cabang Cirebom"
+                                            name: "Kantor KSKC Cirebom"
                                         },
                                         {
                                             lat: -6.403747,
                                             lon: 106.8361516,
-                                            name: "Kantor Cabang Depok"
+                                            name: "Kantor KSKC Depok"
                                         },
                                         {
                                             lat: -6.2439008,
                                             lon: 106.5218335,
-                                            name: "Kantor Cabang Cikupa"
+                                            name: "Kantor KSKC Cikupa"
                                         },
                                         {
                                             lat: -6.1997662,
                                             lon: 106.6180957,
-                                            name: "Kantor Cabang Tangerang"
+                                            name: "Kantor KSKC Tangerang"
                                         },
                                         {
                                             lat: -6.9884874,
                                             lon: 110.4289889,
-                                            name: "Kantor Cabang Serang"
+                                            name: "Kantor KSKC Serang"
                                         },
                                         {
                                             lat: -7.4161099,
                                             lon: 109.2348229,
-                                            name: "Kantor Cabang Purwokerto"
+                                            name: "Kantor KSKC Purwokerto"
                                         },
                                         {
                                             lat: -7.559166,
                                             lon: 110.7982125,
-                                            name: "Kantor Cabang Solo"
+                                            name: "Kantor KSKC Solo"
                                         },
                                         {
                                             lat: -6.8803901,
                                             lon: 109.1336577,
-                                            name: "Kantor Cabang Tegal"
+                                            name: "Kantor KSKC Tegal"
                                         },
                                         {
                                             lat: -8.2281349,
                                             lon: 114.3583992,
-                                            name: "Kantor Cabang Banyuwangi"
+                                            name: "Kantor KSKC Banyuwangi"
                                         },
                                         {
                                             lat: -8.174053,
                                             lon: 113.6354294,
-                                            name: "Kantor Cabang Jember"
+                                            name: "Kantor KSKC Jember"
                                         },
                                         {
                                             lat: -7.8133869,
                                             lon: 112.0052636,
-                                            name: "Kantor Cabang Kediri"
+                                            name: "Kantor KSKC Kediri"
                                         },
                                         {
                                             lat: -7.6218657,
                                             lon: 111.5313652,
-                                            name: "Kantor Cabang Malang"
+                                            name: "Kantor KSKC Malang"
                                         },
                                         {
                                             lat: -7.9648235,
                                             lon: 112.6316488,
-                                            name: "Kantor Cabang Madiun"
+                                            name: "Kantor KSKC Madiun"
                                         },
                                         {
                                             lat: -7.514872,
                                             lon: 112.4306125,
-                                            name: "Kantor Cabang Mojokerto"
+                                            name: "Kantor KSKC Mojokerto"
                                         },
                                         {
                                             lat: -7.4611454,
                                             lon: 112.7134872,
-                                            name: "Kantor Cabang Sidoarjo"
+                                            name: "Kantor KSKC Sidoarjo"
                                         },
                                         {
                                             lat: -7.2838352,
                                             lon: 112.7777819,
-                                            name: "Kantor Cabang Surabaya "
+                                            name: "Kantor KSKC Surabaya "
                                         },
                                         {
                                             lat: -7.2838352,
                                             lon: 112.7777819,
-                                            name: "Kantor Cabang Surabaya "
+                                            name: "Kantor KSKC Surabaya "
                                         },
                                         {
                                             lat: -7.7990271,
                                             lon: 110.3705421,
-                                            name: "Kantor Cabang Yogyakarta "
+                                            name: "Kantor KSKC Yogyakarta "
                                         },
                                         {
                                             lat: -8.6760831,
                                             lon: 115.2154412,
-                                            name: "Kantor Cabang Bali "
+                                            name: "Kantor KSKC Bali "
                                         },
                                         {
                                             lat: -8.5946504,
                                             lon: 116.1376801,
-                                            name: "Kantor Cabang Nusa Tenggara Barat "
+                                            name: "Kantor KSKC Nusa Tenggara Barat "
                                         },
                                         {
                                             lat: -1.6248007,
                                             lon: 103.5944267,
-                                            name: "Kantor Cabang Jambi "
+                                            name: "Kantor KSKC Jambi "
                                         },
                                         {
                                             lat: -4.1164921,
                                             lon: 104.1772898,
-                                            name: "Kantor Cabang Baturaja "
+                                            name: "Kantor KSKC Baturaja "
                                         },
                                         {
                                             lat: -0.9342018,
                                             lon: 100.3631127,
-                                            name: "Kantor Cabang Padang "
+                                            name: "Kantor KSKC Padang "
                                         },
                                         {
                                             lat: -3.8253459,
                                             lon: 102.241064,
-                                            name: "Kantor Cabang Bengkulu "
+                                            name: "Kantor KSKC Bengkulu "
                                         },
                                         {
                                             lat: -2.1925779,
                                             lon: 106.1019844,
-                                            name: "Kantor Cabang Pangkal Pinang "
+                                            name: "Kantor KSKC Pangkal Pinang "
                                         },
                                         {
                                             lat: 0.4790406,
                                             lon: 101.3918459,
-                                            name: "Kantor Cabang Pekan Baru "
+                                            name: "Kantor KSKC Pekan Baru "
                                         },
                                         {
                                             lat: -5.3889962,
                                             lon: 105.2371069,
-                                            name: "Kantor Cabang Bandar Lampung "
+                                            name: "Kantor KSKC Bandar Lampung "
                                         },
                                         {
                                             lat: -4.0177466,
                                             lon: 119.6216909,
-                                            name: "Kantor Cabang Pare - Pare "
+                                            name: "Kantor KSKC Pare - Pare "
                                         },
                                         {
                                             lat: -3.0172416,
                                             lon: 120.2054064,
-                                            name: "Kantor Cabang Palopo "
+                                            name: "Kantor KSKC Palopo "
                                         },
                                         {
                                             lat: 1.4909234,
                                             lon: 124.8602914,
-                                            name: "Kantor Cabang Manado "
+                                            name: "Kantor KSKC Manado "
                                         },
                                         {
                                             lat: -0.935529,
                                             lon: 119.8966807,
-                                            name: "Kantor Cabang Palu "
+                                            name: "Kantor KSKC Palu "
                                         },
                                         {
                                             lat: -0.0616129,
                                             lon: 109.2703619,
-                                            name: "Kantor Cabang Pontianak "
+                                            name: "Kantor KSKC Pontianak "
                                         },
                                         {
                                             lat: -2.2136349439404963,
                                             lon: 113.90589926494951,
-                                            name: "Kantor Cabang Palangkaraya "
+                                            name: "Kantor KSKC Palangkaraya "
                                         },
                                         {
                                             lat: -1.2591706,
                                             lon: 116.8576581,
-                                            name: "Kantor Cabang Balikpapan "
+                                            name: "Kantor KSKC Balikpapan "
                                         },
                                         {
                                             lat: -1.2591706,
                                             lon: 116.8576581,
-                                            name: "Kantor Cabang Balikpapan "
+                                            name: "Kantor KSKC Balikpapan "
                                         },
                                         {
                                             lat: -0.4662538,
                                             lon: 117.1717114,
-                                            name: "Kantor Cabang Samarinda "
+                                            name: "Kantor KSKC Samarinda "
                                         },
                                     ];
-                                    // Tambahkan marker untuk setiap kantor cabang
+                                    // Tambahkan marker untuk setiap Kantor KSKC
                                     cabang.forEach(function(location) {
                                         L.marker([location.lat, location.lon])
                                             .addTo(map)
@@ -486,7 +486,7 @@
                                 </div>
 
 
-                                <!-- Tambahan Halaman untuk Kantor Cabang -->
+                                <!-- Tambahan Halaman untuk Kantor KSKC -->
                                 <div class="row mt-5">
                                     <div class="col-md-12">
                                         <div class="container mt-2">
@@ -495,7 +495,7 @@
                                             </center>
 
 
-                                            <div class="row">
+                                        <div class="row">
                                                 <!-- Jawa Barat -->
                                                 <div class="col-md-8 col-lg-4 mb-4">
                                                     <i class="fa fa-map-marker-alt fa-2x primary float-start me-4"></i>
@@ -902,37 +902,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="card border-0 shadow">  
-                        <div class="card-body px-4">
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Your Email">
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control"
-                                        placeholder="Your Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <button type="submit" class="btn btn-submit">Send Message</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             </div>
         </div>
     </div>
@@ -951,9 +920,9 @@
 
 
   <style>
-   .whatsapp-container {
+.whatsapp-container {
   position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 20px; /* Jarak dari bagian bawah */
+  bottom: 200px; /* Jarak dari bagian bawah */
   left: 20px; /* Jarak dari bagian kanan */
   z-index: 1000; /* Agar tombol muncul di atas elemen lain */
 }
@@ -971,6 +940,7 @@
 
   </style>
 
+  <!-- footer -->
 <footer class="mt-5">
   <div class="footer-top bg-dark text-white p-5">
     <div class="container-fluid">
@@ -979,7 +949,7 @@
         <div class="col-md-3">
           <h4 class="fw-bold">{{$contact->name}}</h4>
           <p>{{$contact->description}}</p>
-          <p><strong>Phone:</strong> {{$contact->telepon}}</p>
+          <p><strong>Telp :</strong> {{$contact->telepon}}</p>
           <p><strong>Email:</strong> {{$contact->email}}</p>
         </div>
         <div class="col-md-2">
@@ -1007,11 +977,6 @@
                 <i class="fa fa-chevron-right primary"></i> Tentang Kami
               </a>
             </li>
-            <!-- <li class="list-item">
-              <a href="/services" class="text-decoration-none text-white">
-                <i class="fa fa-chevron-right primary"></i> Layanan
-              </a>
-            </li> -->
             <li class="list-item">
               <a href="/portfolio" class="text-decoration-none text-white">
                 <i class="fa fa-chevron-right primary"></i> Galeri
@@ -1024,23 +989,16 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-3">
-  <!-- <h4 class="fw-bold">Tentang Kami</h4> -->
-  <div class="logo-section">
-    <img src="assets/img/logoG2.png" alt="Logo Perusahaan" class="img-fluid" style="max-width: 100%;">
-  </div>
-</div>
-
-<style>
-  /* Style tambahan untuk logo */
-  .logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-</style>
-     </div>
+        <div class="col-md-3 d-flex flex-column align-items-center">
+          <div class="logo-top mb-3">
+            <img src="assets/img/logoG2.png" alt="Logo G2" class="img-fluid logo-bordered" style="max-width: 100%;">
+          </div>
+          <div class="logo-bottom d-flex justify-content-between w-100">
+            <img src="assets/img/laps-logo.png" alt="Logo LAPS" class="img-fluid logo-bordered" style="max-width: 48%;">
+            <img src="assets/img/logo-appi.png" alt="Logo APPI" class="img-fluid logo-bordered" style="max-width: 48%;">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer-down bg-darker text-white px-5 py-3">
@@ -1059,13 +1017,39 @@
           <!-- <a href="#" class="text-white mx-2">
             <i class="fab fa-youtube fa-2x"></i>
           </a> -->
-        </div>
       </div>
     </div>
   </div>
+<style>
+  /* Background foto pada footer */
+  .footer-top {
+    background-image: url('assets/img/194.jpg'); /* Ganti dengan path gambar yang Anda inginkan */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+  }
+
+  /* Overlay agar teks lebih jelas */
+  .footer-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Lapisan gelap transparan */
+    z-index: 1;
+  }
+
+  /* Untuk memastikan konten berada di atas overlay */
+  .footer-top .container-fluid {
+    position: relative;
+    z-index: 2;
+  }
+</style>
 </footer>
-    <!-- footer -->
-    <!-- end footer  -->
+  <!-- end footer  -->
 
     <!-- to top -->
     <a href="#" class="btn-to-top p-3">
@@ -1109,5 +1093,4 @@ document.addEventListener('mouseup', () => {
 
 </body>
 </head>
-
 </html>
