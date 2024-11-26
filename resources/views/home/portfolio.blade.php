@@ -15,15 +15,19 @@
   <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Company</title>
+         <!-- right menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
+  <title>PT. Gratama Finance Indonesia</title>
 </head>
 
 <!-- navbar -->
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+ <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand">
+    <a href="login" class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -43,12 +47,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
-            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+            <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+          <a class="nav-link fw-bolder @if(Request::is('galeri')) active @endif" href="galeri">Galeri</a>
+        </li>
+         <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
@@ -63,120 +70,13 @@
   </div>
 </nav>
 
-<style>
-  .navbar {
-    border-radius: 0 0 100px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-    z-index: 1000;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-item {
-    margin: 0 10px;
-  }
-
-  .nav-link {
-    padding: 10px 15px;
-  }
-
-  .nav-link.active {
-    color: #ff4081;
-    border-bottom: 2px solid #ff4081;
-  }
-
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    padding: 5px 0;
-  }
-
-  .marquee {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-    font-weight: bold;
-    font-size: 14px;
-    color: #C62E2E;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .navbar .dropdown-menu {
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar .dropdown-item:hover {
-    background-color: #f0f0f0;
-  }
-
-  .navbar-brand img,
-  .logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .custom-navbar {
-    background-color: #ffffff;
-    opacity: 1;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Pastikan navbar selalu di atas */
-}
-
-
-  /* Responsiveness */
-  @media (max-width: 991px) {
-    .navbar-nav {
-      flex-direction: column;
-      text-align: center;
-    }
-    .nav-item {
-      margin: 5px 0;
-    }
-    .marquee-container {
-      display: none;
-    }
-  }
-
-  /* Tambahkan di dalam tag <style> atau file CSS Anda */
-@media (max-width: 768px) {
-  .marquee-container {
-    display: none;
-  }
-}
-</style>
-
-  <!-- end navbar -->
-  <!-- breadcumbs  -->
-  <!-- <div class="breadcumbs py-2">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center text-white"> -->
-  <!-- <h2>Portfolio</h2>
-                <ol class="d-flex list-unstyled">
-                    <li>Home</li>
-                    <li>Portfolio</li> -->
-  <!-- </ol>
-  </div>
-  </div>
-  </div> -->
-  <!-- end breadcumbs -->
-
   <!-- teams -->
   <div class="teams bg-light py-8">
     <div class="container">
       <div class="title-container">
-        <h2 class="text-center fw-bold">Galeri KSKC</h2>
+      </div>
+      <div class="title-container text-center">
+        <h2 class="fw-bold">Galeri KSKC</h2>
       </div>
       <div class="row mt-4">
         <div class="col-md-12 d-flex justify-content-center">
@@ -191,25 +91,24 @@
         incidunt assumenda pariatur, quisquam evaniet numquam.</p>
       <div class="row mt-5">
         <div class="col-md-12">
-          <div class="mansory portfolio-container">
-            <div class="mansory-sizer"></div>
-            @foreach ($portfolio as $item)
-            <div class="mansory-item m-2 portfolio-item filter-web">
-              <img src="image/{{$item->image}}" alt="" class="img-fluid" />
+            <div class="mansory portfolio-container">
+                <div class="mansory-sizer"></div>
+                @foreach ($portfolio as $item)
+                <div class="mansory-item m-2 portfolio-item filter-web">
+                    <img src="image/{{$item->image}}" alt="" class="img-fluid" oncontextmenu="return false;">
+                </div>
+                @endforeach
             </div>
-            @endforeach
-          </div>
         </div>
-      </div>
+    </div>
     </div>
   </div>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 20px;
+
+    .img-fluid {
+        pointer-events: none; /* Mencegah drag-and-drop gambar */
+        user-select: none;    /* Mencegah pemilihan gambar */
     }
 
     .video-gallery {
@@ -219,7 +118,7 @@
       margin: auto;
     }
 
-    .gallery-title {
+    /* .gallery-title {
       text-align: center;
       font-size: 28px;
       color: #333;
@@ -232,7 +131,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
       padding: 0 15px;
-    }
+    } */
 
     .video-item {
       position: relative;
@@ -259,10 +158,18 @@
 
     @media (max-width: 768px) {
       .gallery-container {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
       }
     }
   </style>
+
+  <script>
+        // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+  </script>
 
   <div class="video-gallery">
     <h2 class="gallery-title">VIDEO GALLERY</h2>
@@ -324,17 +231,9 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div>  
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-    }
-
     .teams {
       background-color: #f8f9fa;
       padding: 40px 0;
@@ -472,40 +371,18 @@
     }
   </style>
 
-  <body>
-    <div class="whatsapp-container">
-      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+<div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
+    <!-- Tombol Toggle (bulat) -->
+    <button id="toggleMenu" class="toggle-menu">❯❯</button>
+
+    <!-- Item Menu -->
+    <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button" class="bootsidemenu-item">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
-
-  <style>
-.whatsapp-container {
-  position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 200px; /* Jarak dari bagian bawah */
-  left: 20px; /* Jarak dari bagian kanan */
-  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
-}
-
-#whatsapp-button {
-  border: none;
-  background: transparent; /* Tanpa latar belakang */
-  cursor: pointer; /* Menunjukkan tombol dapat diklik */
-}
-
-.whatsapp-icon {
-  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
-  height: auto; /* Menjaga aspek rasio */
-}
-
-  </style>
-
-
-  <!-- end teams -->
+    </a>
+    <!-- <a href="#" class="bootsidemenu-item">
+        <i class="fab fa-instagram fa-2x"></i>
+    </a> -->
+</div>
 
   <!-- footer -->
 <footer class="mt-5">
@@ -587,6 +464,7 @@
       </div>
     </div>
   </div>
+</div>
 <style>
   /* Background foto pada footer */
   .footer-top {
@@ -631,32 +509,54 @@
   <script src="assets/vendor/aos/dist/aos.js"></script>
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.js"></script>
   <script>
-  // script.js
-const whatsappButton = document.getElementById('whatsapp-button');
+    $(document).ready(function() {
+        // Menu awalnya tertutup
+        let isMenuOpen = false;
 
-let isDragging = false;
-let offsetX, offsetY;
+        // Toggle menu ketika tombol di-klik
+        $('#toggleMenu').click(function() {
+            if (isMenuOpen) {
+                // Tutup menu
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            } else {
+                // Buka menu
+                $('#sideMenu').addClass('menu-open');
+                isMenuOpen = true;
+            }
+        });
 
-whatsappButton.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
-  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
-  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-});
+        // Menutup menu jika klik di luar menu
+        $(document).click(function(event) {
+            // Jika menu terbuka dan klik di luar menu atau tombol
+            if (isMenuOpen && !$(event.target).closest('#sideMenu, #toggleMenu').length) {
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            }
+        });
+    });
+</script>
 
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    whatsappButton.style.left = e.clientX - offsetX + 'px';
-    whatsappButton.style.top = e.clientY - offsetY + 'px';
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
+<script>
+  $(document).ready(function() {
+    // Saat mengarahkan kursor ke menu dropdown
+    $('.nav-item.dropdown').hover(
+        function() {
+            // Slide down pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+        },
+        function() {
+            // Slide up pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+        }
+    );
 });
 </script>
+
+
 
 </body>
 

@@ -18,10 +18,10 @@ use App\Http\Controllers\CareerController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/portfolio', [HomeController::class, 'portfolio']);
-Route::get('/services', [HomeController::class, 'services']);
-Route::get('/team', [HomeController::class, 'team']);
-Route::get('/testimonials', [HomeController::class, 'testimonials']);
+Route::get('/galeri', [HomeController::class, 'portfolio']);
+Route::get('/karir', [HomeController::class, 'services']);
+Route::get('/kelola', [HomeController::class, 'team']);
+Route::get('/publikasi', [HomeController::class, 'testimonials']);
 
 // Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -53,6 +53,11 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::post('/send-message', [ContactController::class, 'sendMessage'])->name('send.message');
     Route::resource('admin/testimonial', TestimonialController::class);
   });
-Route::get('berita', function () {
-    return view('berita');
-})->name('berita');
+    Route::get('berita', function () {
+        return view('berita');
+    })->name('berita');
+
+    Route::get('/laporan', function () {
+    return view('laporan');
+    })->name(name: 'laporan');
+

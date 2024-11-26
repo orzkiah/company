@@ -16,15 +16,20 @@
   <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css" />
+        <!-- right menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
 
-  <title>Company</title>
+
+  <title>PT. Gratama Finance Indonesia</title>
 
   <!-- navbar -->
 
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand">
+    <a href="login" class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -43,16 +48,20 @@
             Tentang Kami
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="about">Pengelola</a></li>
-            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+            <li><a class="dropdown-item" href="{{ url('/about') }}">Pengelola</a></li>
+            <li><a class="dropdown-item" href="{{ url('/kelola') }}">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="{{ url('/publikasi') }}">Publikasi</a></li>
+            <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="{{ url('/galeri') }}">Galeri</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="{{ url('/karir') }}">Karir</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="{{ url('/contact') }}">Hubungi Kami</a>
         </li>
       </ul>
     </div>
@@ -64,99 +73,6 @@
   </div>
 </nav>
 
-<style>
-  .navbar {
-    border-radius: 0 0 100px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-    z-index: 1000;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-item {
-    margin: 0 10px;
-  }
-
-  .nav-link {
-    padding: 10px 15px;
-  }
-
-  .nav-link.active {
-    color: #ff4081;
-    border-bottom: 2px solid #ff4081;
-  }
-
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    padding: 5px 0;
-  }
-
-  .marquee {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-    font-weight: bold;
-    font-size: 14px;
-    color: #C62E2E;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .navbar .dropdown-menu {
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar .dropdown-item:hover {
-    background-color: #f0f0f0;
-  }
-
-  .navbar-brand img,
-  .logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .custom-navbar {
-    background-color: #ffffff;
-    opacity: 1;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Pastikan navbar selalu di atas */
-}
-
-
-  /* Responsiveness */
-  @media (max-width: 991px) {
-    .navbar-nav {
-      flex-direction: column;
-      text-align: center;
-    }
-    .nav-item {
-      margin: 5px 0;
-    }
-    .marquee-container {
-      display: none;
-    }
-  }
-
-  /* Tambahkan di dalam tag <style> atau file CSS Anda */
-@media (max-width: 768px) {
-  .marquee-container {
-    display: none;
-  }
-}
-</style>
 
   <script>
     function setActive(element) {
@@ -176,7 +92,7 @@
   <header class="header">
     <div class="video-background">
       <video autoplay loop muted>
-        <source src="assets/img/bg-judul.mp4" type="video/mp4">
+        <source src="assets/img/header.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -188,7 +104,6 @@
 
   <!-- About Us Section -->
   <section id="about" class="about-section">
-    <div class="container">
       <h1 class="section-title">Nilai Nilai Dasar</h1>
       <div class="about-content">
     <p>Perseroan menyadari pentingnya penerapan tata kelola perusahaan guna menumbuhkan kepercayaan dari kreditur, nasabah, mitra bisnis, kreditur, pemegang saham dan para pemangku kepentingan (stakeholders) lainnya. Pelaksanaan tata kelola perusahaan di perseroan di dasarkan pada prinsip-prinsip keadilan, keterbukaan, akuntabilitas, dan tanggung jawab. Dalam sepuluh tahun terakhir, konsep Good Corporate Governance (GCG) atau Tata Kelola Perusahaan telah di tempatkan pada posisi yang strategis di berbagai perusahaan, serta memberikan manfaat jangka panjang, sekaligus memenangkan persaingan bisnis. Kegagalan dalam penerapan GCG dapat menjadi penyebab utama kegagalan perusahaan untuk bertahan dalam persaingan bisnis.</p>
@@ -220,6 +135,7 @@
     </ul>
     <hr>
 </div>
+  
 
 <style>
     /* Styling About Content */
@@ -256,28 +172,26 @@
   
 
 <!-- Container Utama untuk Tiga Logo dan Judulnya -->
-<div class="centered-logos-container">
-    <!-- Logo dan Judul 1 -->
+<!-- <div class="centered-logos-container">
     <div class="logo-icon-container" onclick="openPdfModal(1)">
         <img src="assets/img/inves.png" alt="PDF Reports" class="logo-icon">
         <h4 class="logo-title">HUBUNGAN INVESTOR</h4>
     </div>
 
-    <!-- Logo dan Judul 2 -->
     <div class="logo-icon-container" onclick="openPdfModal(2)">
         <img src="assets/img/keuangan.png" alt="PDF Reports" class="logo-icon">
         <h4 class="logo-title">LAPORAN KEUANGAN</h4>
-    </div>
+    </div> -->
 
     <!-- Logo dan Judul 3 -->
-    <div class="logo-icon-container" onclick="openPdfModal(3)">
+    <!-- <div class="logo-icon-container" onclick="openPdfModal(3)">
         <img src="assets/img/ojk.png" alt="PDF Reports" class="logo-icon">
         <h4 class="logo-title">LAPORAN OJK</h4>
-    </div>
+    </div> -->
 </div>
 
 <!-- Modal Konten Laporan PDF -->
-<div id="pdfModal1" class="modal">
+<!-- <div id="pdfModal1" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal(1)">&times;</span>
         <div class="pdf-button-container">
@@ -297,9 +211,9 @@
             <a href="https://gratama-finance.co.id/pdf/RAKB%202022.pdf" class="pdf-download-btn">Download Laporan 2022</a>
         </div>
     </div>
-</div>
+</div> -->
 
-<div id="pdfModal3" class="modal">
+<!-- <div id="pdfModal3" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal(3)">&times;</span>
         <div class="pdf-button-container">
@@ -307,7 +221,8 @@
             <a href="https://gratama-finance.co.id/pdf/RAKB%202023%20Pembiayaan%20Kendaraan%20Bertenaga%20Listrik.pdf" class="pdf-download-btn">Download Laporan 2023</a>
         </div>
     </div>
-</div>
+</div> -->
+</section>
 
 <!-- Style -->
 <style>
@@ -455,39 +370,19 @@
 }
 </style>
 
-</section>
 
-<body>
-    <div class="whatsapp-container">
-      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+  <div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
+    <!-- Tombol Toggle (bulat) -->
+    <button id="toggleMenu" class="toggle-menu">❯❯</button>
+
+    <!-- Item Menu -->
+    <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button" class="bootsidemenu-item">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
-
-  <style>
-   .whatsapp-container {
-  position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 200px; /* Jarak dari bagian bawah */
-  left: 20px; /* Jarak dari bagian kanan */
-  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
-}
-
-#whatsapp-button {
-  border: none;
-  background: transparent; /* Tanpa latar belakang */
-  cursor: pointer; /* Menunjukkan tombol dapat diklik */
-}
-
-.whatsapp-icon {
-  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
-  height: auto; /* Menjaga aspek rasio */
-}
-
-  </style>
+    </a>
+    <!-- <a href="https://www.instagram.com/lokerjakarta.info/p/CHZNsVZldNy/</a>" class="bootsidemenu-item">
+        <i class="fab fa-instagram fa-2x"></i>
+    </a> -->
+</div>
 
   <!-- footer -->
 <footer class="mt-5">
@@ -569,6 +464,8 @@
       </div>
     </div>
   </div>
+</footer>
+
 <style>
   /* Background foto pada footer */
   .footer-top {
@@ -597,7 +494,7 @@
     z-index: 2;
   }
 </style>
-</footer>
+
 
   <style>
     .header {
@@ -752,31 +649,36 @@
   <script src="assets/vendor/aos/dist/aos.js"></script>
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>
-  // script.js
-const whatsappButton = document.getElementById('whatsapp-button');
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.js"></script>
 
-let isDragging = false;
-let offsetX, offsetY;
+<script>
+    $(document).ready(function() {
+        // Menu awalnya tertutup
+        let isMenuOpen = false;
 
-whatsappButton.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
-  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
-  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-});
+        // Toggle menu ketika tombol di-klik
+        $('#toggleMenu').click(function() {
+            if (isMenuOpen) {
+                // Tutup menu
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            } else {
+                // Buka menu
+                $('#sideMenu').addClass('menu-open');
+                isMenuOpen = true;
+            }
+        });
 
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    whatsappButton.style.left = e.clientX - offsetX + 'px';
-    whatsappButton.style.top = e.clientY - offsetY + 'px';
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
-});
+        // Menutup menu jika klik di luar menu
+        $(document).click(function(event) {
+            // Jika menu terbuka dan klik di luar menu atau tombol
+            if (isMenuOpen && !$(event.target).closest('#sideMenu, #toggleMenu').length) {
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            }
+        });
+    });
 </script>
 
 <!-- JavaScript untuk Menampilkan dan Menyembunyikan Modal -->
@@ -799,6 +701,23 @@ document.addEventListener('mouseup', () => {
         }
     }
 </script>
-</body>
 
+<script>
+  $(document).ready(function() {
+    // Saat mengarahkan kursor ke menu dropdown
+    $('.nav-item.dropdown').hover(
+        function() {
+            // Slide down pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+        },
+        function() {
+            // Slide up pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+        }
+    );
+});
+
+</script>
+
+</body>
 </html>

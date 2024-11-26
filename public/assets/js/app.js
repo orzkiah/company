@@ -19,7 +19,6 @@ $(window).on("load", function () {
   })
 
   AOS.init();
-
   const portfolioIsotope = $(".portfolio-container").isotope({
     itemSelector: ".portfolio-item",
   });
@@ -36,5 +35,13 @@ $(window).on("load", function () {
 
     AOS.init();
   });
+
+          // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+ 
   
 });

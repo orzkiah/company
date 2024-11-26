@@ -15,21 +15,24 @@
   <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>PT. Gratama</title>
+  <title>PT. Gratama Finance Indonesia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!-- Tambahkan CSS dan JS slick carousel -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+       <!-- right menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!-- navbar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+ <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand">
+    <a href="login" class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -49,12 +52,16 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
-            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+            <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
+            <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
+        </li>
+         <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
@@ -71,7 +78,7 @@
 
 <style>
   .navbar {
-    border-radius: 0 0 100px 0;
+    border-radius: 0 0 20px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
     z-index: 1000;
   }
@@ -117,6 +124,7 @@
   .navbar .dropdown-menu {
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Sembunyikan menu dropdown secara default */
   }
 
   .navbar .dropdown-item:hover {
@@ -161,7 +169,6 @@
     display: none;
   }
 }
-
 </style>
 
 
@@ -213,9 +220,9 @@
         <div class="row mt-4">
             <div class="col-md-6" data-aos="fade-right">
                 <center>
-                    <h1 class="fw-bold about-us-title">
+                    <h5 class="fw-bold about-us-title">
                         {{$about->judul}}
-                    </h1>
+                    </h5>
                 </center>
                 <center>
                     <p class="fw-bolder mt-4 about-us-subtitle">
@@ -244,16 +251,14 @@
                         <i class="fa fa-check-double primary"></i>
                         {{$about->kelebihan_4}}
                     </li>
-                </ul>
-                <p class="mt-2">
-                    {{$about->deskripsi_2}}
-                </p>
+                    </ul>
+                        <p class="mt-2">
+                        {{$about->deskripsi_2}}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
   <style>
     .about-background {
       background-image: url('assets/img/bg-port.jpg');
@@ -287,7 +292,6 @@
       font-style: normal;
       font-size: 25px;
     }
-
     .list-group-item {
       color: black;
       /* Mengatur warna item dalam list */
@@ -297,8 +301,7 @@
       background: linear-gradient(45deg, #f8f9fa, #e9ecef);
       /* Efek gradasi untuk tampilan lebih estetik */
     }
-
-    /* Marquee Styling */
+      /* Marquee Styling */
     .marquee {
       background-color: rgba(255, 255, 255, 0.1);
       /* Warna latar belakang marquee agar lebih terlihat */
@@ -310,47 +313,44 @@
   </style>
   <!-- end about us -->
 
-  <!-- services -->
-  <div class="services mt-5 bg-light py-5">
-  <div class="container">
-    <div class="title-container text-center">
-      <h2 class="fw-bold">PRODUK DAN LAYANAN</h2>
-    </div>
-    <div class="row mt-8" id="accordionServices">
-      @foreach($services as $service)
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4 mt-3" data-aos="zoom-in" 
-             data-bs-toggle="collapse" 
-             data-bs-target="#collapse{{ $service->id }}" 
-             role="button" 
-             aria-expanded="false" 
-             aria-controls="collapse{{ $service->id }}">
-          <div class="card-body">
-            <div class="card-icon">
-              <img src="image/{{$service->image}}" alt="" class="img-fluid" width="80">
-            </div>
-            <div class="card-title fw-bolder mt-4">
-              <span class="text-decoration-none text-dark">
-                {{$service->title}}
-              </span>
-            </div>
-            <!-- Konten yang akan di-collapse -->
-            <div class="collapse mt-3" id="collapse{{ $service->id }}">
-              <ul class="card-description" style="text-align: left;">
-                @foreach(explode("\n", $service->description) as $item)
-                  <li>{{ trim($item) }}</li>
-                @endforeach
-              </ul>
+    <!-- services -->
+        <div class="services mt-5 bg-light py-5">
+          <div class="container">
+            <div class="title-container text-center">
+              <h2 class="fw-bold">PRODUK DAN LAYANAN</h2>
+              </div>
+                  <div class="row mt-8" id="accordionServices">
+                    @foreach($services as $service)
+                    <div class="col-md-4">
+                    <div class="card border-0 text-center p-4 mt-3" data-aos="zoom-in" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapse{{ $service->id }}" 
+                    role="button" 
+                    aria-expanded="false" 
+                    aria-controls="collapse{{ $service->id }}">
+                    <div class="card-body">
+                    <div class="card-icon">
+                    <img src="image/{{$service->image}}" alt="" class="img-fluid" width="80">
+                    </div>
+                    <div class="card-title fw-bolder mt-4">
+                    <span class="text-decoration-none text-dark">
+                    {{$service->title}}
+                    </span>
+                    </div>
+                    <!-- Konten yang akan di-collapse -->
+                    <div class="collapse mt-3" id="collapse{{ $service->id }}">
+                    <ul class="card-description" style="text-align: left;">
+                    @foreach(explode("\n", $service->description) as $item)
+                    <li>{{ trim($item) }}</li>
+                    @endforeach
+                    </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endforeach
             </div>
           </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</div>
-
-
 
       <!-- PRODUK DAN LAYANAN -->
       <style>
@@ -362,7 +362,6 @@
         transform: scale(1.03);
         transition: transform 0.2s ease-in-out;
         }
-
 
         #card:hover {
           transform: scale(1.04);
@@ -409,28 +408,24 @@
         }
       </style>
     </div>
-  </div>
+  
   <!-- end services -->
 
-        <!-- portfolio -->
-
-        <!-- end portfolio -->
-
-  <!-- clients -->
-      <div class="clients mt-5">
-  <div class="container">
-    <div class="title-container">
-      <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
-    </div>
-    <div class="slider mt-5">
-      @foreach($clients as $client)
-      <div class="text-center">
-        <img src="image/{{$client->image}}" class="img-fluid brand-image" alt="" />
+      <!-- clients -->
+    <div class="clients mt-5">
+      <div class="container">
+        <div class="title-container">
+          <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
+            </div>
+            <div class="slider mt-5">
+              @foreach($clients as $client)
+              <div class="text-center">
+            <img src="image/{{$client->image}}" class="img-fluid brand-image" alt="" />
+          </div>
+          @endforeach
+        </div>
       </div>
-      @endforeach
     </div>
-  </div>
-</div>
 
   <style>
     .clients {
@@ -449,12 +444,12 @@
     }
 
     /* Atur ukuran logo agar lebih kecil */
-.brand-image {
-    max-width: 100px; /* Atur ukuran maksimal untuk logo, bisa disesuaikan */
-    height: auto;     /* Membiarkan height auto agar proporsional */
-    margin: auto;     /* Agar gambar tetap berada di tengah */
-    display: block;   /* Pastikan gambar menjadi elemen block agar mudah diatur */
-}
+    .brand-image {
+      max-width: 100px; /* Atur ukuran maksimal untuk logo, bisa disesuaikan */
+      height: auto;     /* Membiarkan height auto agar proporsional */
+      margin: auto;     /* Agar gambar tetap berada di tengah */
+      display: block;   /* Pastikan gambar menjadi elemen block agar mudah diatur */
+    }
 
 /* Tambahkan padding jika ingin memberikan ruang lebih di sekeliling logo */
 .col-md-3 {
@@ -486,41 +481,21 @@
   max-height: 100px;          /* Atur tinggi maksimal gambar agar seragam */
   object-fit: contain;        /* Menjaga proporsi asli gambar tanpa terpotong */
 }
-
-
   </style>
   <!-- end clients -->
+   
+<div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
+    <!-- Tombol Toggle (bulat) -->
+    <button id="toggleMenu" class="toggle-menu">❯❯</button>
 
-  <body>
-    <div class="whatsapp-container">
-      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+    <!-- Item Menu -->
+    <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button" class="bootsidemenu-item">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
-  <style>
-   .whatsapp-container {
-  position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 200px; /* Jarak dari bagian bawah */
-  left: 20px; /* Jarak dari bagian kanan */
-  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
-}
-
-#whatsapp-button {
-  border: none;
-  background: transparent; /* Tanpa latar belakang */
-  cursor: pointer; /* Menunjukkan tombol dapat diklik */
-}
-
-.whatsapp-icon {
-  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
-  height: auto; /* Menjaga aspek rasio */
-}
-
-</style>
+    </a>
+    <!-- <a href="#" class="bootsidemenu-item">
+        <i class="fab fa-instagram fa-2x"></i>
+    </a> -->
+</div>
 
   <!-- footer -->
 <footer class="mt-5">
@@ -574,15 +549,13 @@
           </ul>
         </div>
 
-        <div class="col-md-3">
-          <!-- <p>Logo perusahaan.</p> -->
-          <div class="col-md-4 d-flex flex-column align-items-center">
+        <div class="col-md-3 d-flex flex-column align-items-center">
           <div class="logo-top mb-3">
-            <img src="assets/img/logoG2.png" alt="Logo G2" class="img-fluid logo-bordered" style="max-width: 328%;">
+            <img src="assets/img/logoG2.png" alt="Logo G2" class="img-fluid logo-bordered" style="max-width: 100%;">
           </div>
           <div class="logo-bottom d-flex justify-content-between w-100">
-            <img src="assets/img/laps-logo.png" alt="Logo LAPS" class="img-fluid logo-bordered" style="max-width: 148%;">
-            <img src="assets/img/logo-appi.png" alt="Logo APPI" class="img-fluid logo-bordered" style="max-width: 148%;">
+            <img src="assets/img/laps-logo.png" alt="Logo LAPS" class="img-fluid logo-bordered" style="max-width: 48%;">
+            <img src="assets/img/logo-appi.png" alt="Logo APPI" class="img-fluid logo-bordered" style="max-width: 48%;">
           </div>
         </div>
         </div>
@@ -636,7 +609,6 @@
 </style>
 </footer>
 
-
   <script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/fontawesome/js/all.min.js"></script>
@@ -645,10 +617,11 @@
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.js"></script>
   <script>
   document.addEventListener("DOMContentLoaded", function() {
     const collapsibles = document.querySelectorAll('.collapse');
-
     collapsibles.forEach(collapse => {
       collapse.addEventListener('show.bs.collapse', function() {
         collapsibles.forEach(otherCollapse => {
@@ -662,67 +635,22 @@
     });
   });
 </script>
-    
-  <script>
-    function calculateLoan() {
-      const loanAmount = parseFloat(document.getElementById("loanAmount").value);
-      const interestRate = parseFloat(document.getElementById("interestRate").value);
-      const loanTerm = parseFloat(document.getElementById("loanTerm").value);
-
-      if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
-        document.getElementById("result").innerText = "Mohon masukkan semua nilai.";
-        return;
-      }
-
-      const monthlyInterestRate = (interestRate / 100) / 12;
-      const numberOfPayments = loanTerm;
-      const monthlyPayment = loanAmount * monthlyInterestRate / (1 - (Math.pow(1 + monthlyInterestRate, -numberOfPayments)));
-
-      if (isNaN(monthlyPayment)) {
-        document.getElementById("result").innerText = "Perhitungan tidak valid.";
-      } else {
-        // Format hasil perhitungan dengan titik sebagai pemisah ribuan
-        const formattedPayment = monthlyPayment.toLocaleString('id-ID', {
-          style: 'currency',
-          currency: 'IDR'
-        });
-        document.getElementById("result").innerText = `Cicilan Bulanan: ${formattedPayment}`;
-      }
-    }
-  </script>
 
 <script>
-  // script.js
-const whatsappButton = document.getElementById('whatsapp-button');
-
-let isDragging = false;
-let offsetX, offsetY;
-
-whatsappButton.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
-  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
-  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-});
-
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    whatsappButton.style.left = e.clientX - offsetX + 'px';
-    whatsappButton.style.top = e.clientY - offsetY + 'px';
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
-});
-</script>
-
+        // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
+    
   <!-- to top -->
-  <a href="#" class="btn-to-top p-3 scrollup" id="scroll-up">
+  <!-- <a href="#" class="btn-to-top p-3 scrollup" id="scroll-up">
     <i class="fa fa-chevron-up"></i>
-  </a>
+  </a> -->
   <!-- end to top -->
+
 <script>
   const scrollUp = () => {
     const scrollUp = document.getElementById("scroll-up");
@@ -764,6 +692,51 @@ window.addEventListener("scroll", scrollUp);
       ]
     });
   });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Menu awalnya tertutup
+        let isMenuOpen = false;
+
+        // Toggle menu ketika tombol di-klik
+        $('#toggleMenu').click(function() {
+            if (isMenuOpen) {
+                // Tutup menu
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            } else {
+                // Buka menu
+                $('#sideMenu').addClass('menu-open');
+                isMenuOpen = true;
+            }
+        });
+
+        // Menutup menu jika klik di luar menu
+        $(document).click(function(event) {
+            // Jika menu terbuka dan klik di luar menu atau tombol
+            if (isMenuOpen && !$(event.target).closest('#sideMenu, #toggleMenu').length) {
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            }
+        });
+    });
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Saat mengarahkan kursor ke menu dropdown
+    $('.nav-item.dropdown').hover(
+        function() {
+            // Slide down pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+        },
+        function() {
+            // Slide up pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+        }
+    );
+});
 </script>
 </body>
 </html>

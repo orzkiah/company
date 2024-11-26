@@ -26,49 +26,47 @@
   <!-- navbar -->
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
-    <div class="container d-flex align-items-center">
-      <a class="navbar-brand">
-        <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
-          </li>
-          <li class="nav-item dropdown mx-3">
-            <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Tentang Kami
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="about">Pengelola</a></li>
-              <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-              <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
-            </ul>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="services">Layanan</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
-          </li>
-        </ul>
-      </div>
-      <div class="marquee-container ms-auto">
-        <div class="marquee">
-          <span>Gratama telah berizin dan diawasi oleh OJK.</span>
-        </div>
+ <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <div class="container d-flex align-items-center">
+    <a href="login" class="navbar-brand">
+      <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
+        </li>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Tentang Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="about">Pengelola</a></li>
+            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+        </li>
+      </ul>
+    </div>
+    <div class="marquee-container ms-auto d-none d-lg-block">
+      <div class="marquee">
+        <span>Gratama telah berizin dan diawasi oleh OJK.</span>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <footer class="mt-5">
     <div class="footer-top bg-dark text-white p-5 ">

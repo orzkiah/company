@@ -12,6 +12,7 @@ use App\Models\Portfolio;
 use App\Models\Client;
 use App\Models\Team;
 
+
 class HomeController extends Controller
 {
     public function index()
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $portfolios = Portfolio::all();
         $clients = Client::all();
         $contact = Contact::first();
+        
 
         return view('home.index', compact(
             'sliders',
@@ -30,6 +32,7 @@ class HomeController extends Controller
             'portfolios',
             'clients',
             'contact',
+            
         ));
     }
 

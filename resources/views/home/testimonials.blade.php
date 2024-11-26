@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
+        <!-- right menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -93,108 +97,78 @@
       }
     }
 
-    /* General styling */
-    body {
-      font-family: Arial, sans-serif;
-    }
+  /* General styling */
+  body {
+    font-family: Oppin'Times New Roman', Times, serif, sans-serif;
+  }
 
-    /* Title Section */
-    .title-container {
-      margin-bottom: 40px;
-    }
+  /* Title Section */
+  .title-container {
+    margin-bottom: 40px;
+  }
 
-    .title-container h2 {
-      font-size: 2.5rem;
-      /* Adjust size as needed */
-      font-weight: bold;
-      color: #333;
-      /* Color of the title */
-    }
+  .title-container h2 {
+    font-size: 2.5rem;
+    /* Adjust size as needed */
+    font-weight: bold;
+    color: #333;
+    /* Color of the title */
+  }
 
-    /* Job Card Styling */
-    .job-card {
-      border: 1px solid #ddd;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      height: 100%;
-      /* Ensure all job cards have equal height */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      /* Space out the content evenly */
-    }
+  /* Job Card Styling */
+.job-card {
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .job-title {
-      font-size: 1.5rem;
-      margin: 0;
-    }
+.job-title {
+  font-size: 1.3rem;
+  margin: 0;
+}
 
-    .job-location,
-    .job-type {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
+.job-location,
+.job-type {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
 
-    .job-description {
-      margin: 1rem;
-    }
+.job-description {
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+}
 
-    .btn-apply {
-      background-color: #007bff;
-      border-color: #007bff;
-      color: #fff;
-      text-align: center;
-      margin-top: auto;
-      /* Push the button to the bottom */
-    }
+.btn-apply {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  text-align: center;
+  margin-top: auto;
+  padding: 0.6rem 1rem;
+}
 
-    /* Careers Section Styling */
-    .careers {
-      padding-top: 80px;
-    }
+.careers {
+  padding-top: 60px;
+}
 
-    .job-card {
-      border: 1px solid #ddd;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .job-title {
-      font-size: 1.5rem;
-      margin: 0;
-    }
-
-    .job-location,
-    .job-type {
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .job-description {
-      margin: 1rem 0;
-    }
-
-    .btn-apply {
-      background-color: #007bff;
-      border-color: #007bff;
-      color: #fff;
-    }
   </style>
-  <title>News Page</title>
+  <title>PT. Gratama Finance Indonesia</title>
 </head>
 
 <body>
   <!-- Navbar -->
+<body>
  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand">
+    <a href="login" class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -214,12 +188,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
-            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+            <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
+        </li>
+         <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
@@ -233,100 +210,6 @@
     </div>
   </div>
 </nav>
-
-<style>
-  .navbar {
-    border-radius: 0 0 100px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-    z-index: 1000;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-item {
-    margin: 0 10px;
-  }
-
-  .nav-link {
-    padding: 10px 15px;
-  }
-
-  .nav-link.active {
-    color: #ff4081;
-    border-bottom: 2px solid #ff4081;
-  }
-
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    padding: 5px 0;
-  }
-
-  .marquee {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-    font-weight: bold;
-    font-size: 14px;
-    color: #C62E2E;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .navbar .dropdown-menu {
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar .dropdown-item:hover {
-    background-color: #f0f0f0;
-  }
-
-  .navbar-brand img,
-  .logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .custom-navbar {
-    background-color: #ffffff;
-    opacity: 1;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Pastikan navbar selalu di atas */
-}
-
-
-  /* Responsiveness */
-  @media (max-width: 991px) {
-    .navbar-nav {
-      flex-direction: column;
-      text-align: center;
-    }
-    .nav-item {
-      margin: 5px 0;
-    }
-    .marquee-container {
-      display: none;
-    }
-  }
-
-  /* Tambahkan di dalam tag <style> atau file CSS Anda */
-@media (max-width: 768px) {
-  .marquee-container {
-    display: none;
-  }
-}
-</style>
 
   <!-- End Navbar -->
 
@@ -461,94 +344,18 @@
     }
   </style>
 
-  <!-- Careers Section -->
-  <section class="careers py-2 mt-5">
-    <div class="container">
-      <div class="title-container text-center">
-        <h2 class="fw-bold">Karir</h2>
-      </div>
-      <!-- <p class="text-center mb-4">
-        Explore exciting career opportunities with us. Join our team and make a difference!
-      </p> -->
-      <div class="row">
-        <!-- Job Item 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="job-card">
-            <h3 class="job-title">Dealer Financing Supervisor</h3>
-            <p class="job-location">Kantor Pusat (SCBD - Jakarta Selatan)</p>
-            <p class="job-type">Full-Time</p>
-            <hr>
-            <p class="job-description">Pria Max. 35 Tahun.</p>
-            <p>Pendidikan Minimal S1 Akuntansi</p>
-            <p>Memiliki penglaman kerja dijabatan Supervisor minimal 1 tahun</p>
-            <p>Lebih disukai apabila memiliki pengalaman di leasing</p>
-            <p>Menguasai MS. Exel, Memahami prinsip Akuntansi (PSAK) dan regulasi dibidang keuangan</p>
-            <p>Berpenampilan rapih, disiplin, dan bertanggung jawab</p>
-            <hr>
-            <center>
-              <p>hrdcv@gratama-finance.co.id</p>
-            </center>
-            <a href="https://mail.google.com/" class="btn btn-apply">Apply Now</a>
+  <div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
+    <!-- Tombol Toggle (bulat) -->
+    <button id="toggleMenu" class="toggle-menu">❯❯</button>
 
-          </div>
-        </div>
-
-        <!-- Job Item 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="job-card">
-            <h3 class="job-title">Staff Accounting</h3>
-            <p class="job-location">Kantor Pusat (SCBD - Jakarta Selatan)</p>
-            <p class="job-type">Part-Time</p>
-            <hr>
-            <p class="job-description">Pendidikan Minimal D3 Akuntansi.</p>
-            <p>Fresh graduate/pengalaman 1 thn</p>
-            <p>Single, Penampilan rapih, Usia max 25 thn</p>
-            <p>Mahir mengoperasikan komputer (Microsoft Office)</p>
-            <p>Teliti, Jujur & Bertanggung jawab</p>
-            <hr>
-            <center>
-              <p>hrdcv@gratama-finance.co.id</p>
-            </center>
-            <a href="https://mail.google.com//" class="btn btn-apply">Apply Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- wa -->
- <body>
-    <div class="whatsapp-container">
-      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+    <!-- Item Menu -->
+    <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button" class="bootsidemenu-item">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
-
-  <style>
-   .whatsapp-container {
-  position: fixed; /* Menggunakan fixed agar selalu terlihat */
-  bottom: 200px; /* Jarak dari bagian bawah */
-  left: 20px; /* Jarak dari bagian kanan */
-  z-index: 1000; /* Agar tombol muncul di atas elemen lain */
-}
-
-#whatsapp-button {
-  border: none;
-  background: transparent; /* Tanpa latar belakang */
-  cursor: pointer; /* Menunjukkan tombol dapat diklik */
-}
-
-.whatsapp-icon {
-  width: 60px; /* Atur ukuran ikon sesuai kebutuhan */
-  height: auto; /* Menjaga aspek rasio */
-}
-
-  </style>
-  <!-- end wa -->
+    </a>
+    <!-- <a href="#" class="bootsidemenu-item">
+        <i class="fab fa-instagram fa-2x"></i>
+    </a> -->
+  </div>
 
   <!-- Job Item 3
         <div class="col-md-4 mb-4">
@@ -691,33 +498,62 @@
   <script src="assets/vendor/aos/dist/aos.js"></script>
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>
-  // script.js
-const whatsappButton = document.getElementById('whatsapp-button');
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.js"></script>
 
-let isDragging = false;
-let offsetX, offsetY;
+<script>
+    $(document).ready(function() {
+        // Menu awalnya tertutup
+        let isMenuOpen = false;
 
-whatsappButton.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
-  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
-  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-});
+        // Toggle menu ketika tombol di-klik
+        $('#toggleMenu').click(function() {
+            if (isMenuOpen) {
+                // Tutup menu
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            } else {
+                // Buka menu
+                $('#sideMenu').addClass('menu-open');
+                isMenuOpen = true;
+            }
+        });
 
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    whatsappButton.style.left = e.clientX - offsetX + 'px';
-    whatsappButton.style.top = e.clientY - offsetY + 'px';
-  }
-});
+        // Menutup menu jika klik di luar menu
+        $(document).click(function(event) {
+            // Jika menu terbuka dan klik di luar menu atau tombol
+            if (isMenuOpen && !$(event.target).closest('#sideMenu, #toggleMenu').length) {
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            }
+        });
+    });
+</script>
 
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
+<script>
+  $(document).ready(function() {
+    // Saat mengarahkan kursor ke menu dropdown
+    $('.nav-item.dropdown').hover(
+        function() {
+            // Slide down pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+        },
+        function() {
+            // Slide up pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+        }
+    );
 });
 </script>
 
-</body>
+<script>
+  $(document).ready(function() {
+    $('.navbar-toggler').on('click', function() {
+        $(this).toggleClass('collapsed');
+    });
+});
 
+</script>
+
+</body>
 </html>

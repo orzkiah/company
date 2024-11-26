@@ -16,15 +16,17 @@
   <!-- custom css -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
 
 
   <title>PT. Gratama</title>
 
 <body>
   <!-- navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand">
+    <a href="login" class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -44,12 +46,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
-            <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-            <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+            <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="portfolio">Galeri</a>
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
+        </li>
+         <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
@@ -442,17 +447,18 @@ tr:hover {
     </style>
   <!-- end clients -->
   <!-- WA -->
+<div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
+    <!-- Tombol Toggle (bulat) -->
+    <button id="toggleMenu" class="toggle-menu">❯❯</button>
 
-  <body>
-    <div class="whatsapp-container">
-      <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button">
+    <!-- Item Menu -->
+    <a href="https://api.whatsapp.com/send/?phone=6287736879970&text=Hallo++Gratama+Finance+Indonesia&type=phone_number&app_absent=0" target="_blank" id="whatsapp-button" class="bootsidemenu-item">
         <img src="assets/img/wa.png" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
+    </a>
+    <!-- <a href="#" class="bootsidemenu-item">
+        <i class="fab fa-instagram fa-2x"></i>
+    </a> -->
+</div>
 
   <style>
    .whatsapp-container {
@@ -599,31 +605,33 @@ tr:hover {
   <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="assets/js/app.js"></script>
   
-  <script>
-  // script.js
-const whatsappButton = document.getElementById('whatsapp-button');
+<script>
+    $(document).ready(function() {
+        // Menu awalnya tertutup
+        let isMenuOpen = false;
 
-let isDragging = false;
-let offsetX, offsetY;
+        // Toggle menu ketika tombol di-klik
+        $('#toggleMenu').click(function() {
+            if (isMenuOpen) {
+                // Tutup menu
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            } else {
+                // Buka menu
+                $('#sideMenu').addClass('menu-open');
+                isMenuOpen = true;
+            }
+        });
 
-whatsappButton.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - whatsappButton.getBoundingClientRect().left;
-  offsetY = e.clientY - whatsappButton.getBoundingClientRect().top;
-  whatsappButton.style.cursor = 'grabbing'; // Ubah kursor saat dragging
-});
-
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    whatsappButton.style.left = e.clientX - offsetX + 'px';
-    whatsappButton.style.top = e.clientY - offsetY + 'px';
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  whatsappButton.style.cursor = 'grab'; // Kembali ke kursor normal
-});
+        // Menutup menu jika klik di luar menu
+        $(document).click(function(event) {
+            // Jika menu terbuka dan klik di luar menu atau tombol
+            if (isMenuOpen && !$(event.target).closest('#sideMenu, #toggleMenu').length) {
+                $('#sideMenu').removeClass('menu-open');
+                isMenuOpen = false;
+            }
+        });
+    });
 </script>
 
 <script>
@@ -636,6 +644,23 @@ document.addEventListener('mouseup', () => {
     });
 });
 </script>
+
+<script>
+  $(document).ready(function() {
+    // Saat mengarahkan kursor ke menu dropdown
+    $('.nav-item.dropdown').hover(
+        function() {
+            // Slide down pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+        },
+        function() {
+            // Slide up pada dropdown-menu
+            $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+        }
+    );
+});
+
+</script> 
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> -->
 </body>
