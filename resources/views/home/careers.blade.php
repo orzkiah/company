@@ -50,7 +50,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="about">Pengelola</a></li>
               <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-              <li><a class="dropdown-item" href="testimonials">Publikasi/Karir</a></li>
+              <li><a class="dropdown-item" href="testimonials">Publikasi</a></li>
+              <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
             </ul>
           </li>
           <!-- <li class="nav-item mx-3">

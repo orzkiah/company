@@ -74,7 +74,7 @@
             <h2 class="fw-bold">LAPORAN</h2>
         </div>
 <div id="content-container" class="container">
-  <div class="centered-logos-container">
+<div class="centered-logos-container">
 <div class="centered-logos-container">
     <!-- Logo dan Judul 1 -->
     <div class="logo-icon-container" onclick="openPdfModal(1)">
@@ -129,7 +129,6 @@
         </div>
     </div>
 </div> -->
-</section>
 
 <!-- Style -->
 <style>
@@ -224,15 +223,13 @@
 
 /* Tombol unduh PDF */
 .pdf-download-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #A91D3A;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #A91D3A;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .pdf-download-btn:hover {
@@ -319,10 +316,10 @@
     <!-- <div class="footer-bottom">
         <p>© 2024 <strong>orzkiah</strong>. All Rights Reserved. Design by me</p>
     </div> -->
-    <style>
-      body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+<style>
+  body {
+margin: 0;
+font-family: Arial, sans-serif;
 }
 
 .footer {

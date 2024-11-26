@@ -190,6 +190,7 @@
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
             <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
             <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
+            <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
@@ -552,8 +553,16 @@
         $(this).toggleClass('collapsed');
     });
 });
-
 </script>
+
+<script>
+        // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>

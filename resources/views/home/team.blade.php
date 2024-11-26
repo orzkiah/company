@@ -181,14 +181,13 @@
     <div class="logo-icon-container" onclick="openPdfModal(2)">
         <img src="assets/img/keuangan.png" alt="PDF Reports" class="logo-icon">
         <h4 class="logo-title">LAPORAN KEUANGAN</h4>
-    </div> -->
+    </div>
 
-    <!-- Logo dan Judul 3 -->
-    <!-- <div class="logo-icon-container" onclick="openPdfModal(3)">
+    <div class="logo-icon-container" onclick="openPdfModal(3)">
         <img src="assets/img/ojk.png" alt="PDF Reports" class="logo-icon">
         <h4 class="logo-title">LAPORAN OJK</h4>
-    </div> -->
-</div>
+    </div>
+</div> -->
 
 <!-- Modal Konten Laporan PDF -->
 <!-- <div id="pdfModal1" class="modal">
@@ -718,6 +717,15 @@
 });
 
 </script>
+
+<script>
+        // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>

@@ -218,7 +218,7 @@ a {
     background: #C62E2E;
 }
 
-.portfolio-filters li {
+/* .portfolio-filters li {
     transition: 0.5s;
     cursor: pointer;
 }
@@ -226,11 +226,11 @@ a {
 .portfolio-filters .filter-active, 
 .breadcumbs {
  background: #C62E2E;
-}
+} */
 
 /* portfolio */
 
-.portfolio-item {
+/* .portfolio-item {
     padding: 10px;
 }
 
@@ -253,7 +253,7 @@ a {
 
 .slick-prev:hover, .slick-next:hover {
     background-color: #555;
-}
+} */
 
 /* end portfolio */
 

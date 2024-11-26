@@ -56,6 +56,7 @@
             <li><a class="dropdown-item" href="about">Pengelola</a></li>
             <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
             <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
+            <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
           </ul>
         </li>
         <li class="nav-item mx-3">
@@ -980,7 +981,6 @@
     <script src="assets/vendor/aos/dist/aos.js"></script>
     <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
     <script src="assets/js/app.js"></script>
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootsidemenu@1.0.2/dist/bootsidemenu.min.js"></script>
 
@@ -1012,6 +1012,7 @@
         });
     });
 </script>
+
 <script>
   $(document).ready(function() {
     // Saat mengarahkan kursor ke menu dropdown
@@ -1026,8 +1027,16 @@
         }
     );
 });
-
 </script>
+
+    <script>
+        // Blokir klik kanan di semua gambar
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
  
 </body>
 </head>
