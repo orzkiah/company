@@ -118,4 +118,5 @@ class ServiceController extends Controller
 
         return redirect('admin/services')->with('message', 'Data berhasil dihapus');
     }
+    
 }

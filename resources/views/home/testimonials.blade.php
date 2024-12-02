@@ -6,8 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" href="favicon/favicon.ico">
-
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/logogratamaIcon.png') }}">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css" />
   <!-- FontAwesome -->
@@ -375,28 +374,16 @@
   <!-- End News Section -->
 
   <!-- Footer -->
- <footer class="mt-5">
+<footer class="mt-5">
   <div class="footer-top bg-dark text-white p-5">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-3">
-          <h4 class="fw-bold">{{$contact->name}}</h4>
-          <p>{{$contact->description}}</p>
-          <p><strong>Telp :</strong> {{$contact->telepon}}</p>
-          <p><strong>Email:</strong> {{$contact->email}}</p>
-        </div>
-        <div class="col-md-2">
-          <h4 class="fw-bold">Layanan Kami</h4>
-          <ul class="list-group list-unstyled">
-            @foreach($services as $service)
-            <li class="list-item">
-              <a href="#" class="text-decoration-none text-white">
-                <i class="fa fa-chevron-right primary"></i> {{$service->title}}
-              </a>
-            </li>
-            @endforeach
-          </ul>
+          <h4 class="fw-bold">{{ $contact->name }}</h4>
+          <p>{{ $contact->description }}</p>
+          <p><strong>Telp :</strong> {{ $contact->telepon }}</p>
+          <p><strong>Email:</strong> {{ $contact->email }}</p>
         </div>
         <div class="col-md-2">
           <h4 class="fw-bold">Tautan</h4>
@@ -440,47 +427,94 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-5">
-          <div>&copy; 2024 <strong>orzkiah</strong>. All Rights Reserved.</div>
+          <div>&copy; 2024 <strong>PT. Gratama Finance Indonesia</strong>. All Rights Reserved.</div>
           <div>Design by me</div>
         </div>
         <div class="col-md-5 text-end">
           <a href="#" class="text-white mx-2">
             <i class="fab fa-instagram fa-2x"></i>
           </a>
-          <!-- Uncomment if you want to add more social links -->
-          <!-- <a href="#" class="text-white mx-2">
-            <i class="fab fa-youtube fa-2x"></i>
-          </a> -->
+        </div>
       </div>
     </div>
   </div>
+</footer>
+
 <style>
-  /* Background foto pada footer */
-  .footer-top {
-    background-image: url('assets/img/194.jpg'); /* Ganti dengan path gambar yang Anda inginkan */
+.footer-top {
+    background-image: url('assets/img/194.jpg');
     background-size: cover;
     background-position: center;
     color: white;
+    padding: 20px 40px;
     position: relative;
-  }
+    z-index: 1; /* Memastikan konten di atas overlay */
+}
 
-  /* Overlay agar teks lebih jelas */
-  .footer-top::before {
-    content: "";
+/* Overlay transparan */
+.footer-top::before {
+    content: "";          
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85); /* Lapisan gelap transparan */
-    z-index: 1;
-  }
+    background-color: rgba(0, 0, 0, 0.85); /* Transparansi 60% */
+    z-index: -1; /* Memastikan overlay di bawah konten */
+}
 
-  /* Untuk memastikan konten berada di atas overlay */
-  .footer-top .container-fluid {
-    position: relative;
-    z-index: 2;
-  }
+
+.footer-top .container-fluid {
+    max-width: 1200px;
+    margin: 0 auto; /* Memusatkan kontainer */
+}
+
+.footer-top h4, 
+.footer-top p {
+    margin-bottom: 15px;
+    text-align: left; /* Rata kiri */
+}
+
+ul.list-group {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+ul.list-group .list-item {
+    margin-bottom: 10px;
+}
+
+ul.list-group .list-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-top img, 
+.logo-bottom img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.logo-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer-top .col-md-3, 
+    .footer-top .col-md-2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 </style>
 </footer>
   <!-- End Footer -->

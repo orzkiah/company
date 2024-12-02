@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'title', 'description', 'image'
-    ];
+    
+    // Jika nama tabel berbeda, definisikan seperti ini:
+    // protected $table = 'nama_tabel';
 }

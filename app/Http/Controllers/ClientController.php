@@ -118,4 +118,15 @@ class ClientController extends Controller
 
         return redirect('admin/clients')->with('message', 'Data berhasil dihapus');
     }
+
+
+    public function index()
+    {
+        // Ambil data dari model Client, sesuaikan jika model berbeda
+        $clients = Client::all(); 
+
+        // Kirim data ke view menggunakan compact
+        return view('client.index', compact('clients'));
+    }
+
 }

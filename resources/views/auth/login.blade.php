@@ -15,7 +15,11 @@
   <link rel="stylesheet" href="/lte/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box" style="
+  background: url('{{ asset('assets/img/bg-servis.jpg') }}') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
@@ -68,6 +72,7 @@
   </div>
   <!-- /.card -->
 </div>
+
 <!-- /.login-box -->
 
 <!-- jQuery -->

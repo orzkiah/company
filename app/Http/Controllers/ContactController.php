@@ -111,4 +111,16 @@ class ContactController extends Controller
     {
         //
     }
+
+    public function showLaporan() {
+    $contact = [
+        'name' => 'PT. GRATAMA',
+        'description' => 'Perusahaan terbaik di bidang ...',
+        'telepon' => '021-51402228',
+        'email' => 'info@grtama.com'
+    ];
+    
+    return view('laporan', compact('contact', 'services'));
+}
+
 }

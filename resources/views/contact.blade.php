@@ -51,21 +51,16 @@
                 @error('telepon')
                 <small style="color:red">{{$message}}</small>
                 @enderror
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="">Maps Embed</label>
                     <textarea name="maps_embed" id="" cols="30" rows="10" class="form-control" placeholder="Maps Embed">{{ $contact->maps_embed }}</textarea>
                 </div>
                 @error('maps_embed')
                 <small style="color:red">{{$message}}</small>
                 @enderror
-                <img src="/image/{{ $contact->logo }}" alt="" class="img-fluid">
-                <div class="form-group">
-                    <label for="">Gambar</label>
-                    <input type="file" class="form-control" name="logo">
-                </div>
                 @error('image')
                 <small style="color:red">{{$message}}</small>
-                @enderror
+                @enderror -->
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </div>

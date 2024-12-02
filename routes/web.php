@@ -14,6 +14,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\LaporanController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
@@ -22,6 +23,7 @@ Route::get('/galeri', [HomeController::class, 'portfolio']);
 Route::get('/karir', [HomeController::class, 'services']);
 Route::get('/kelola', [HomeController::class, 'team']);
 Route::get('/publikasi', [HomeController::class, 'testimonials']);
+Route::get('/client', [ClientController::class, 'index']);
 
 // Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -60,4 +62,6 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/laporan', function () {
     return view('laporan');
     })->name(name: 'laporan');
+    Route::get('/laporan', [LaporanController::class, 'showLaporan']);
+
 

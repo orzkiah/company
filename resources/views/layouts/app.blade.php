@@ -33,17 +33,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/admin/dashboard" class="brand-link">
-      <img src="/lte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Company Profile</span>
-    </a>
+    <a href="/admin/dashboard" class="brand-link d-flex align-items-center">
+    <img src="{{ asset('assets/img/logogratamaIcon.png') }}" alt="Logo Gratama" class="brand-image" style="height: 30px; width: auto; margin-right: 10px;">
+    <span class="brand-text font-weight-italic">PT Gratama Indonesia Finance</span>
+  </a>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('assets/img/actor.png') }}" alt="User Image">
         </div>
         <div class="info">
           <a href="/admin/dashboard" class="d-block">{{ Auth::user()->email }}</a>
@@ -90,12 +91,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Data Services</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="/admin/testimonials" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Testimonials</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="/admin/portfolios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
