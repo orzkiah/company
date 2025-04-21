@@ -9,10 +9,10 @@ class LaporanController extends Controller
     public function showLaporan()
     {
         $contact = (object)[
-            'name' => 'PT. GRATAMA',
-            'description' => 'Perusahaan terkemuka dalam bidang ...',
+            'name' => 'PT. GRATAMA FINANCE INDONESIA',
+            'description' => 'Gedung Plaza Asia Lt 6, Jl Jend. Sudirman Kav.59, Kebayoran Baru, Senayan, Jakarta Selatan, Indonesia',
             'telepon' => '021-51402228',
-            'email' => 'info@grtama.com',
+            'email' => 'csadmin@gratama-finance.co.id',
         ];
 
         $services = []; // Tambahkan jika ada data services

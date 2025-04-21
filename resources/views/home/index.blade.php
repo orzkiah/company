@@ -31,7 +31,7 @@
 
 <body>
   <!-- navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
     <a class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
@@ -47,8 +47,7 @@
         </li>
         <li class="nav-item dropdown mx-3">
           <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
-            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tentang Kami
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -61,12 +60,35 @@
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
         </li>
-         <li class="nav-item mx-3">
+        <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+
+        <!-- Hubungi Kami Dropdown -->
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('contact')) active @endif" href="#"
+            id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hubungi Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="contact">Kontak</a></li>
+            <li><a class="dropdown-item" href="http://localhost/pengaduan/contact.html" target="_blank">Pengaduan</a></li>
+            <!-- <li><a class="dropdown-item" href="lokasi">Lokasi Kantor</a></li> -->
+          </ul>
         </li>
+
+        <!-- Pengaduan Dropdown -->
+        <!-- <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('pengaduan')) active @endif" href="#"
+            id="pengaduanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pengaduan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="pengaduanDropdown">
+            <li><a class="dropdown-item" href="pengaduan">Form Pengaduan</a></li>
+            <li><a class="dropdown-item" href="faq">FAQ Pengaduan</a></li>
+            <li><a class="dropdown-item" href="status-pengaduan">Cek Status</a></li>
+          </ul>
+        </li> -->
       </ul>
     </div>
     <div class="marquee-container ms-auto d-none d-lg-block">
@@ -76,6 +98,8 @@
     </div>
   </div>
 </nav>
+
+
 
 <style>
   .navbar {
@@ -176,39 +200,69 @@
   <!-- end navbar -->
 
   <!-- carousel -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
-
-    <div class="carousel-inner">
-      @foreach ($sliders as $index => $slider)
-
-      <div class="carousel-item {{$index === 0 ? 'active' : ''}}">
-        <img src="assets/img/{{$slider->image}}" class="d-block w-100 carousel-img" alt="..." />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{$slider->title}}</h5>
-          <p>{{$slider->description}}
-          </p>
-        </div>
-      </div>
-      @endforeach
-
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+
+  <div class="carousel-inner">
+    @foreach ($sliders as $index => $slider)
+    <div class="carousel-item {{$index === 0 ? 'active' : ''}}">
+      <img src="assets/img/{{$slider->image}}" class="d-block w-100 carousel-img" alt="..." />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{$slider->title}}</h5>
+        <p>{{$slider->description}}</p>
+      </div>
+    </div>
+    @endforeach
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Input kecepatan transisi -->
+
+<style>
+  /* Gaya default untuk transisi */
+  .carousel-item {
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  }
+
+  .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  document.getElementById('applySpeed').addEventListener('click', function () {
+    const speed = document.getElementById('transitionSpeed').value;
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    // Perbarui kecepatan transisi
+    carouselItems.forEach(item => {
+      item.style.transitionDuration = `${speed / 1000}s`;
+    });
+
+    // Perbarui interval otomatis Bootstrap
+    const carousel = document.querySelector('#carouselExampleCaptions');
+    const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+    carouselInstance._config.interval = parseInt(speed);
+  });
+</script>
+
+
   <!-- end carousel -->
   <!-- Banner End -->
 
@@ -221,14 +275,15 @@
         <div class="row mt-4">
             <div class="col-md-6" data-aos="fade-right">
                 <center>
-                    <h5 class="fw-bold about-us-title">
-                        {{$about->judul}}
+                    <h5 class="fw-bold about-us-title" style="font-size: 2rem; line-height: 1.2; color: maroon;">
+                     {{$about->judul}}
                     </h5>
                 </center>
                 <center>
-                    <p class="fw-bolder mt-4 about-us-subtitle">
-                        {{$about->subjudul}}
-                    </p>
+                <p class="fw-bolder mt-4 about-us-subtitle" style="color: maroon;">
+                    {{$about->subjudul}}
+                </p>
+
                 </center>
             </div>
             <div class="col-md-6" data-aos="fade-left">
@@ -253,7 +308,7 @@
                         {{$about->kelebihan_4}}
                     </li>
                     </ul>
-                        <p class="mt-2">
+                        <p class="mt-2" >
                         {{$about->deskripsi_2}}
                     </p>
                 </div>
@@ -414,8 +469,8 @@
 
       <!-- clients -->
     <div class="clients mt-5">
-      <div class="container">
-        <div class="title-container">
+        <div class="container">
+          <div class="title-container">
           <h2 class="text-center fw-bold">Merek Kendaraan Pembiayaan</h2>
             </div>
             <div class="slider mt-5">
@@ -452,39 +507,39 @@
       display: block;   /* Pastikan gambar menjadi elemen block agar mudah diatur */
     }
 
-/* Tambahkan padding jika ingin memberikan ruang lebih di sekeliling logo */
-.col-md-3 {
-    padding-top: 50px;
-}
+      /* Tambahkan padding jika ingin memberikan ruang lebih di sekeliling logo */
+      .col-md-3 {
+          padding-top: 50px;
+      }
 
-/* Jika diperlukan, atur ukuran grid agar responsif */
-@media (max-width: 768px) {
-    .col-md-3 {
-        width: 50%;  /* Mengatur agar gambar lebih besar di layar kecil */
-    }
-}
+      /* Jika diperlukan, atur ukuran grid agar responsif */
+      @media (max-width: 768px) {
+          .col-md-3 {
+              width: 50%;  /* Mengatur agar gambar lebih besar di layar kecil */
+          }
+      }
 
-@media (max-width: 576px) {
-    .col-md-3 {
-        width: 100%; /* Gambar full width di layar sangat kecil */
-    }
-}
+      @media (max-width: 576px) {
+          .col-md-3 {
+              width: 100%; /* Gambar full width di layar sangat kecil */
+          }
+      }
 
-.slider .text-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;           /* Menyembunyikan overflow agar tidak ada yang terpotong */
-}
+      .slider .text-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;           /* Menyembunyikan overflow agar tidak ada yang terpotong */
+      }
 
-.slider .brand-image {
-  max-width: 100%;            /* Maksimal lebar gambar 100% */
-  max-height: 100px;          /* Atur tinggi maksimal gambar agar seragam */
-  object-fit: contain;        /* Menjaga proporsi asli gambar tanpa terpotong */
-}
+      .slider .brand-image {
+        max-width: 100%;            /* Maksimal lebar gambar 100% */
+        max-height: 100px;          /* Atur tinggi maksimal gambar agar seragam */
+        object-fit: contain;        /* Menjaga proporsi asli gambar tanpa terpotong */
+      }
   </style>
   <!-- end clients -->
-   
+
 <div class="bootsidemenu-container bootsidemenu-right" id="sideMenu">
     <!-- Tombol Toggle (bulat) -->
     <button id="toggleMenu" class="toggle-menu">❯❯</button>
@@ -550,7 +605,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-down bg-darker text-white px-5 py-3">
     <div class="container-fluid">
       <div class="row">
@@ -567,7 +621,6 @@
       </div>
     </div>
   </div>
-  
   <style>
 .footer-top {
     background-image: url('assets/img/194.jpg');
@@ -590,7 +643,6 @@
     background-color: rgba(0, 0, 0, 0.85); /* Transparansi 60% */
     z-index: -1; /* Memastikan overlay di bawah konten */
 }
-
 
 .footer-top .container-fluid {
     max-width: 1200px;

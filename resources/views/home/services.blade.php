@@ -30,46 +30,68 @@
 
 <body>
   <!-- navbar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
-    <div class="container d-flex align-items-center">
-        <a class="navbar-brand">
-        <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
-        </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand">
+      <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('/')) active @endif" href="/">Beranda</a>
-          </li>
-          <li class="nav-item dropdown mx-3">
+        </li>
+        <li class="nav-item dropdown mx-3">
           <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
-          id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Tentang Kami
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tentang Kami
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="about">Pengelola</a></li>
-          <li><a class="dropdown-item" href="team">Tata Kelola</a></li>
-          <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
-          <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
+            <li><a class="dropdown-item" href="about">Pengelola</a></li>
+            <li><a class="dropdown-item" href="kelola">Tata Kelola</a></li>
+            <li><a class="dropdown-item" href="publikasi">Publikasi</a></li>
+            <li><a class="dropdown-item" href="{{ url('/laporan') }}">Laporan</a></li>
           </ul>
-          </li>
-          <li class="nav-item mx-3">
+        </li>
+        <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
-          </li>
-          <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('karir')) active @endif" href="/karir">Karir</a>
-          </li>
-          <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
-          </li>
-          </u>
-          </div>
-          <div class="marquee-container ms-auto d-none d-lg-block">
-          <div class="marquee">
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
+        </li>
+
+        <!-- Hubungi Kami Dropdown -->
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('contact')) active @endif" href="#"
+            id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hubungi Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="contact">Kontak</a></li>
+            <li><a class="dropdown-item" href="http://localhost/pengaduan/contact.html" target="_blank">Pengaduan</a></li>
+            <!-- <li><a class="dropdown-item" href="lokasi">Lokasi Kantor</a></li> -->
+          </ul>
+        </li>
+
+        <!-- Pengaduan Dropdown -->
+        <!-- <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('pengaduan')) active @endif" href="#"
+            id="pengaduanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pengaduan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="pengaduanDropdown">
+            <li><a class="dropdown-item" href="pengaduan">Form Pengaduan</a></li>
+            <li><a class="dropdown-item" href="faq">FAQ Pengaduan</a></li>
+            <li><a class="dropdown-item" href="status-pengaduan">Cek Status</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+    <div class="marquee-container ms-auto d-none d-lg-block">
+      <div class="marquee">
         <span>Gratama telah berizin dan diawasi oleh OJK.</span>
       </div>
     </div>
@@ -87,18 +109,27 @@
         <h2 class="fw-bold">Karir</h2>
       </div>
       <style>
-        .title-container1 {
-          position: relative;
-          display: inline-block; /* Agar pas mengikuti ukuran teks */
-          background: rgba(0, 0, 0, 0.6); /* Warna hitam dengan transparansi */
-          padding: 10px 20px; /* Ruang sekitar teks */
-          border-radius: 8px; /* Membuat sudut melengkung */
-        }
-        .title-container1 h2 {
-          color: #fff; /* Warna teks putih agar kontras */
-          font-size: 38px; /* Ukuran font */
-          margin: 0; /* Hilangkan margin default */
-        }
+      .title-container1 {
+        position: relative;
+        display: inline-block;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px 20px;
+        border-radius: 8px;
+        max-width: 90vw; /* Batas maksimal lebar 90% dari viewport */
+        width: 100%; /* Sesuaikan dengan kontainer */
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        margin: 0 auto; /* Tengah-kan secara horizontal */
+      }
+
+      .title-container1 h2 {
+        color: #fff;
+        font-size: 38px;
+        margin: 0;
+        word-wrap: break-word;
+        text-align: center; /* Opsional: Pusatkan teks */
+      }
+
       </style>
       <div class="row">
         <!-- Job Item 1 -->
@@ -116,9 +147,8 @@
             <p>Berpenampilan rapih, disiplin, dan bertanggung jawab</p>
             <hr>
             <center>
-              <p class="job-title">hrdcv@gratama-finance.co.id</p>
             </center>
-            <a href="https://mail.google.com/" class="btn btn-apply">Apply Now</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hrdcv@gratama-finance.co.id&su=Lamaran+Pekerjaan&body=Yth.+HRD%2C%0A%0ASaya+ingin+melamar+pekerjaan+Dealer Financing Supervisor+di+perusahaan+Anda." class="btn btn-apply" target="_blank">Apply Now</a>
           </div>
         </div>
 
@@ -136,9 +166,8 @@
             <p>Teliti, Jujur & Bertanggung jawab</p>
             <hr>
             <center>
-              <p class="job-title">hrdcv@gratama-finance.co.id</p>
             </center>
-            <a href="https://mail.google.com//" class="btn btn-apply">Apply Now</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hrdcv@gratama-finance.co.id&su=Lamaran+Pekerjaan&body=Yth.+HRD%2C%0A%0ASaya+ingin+melamar+pekerjaan+Staff Accounting+di+perusahaan+Anda." class="btn btn-apply" target="_blank">Apply Now</a>
           </div>
         </div>
       </div>

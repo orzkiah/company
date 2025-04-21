@@ -59,6 +59,7 @@
     font-weight: bold;
     font-size: 14px;
     color: #C62E2E;
+    font-style: italic;
   }
 
   @keyframes marquee {

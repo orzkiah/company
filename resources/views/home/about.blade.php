@@ -24,7 +24,7 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
     <a class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
@@ -40,8 +40,7 @@
         </li>
         <li class="nav-item dropdown mx-3">
           <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
-            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tentang Kami
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -54,12 +53,35 @@
         <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
         </li>
-         <li class="nav-item mx-3">
+        <li class="nav-item mx-3">
           <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+
+        <!-- Hubungi Kami Dropdown -->
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('contact')) active @endif" href="#"
+            id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hubungi Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="contact">Kontak</a></li>
+            <li><a class="dropdown-item" href="http://localhost/pengaduan/contact.html" target="_blank">Pengaduan</a></li>
+            <!-- <li><a class="dropdown-item" href="lokasi">Lokasi Kantor</a></li> -->
+          </ul>
         </li>
+
+        <!-- Pengaduan Dropdown -->
+        <!-- <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('pengaduan')) active @endif" href="#"
+            id="pengaduanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pengaduan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="pengaduanDropdown">
+            <li><a class="dropdown-item" href="pengaduan">Form Pengaduan</a></li>
+            <li><a class="dropdown-item" href="faq">FAQ Pengaduan</a></li>
+            <li><a class="dropdown-item" href="status-pengaduan">Cek Status</a></li>
+          </ul>
+        </li> -->
       </ul>
     </div>
     <div class="marquee-container ms-auto d-none d-lg-block">
@@ -108,6 +130,7 @@
     font-weight: bold;
     font-size: 14px;
     color: #C62E2E;
+    font-style: italic;
   }
 
   @keyframes marquee {
@@ -297,7 +320,7 @@
 <!-- Modals for each team member -->
 @for ($i = 0; $i <= 5; $i++)
     @if (isset($teams[$i]))
-        <div class="modal fade" id="teamModal{{$i}}" tabindex="-1" aria-labelledby="teamModalLabel{{$i}}" aria-hidden="true">
+        <!-- <div class="modal fade" id="teamModal{{$i}}" tabindex="-1" aria-labelledby="teamModalLabel{{$i}}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -307,17 +330,44 @@
                     <div class="modal-body text-center">
                         <img src="image/{{$teams[$i]->image}}" class="team-img-modal rounded-circle mb-3" alt="...">
                         <p class="text-muted">{{$teams[$i]->description}}</p>
-                        <p class="text-secondary">Biodata: {{ $teams[$i]->biodata ?? 'Informasi biodata belum' }}</p>
+                        <p class="text-secondary">{{ $teams[$i]->biodata ?? 'Informasi biodata belum' }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     @endif
 @endfor
 
+<style>
+  /* Background untuk modal-body */
+  .modal-body {
+    background: linear-gradient(to bottom right, #f0f0f0, #d9d9d9);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  /* Background untuk keseluruhan modal */
+  .modal-content {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+
+  /* Mengatur gambar dalam modal */
+  .team-img-modal {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  /* Background overlay saat modal muncul */
+  .modal-backdrop.show {
+    background: rgba(0, 0, 0, 0.5);
+  }
+</style>
 
 
 <!-- Style dan animasi -->
@@ -562,7 +612,8 @@ tr:hover {
       </div>
     </div>
   </div>
-<style>
+</div>
+  <style>
 .footer-top {
     background-image: url('assets/img/194.jpg');
     background-size: cover;
@@ -632,11 +683,8 @@ ul.list-group .list-item a {
         margin-bottom: 20px;
     }
 
-    .logo-bottom {
-        flex-direction: column;
-        align-items: center;
-    }
 }
+
 </style>
 </footer>
   <!-- end footer  -->

@@ -25,7 +25,7 @@
 <!-- navbar -->
 
 <body>
- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow shadow-sm fixed-top custom-navbar">
   <div class="container d-flex align-items-center">
     <a class="navbar-brand">
       <img src="assets/img/logoG.png" alt="Digital Creative" class="logo">
@@ -41,8 +41,7 @@
         </li>
         <li class="nav-item dropdown mx-3">
           <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('about')) active @endif" href="#"
-            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tentang Kami
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -53,14 +52,37 @@
           </ul>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('galeri')) active @endif" href="galeri">Galeri</a>
-        </li>
-         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
+          <a class="nav-link fw-bolder @if(Request::is('portfolio')) active @endif" href="galeri">Galeri</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link fw-bolder @if(Request::is('contact')) active @endif" href="contact">Hubungi Kami</a>
+          <a class="nav-link fw-bolder @if(Request::is('services')) active @endif" href="karir">Karir</a>
         </li>
+
+        <!-- Hubungi Kami Dropdown -->
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('contact')) active @endif" href="#"
+            id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hubungi Kami
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="contact">Kontak</a></li>
+            <li><a class="dropdown-item" href="http://localhost/pengaduan/contact.html" target="_blank">Pengaduan</a></li>
+            <!-- <li><a class="dropdown-item" href="lokasi">Lokasi Kantor</a></li> -->
+          </ul>
+        </li>
+
+        <!-- Pengaduan Dropdown -->
+        <!-- <li class="nav-item dropdown mx-3">
+          <a class="nav-link fw-bolder dropdown-toggle @if(Request::is('pengaduan')) active @endif" href="#"
+            id="pengaduanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pengaduan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="pengaduanDropdown">
+            <li><a class="dropdown-item" href="pengaduan">Form Pengaduan</a></li>
+            <li><a class="dropdown-item" href="faq">FAQ Pengaduan</a></li>
+            <li><a class="dropdown-item" href="status-pengaduan">Cek Status</a></li>
+          </ul>
+        </li> -->
       </ul>
     </div>
     <div class="marquee-container ms-auto d-none d-lg-block">
@@ -408,11 +430,6 @@
             <li class="list-item">
               <a href="/about" class="text-decoration-none text-white">
                 <i class="fa fa-chevron-right primary"></i> Tentang Kami
-              </a>
-            </li>
-            <li class="list-item">
-              <a href="/portfolio" class="text-decoration-none text-white">
-                <i class="fa fa-chevron-right primary"></i> Galeri
               </a>
             </li>
             <li class="list-item">

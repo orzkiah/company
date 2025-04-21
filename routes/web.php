@@ -15,6 +15,8 @@ use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ComplaintController;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
@@ -63,5 +65,6 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     return view('laporan');
     })->name(name: 'laporan');
     Route::get('/laporan', [LaporanController::class, 'showLaporan']);
+    
 
 
